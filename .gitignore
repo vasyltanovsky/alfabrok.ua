@@ -122,6 +122,7 @@ DocProject/Help/Html2
 DocProject/Help/html
 doc/*
 dis/*
+db/*
 
 # Click-Once directory
 publish/
