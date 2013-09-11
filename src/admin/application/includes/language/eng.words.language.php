@@ -1,0 +1,3 @@
+<?php
+	$arWords['portfolio'] = "Категории";
+?>

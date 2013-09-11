@@ -1,0 +1,574 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href=""?>
+<words>
+	<imageDomain>http://alfabrok.ua
+	</imageDomain>
+	<YMapSiteKey>AClnakwBAAAACI7GfgIABsUZ_ZGh4cxSuN2lRkclVs3B3PAAAAAAAAAAAAB6Tfj4eS4BXxpBcsMrwOAqQh3hmg==~AHNmakwBAAAAIo_9YQIAa0OikH9hvUf6M0w0_cIYi_wFsngAAAAAAAAAAABWdqXLzkUIwYYx_0-o4BC5LRvwMA==</YMapSiteKey>
+	<CompaniName><![CDATA[Alfabrok&reg;]]></CompaniName>
+	<index_im_link>Одним кликом</index_im_link>
+	<ImLinkFlat>Квартиры</ImLinkFlat>
+	<ImLinkCommercial>Коммерческая недвижимость
+	</ImLinkCommercial>
+	<ImLinkHome>Коттеджи. Дома. Дачи.</ImLinkHome>
+	<ImLinkBuildings>ОСЗ. Здания.</ImLinkBuildings>
+	<exchange>Валюта</exchange>
+	<exchange_by_ndu>по курсу НБУ</exchange_by_ndu>
+	<exchange_ua>грн.</exchange_ua>
+	<exchange_USD>USD</exchange_USD>
+	<exchange_EUR>EUR</exchange_EUR>
+	<exchange_RUB>RUB</exchange_RUB>
+	<from>от</from>
+	<to>до</to>
+	<SearchImmovablesCat>Поиск по разделам</SearchImmovablesCat>
+	<SearchImmovablesMap>Поиск по карте</SearchImmovablesMap>
+	<SearchImmovablesCode>Поиск по коду</SearchImmovablesCode>
+	<SearchImmovablesAdvased>Расширенный поиск
+	</SearchImmovablesAdvased>
+	<SearchImmovablesCodeText>Введите код недвижимости для поиска:
+	</SearchImmovablesCodeText>
+	<Email_subs>Рассылка новой недвижимости от www.alfabrok.ua
+	</Email_subs>
+	<ImFListHeaderCode>Код:</ImFListHeaderCode>
+	<ImFListHeaderCodeN>Код</ImFListHeaderCodeN>
+	<ImFListHeaderSummary>Описание </ImFListHeaderSummary>
+	<ImFListHeaderImg>Изображение</ImFListHeaderImg>
+	<ImFListHeaderArea>Район</ImFListHeaderArea>
+	<ImFListHeaderStreet>Улица</ImFListHeaderStreet>
+	<ImFListHeaderSq>общая</ImFListHeaderSq>
+	<ImFListHeaderSqPl>Площадь</ImFListHeaderSqPl>
+	<ImFListHeaderSqLive>жилая</ImFListHeaderSqLive>
+	<ImFListHeaderRoom>Спальных комнат</ImFListHeaderRoom>
+	<ImFListHeaderM2>Цена за м.кв. (грн.)</ImFListHeaderM2>
+	<ImFListHeaderSotku>Цена за сотку.</ImFListHeaderSotku>
+	<ImFListHeaderM2Sotku>Цена за м.кв./сотку</ImFListHeaderM2Sotku>
+	<ImFListHeaderPrice>Цена объекта (грн.)</ImFListHeaderPrice>
+	<ImFListHeaderSqKitchen>кухни</ImFListHeaderSqKitchen>
+	<ImFListHeaderDate>Дата внесения</ImFListHeaderDate>
+	<ImFListHeaderAction>Редактировать</ImFListHeaderAction>
+	<ImFListHeaderLavel>Этаж/ Этажность</ImFListHeaderLavel>
+	<ImFListHeaderMap>Объект на карте</ImFListHeaderMap>
+	<ImFListHeaderMapM2>м.кв</ImFListHeaderMapM2>
+	<ImFListHeaderMapSotka>сотка</ImFListHeaderMapSotka>
+	<ImTableListStyleHeader>Стиль отображения:
+	</ImTableListStyleHeader>
+	<ImTableListStyleTable>Таблица</ImTableListStyleTable>
+	<ImTableListStyleList>Список</ImTableListStyleList>
+	<ImTableListPnumberHeader>Позиций на странице:
+	</ImTableListPnumberHeader>
+	<ImSale>Продажа</ImSale>
+	<ImRent>Аренда</ImRent>
+	<TypeCatImName>Тип недвижимости</TypeCatImName>
+	<TypeCatImNameArrIdPAge>Array</TypeCatImNameArrIdPAge>
+	<TypeCatImNameArrIdName>Array</TypeCatImNameArrIdName>
+	<ImLinkLand>Земельные участки</ImLinkLand>
+	<user_form_enter_login>Логин</user_form_enter_login>
+	<user_form_enter_pass>Пароль</user_form_enter_pass>
+	<user_form_enter_reg>Регистрация</user_form_enter_reg>
+	<user_form_enter_login_err>Введите\ логин!
+	</user_form_enter_login_err>
+	<user_form_enter_pass_err>Введите\ пароль!
+	</user_form_enter_pass_err>
+	<user_form_enter_sub>Войти</user_form_enter_sub>
+	<user_add_logo>Добавить работу</user_add_logo>
+	<user_add_logo_function>Добавление работы.
+	</user_add_logo_function>
+	<user_add_file>Файл:</user_add_file>
+	<user_add_file_btm>Прикрепить:</user_add_file_btm>
+	<user_add_text>Описание:</user_add_text>
+	<user_add_btm>Добавить</user_add_btm>
+	<user_add_err><![CDATA[
+		<p>Не прекриплен файл!</p>]]>
+	</user_add_err>
+	<user_add_ok><![CDATA[
+		<p>Работа добавлена!</p>]]>
+	</user_add_ok>
+	<user_logo_date>Дата</user_logo_date>
+	<user_logo_img>Работа</user_logo_img>
+	<user_logo_text>Описание</user_logo_text>
+	<user_logo_comm>Коментарии</user_logo_comm>
+	<user_logo_err><![CDATA[
+		<b>У вас нет добавленных объектов!</b>]]>
+	</user_logo_err>
+	<user_favorits>Избранные обьекты:</user_favorits>
+	<user_no_pos_favorites><![CDATA[
+		<div class="user_no_pos_favorites">У вас нет выбранных обьектов!</div>]]>
+	</user_no_pos_favorites>
+	<user_exit_btn>Выход</user_exit_btn>
+	<user_private_cab>Личный кабинет</user_private_cab>
+	<user_private_link><![CDATA[
+		<a class="UPL AUFavorites" href="/user/1favorit.html">
+			Избранные объекты
+			<span id="AUFavorites"></span>
+		</a>
+		<a class="UPL AUSubs" href="/user/2subs.html">
+			Мои подписки
+			<span id="AUSubs"></span>
+		</a>
+		<a class="UPL AUimadd" href="/user/2imlist.html">
+			Мои объекты
+			<span id="AUimadd"></span>
+		</a>
+		<a class="UPL AUorder" href="/user/2order.html">Оставить заявку</a>
+	]]></user_private_link>
+	<user_add_user_im>Добавить объект</user_add_user_im>
+	<user_no_add_user_im>У вас нет добавленых объектов!
+	</user_no_add_user_im>
+	<user_no_favorites>У вас нет избранных объетов!</user_no_favorites>
+	<user_add_subs>Добавить рассылку</user_add_subs>
+	<user_add_im>Добавить объект</user_add_im>
+	<user_send_order>Оставить заявку</user_send_order>
+	<user_no_subs>У вас нет рассылок!</user_no_subs>
+	<user_add_subs_select_cat>Выберите тип недвижимости!
+	</user_add_subs_select_cat>
+	<user_add_subs_select_type>Выберите тип реализации!
+	</user_add_subs_select_type>
+	<user_add_subs_im_st_prop>Выберите характеристики недвижимости!
+	</user_add_subs_im_st_prop>
+	<user_add_subs_im_ad_prop>Расширенные характеристики
+	</user_add_subs_im_ad_prop>
+	<user_add_subs_ok><![CDATA[
+		Вы успешно подписались на рассылку новых предложений по недвижимости.
+		<br />
+		С уважением компания «Альфаброк».]]>
+	</user_add_subs_ok>
+	<user_table_subs_date>Дата</user_table_subs_date>
+	<user_table_subs_ci>Каталог недвижимости</user_table_subs_ci>
+	<user_btm_subs_dell>Удалить рассылку</user_btm_subs_dell>
+	<service>услуги</service>
+	<work_ideas>работы + идеи</work_ideas>
+	<blog_news>новости блога</blog_news>
+	<block_news>Новости</block_news>
+	<categories>категории</categories>
+	<catalog>Каталог</catalog>
+	<sitemap>Карта сайту</sitemap>
+	<RegistrationOk><![CDATA[Вы успешно зарегистрировались на сайте ALFABROK.UA,
+		на указанный Вами e-mail была выслана ссылка для активации
+		пользователя. Пожалуйста активируйте ее. С уважением компания
+		«Альфаброк».]]></RegistrationOk>
+	<RegistrationActivity>Ваша учетная запись активирована! Можете
+		выполнить вход.</RegistrationActivity>
+	<RegistrationActivityFalse>Вы перешли по неверной ссылке, либо Ваша
+		учетная запись активирована.</RegistrationActivityFalse>
+	<formRequired>Обов'язковi поля для заповнення</formRequired>
+	<form_name_msq>Имя</form_name_msq>
+	<form_email_msq>E-mail</form_email_msq>
+	<form_text_msq>Текст</form_text_msq>
+	<form_organization_msq>Организация</form_organization_msq>
+	<form_cat_msq>Категория</form_cat_msq>
+	<form_cat_na_msq>Выбор категории вопроса</form_cat_na_msq>
+	<form_tel_msq>Контактый телефон</form_tel_msq>
+	<form_title_msq>Тема</form_title_msq>
+	<form_name_req>Имя:</form_name_req>
+	<form_fio_req>Фамилия:</form_fio_req>
+	<form_email_req>Логин для входа (E-mail):</form_email_req>
+	<form_pass_req>Укажите пароль:</form_pass_req>
+	<form_pass_sec_req>Введите пароль еще раз:</form_pass_sec_req>
+	<form_tel_req>Укажите номер телефона:</form_tel_req>
+	<form_rules_reg>Согласен с правилами:</form_rules_reg>
+	<form_name_req_err><![CDATA[Укажите\ пожалуйста\ имя!]]>
+	</form_name_req_err>
+	<form_fio_req_err><![CDATA[Укажите\ пожалуйста\ фамилию!]]>
+	</form_fio_req_err>
+	<form_email_req_err><![CDATA[Укажите\ верный\ E-mail!]]>
+	</form_email_req_err>
+	<form_email_req_err_isset><![CDATA[Указаный логин уже зарегестрирован!]]>
+	</form_email_req_err_isset>
+	<form_pass_req_err><![CDATA[Укажите\ пожалуйста\ пароль!]]>
+	</form_pass_req_err>
+	<form_pass_sec_req_err><![CDATA[Укажите\ пожалуйста\ пароль\ еще\ раз!]]>
+	</form_pass_sec_req_err>
+	<form_pass_req_err_two>Пароли не совпадают!
+	</form_pass_req_err_two>
+	<form_tel_req_err><![CDATA[Номер\ телефона\ должен\ иметь\ вид\
+		(ХХХ)ХХХ-ХХХХ!]]></form_tel_req_err>
+	<form_send_msq>Отправить</form_send_msq>
+	<form_reg_msq>Зарегистрироваться</form_reg_msq>
+	<form_clear_msq>Очистить</form_clear_msq>
+	<form_mail_ok>Сообщение отправлено!</form_mail_ok>
+	<form_order_text>Описание:</form_order_text>
+	<form_order_text_err><![CDATA[Заполните\ пожалуйста\ поле\ Описание!]]>
+	</form_order_text_err>
+	<form_order_text_ok><![CDATA[
+		Вы успешно оставили свою заявку на поиск недвижимости.
+		<br />
+		Ближайшее время с Вами свяжутся наши специалисты.
+		<br />
+		С уважением компания «Альфаброк».]]>
+	</form_order_text_ok>
+	<add_im_user_step_1>1. Стандартные х-ки.</add_im_user_step_1>
+	<add_im_user_step_2>2. Расширенные х-ки.</add_im_user_step_2>
+	<add_im_user_step_3>3. Добавление изображений.</add_im_user_step_3>
+	<add_im_user_step_4>4. Добавление описания.</add_im_user_step_4>
+	<user_add_im_st_ok>Вы успешно добавили стандартные характеристики
+		недвижимости.</user_add_im_st_ok>
+	<user_add_im_ad_ok>Вы успешно добавили расширенные характеристики
+		недвижимости.</user_add_im_ad_ok>
+	<user_add_im_end><![CDATA[
+		Вы успешно добавили свою недвижимость на сайт.
+		<br />
+		Ближайшее время с Вами свяжутся наши специалисты.
+		<br />
+		С уважением компания «Альфаброк».]]>
+	</user_add_im_end>
+	<user_edit_im_st_ok><![CDATA[
+		Вы успешно отредактировали стандартные характеристики недвижимости.
+		<a href="/user/2imlist.html" title="" .>Вернуться к списку
+			обьектов</a>]]>
+	</user_edit_im_st_ok>
+	<user_edit_im_ad_ok><![CDATA[
+		Вы успешно отредактировали расширенные характеристики недвижимости.
+		<a href="/user/2imlist.html" title="" .>Вернуться к списку
+			обьектов</a>]]>
+	</user_edit_im_ad_ok>
+	<fai_fv_im_title>Заголовок:</fai_fv_im_title>
+	<fai_fv_im_catalog_id>Каталог недвижимости:
+	</fai_fv_im_catalog_id>
+	<fai_fv_im_region_id>Область:</fai_fv_im_region_id>
+	<fai_fv_im_a_region_id>Район области:</fai_fv_im_a_region_id>
+	<fai_fv_im_city_id>Город (поселок):</fai_fv_im_city_id>
+	<fai_fv_im_area_id>Район города:</fai_fv_im_area_id>
+	<fai_fv_im_array_id>Массив города:</fai_fv_im_array_id>
+	<fai_fv_im_adress_id>Улица:</fai_fv_im_adress_id>
+	<fai_fv_im_adress_house>№ дома (Улицы):</fai_fv_im_adress_house>
+	<fai_fv_im_adress_flat>№ квартиры:</fai_fv_im_adress_flat>
+	<fai_fv_im_prace>Цена за объект $:</fai_fv_im_prace>
+	<fai_fv_im_prace_sq>Цена за кв.м./сотку $:</fai_fv_im_prace_sq>
+	<fai_fv_im_prace_day>Цена за день (аренда) $:</fai_fv_im_prace_day>
+	<fai_fv_im_prace_manth>Цена за месяц (аренда) $:
+	</fai_fv_im_prace_manth>
+	<fai_fv_im_space>Общая площадь:</fai_fv_im_space>
+	<fai_fv_im_space_value_id>Ед. площади:</fai_fv_im_space_value_id>
+	<fai_fv_im_sale_id>Вид продажи:</fai_fv_im_sale_id>
+	<fai_fv_im_is_sale>Продажа недвиж.:</fai_fv_im_is_sale>
+	<fai_fv_im_is_rent>Аренда недвиж.:</fai_fv_im_is_rent>
+	<fai_fv_no_selected>Не выбрано</fai_fv_no_selected>
+	<im_add_im_title>Добавление изображения!</im_add_im_title>
+	<im_add_im_btm_submit>Добавить</im_add_im_btm_submit>
+	<im_add_im_img_type_label>Тип изображения</im_add_im_img_type_label>
+	<im_add_im_img_label>Изображение</im_add_im_img_label>
+	<im_add_im_btm_add_img>Добавить изображение
+	</im_add_im_btm_add_img>
+	<im_add_im_btm_imd_img>Назначить главным изображением
+	</im_add_im_btm_imd_img>
+	<im_add_im_btm_dell_img>Удалить изображение
+	</im_add_im_btm_dell_img>
+	<im_add_im_err_no_add_img>Вы не прикрепили изображение
+	</im_add_im_err_no_add_img>
+	<im_add_im_err_add_img>Изображение добавлено
+	</im_add_im_err_add_img>
+	<im_add_summary>Добавить описание</im_add_summary>
+	<im_add_sum_is_ok>Описание недвижимости на выбранном языке
+		добавлено.</im_add_sum_is_ok>
+	<im_edit_sum_is_ok>Описание недвижимости на выбранном языке
+		сохранено.</im_edit_sum_is_ok>
+	<im_add_summary_title>Описание</im_add_summary_title>
+	<im_add_summary_save_btm>Сохранить</im_add_summary_save_btm>
+	<im_add_summary_im_su_text_err>Заполните\ пожалуйста\ поле\
+		Описание!</im_add_summary_im_su_text_err>
+	<im_add_continue_btm>Завершить добавление!
+	</im_add_continue_btm>
+	<im_edit_info>Данные</im_edit_info>
+	<im_edit_prop>Характеристики</im_edit_prop>
+	<im_edit_img>Изображения</im_edit_img>
+	<im_edit_text>Описание</im_edit_text>
+	<SearchBottom>Найти</SearchBottom>
+	<REadMore>подробнее</REadMore>
+	<REadMoreInformation>Подробная информация
+	</REadMoreInformation>
+	<ViewAll>Показать все</ViewAll>
+	<btm_back>Назад</btm_back>
+	<supportOk>Дякуємо. Ваше питання дуже важливий для нас. Ми
+		обов\'язково відповімо на нього протягом 24 годин.</supportOk>
+	<supportSearT>Поиск по поддержке</supportSearT>
+	<supportContT>Связаться с Нами</supportContT>
+	<supportSearB>Найти</supportSearB>
+	<supportContText><![CDATA[
+		<p>
+			Ви можете
+			<a style="font-weight:bold; font-size:16px;" href="/support/4contactus/1.html"
+				title="задати питання">задати питання</a>
+			та отримати вiдповiдь.
+		</p>]]>
+	</supportContText>
+	<cp_no_position>По Вашему запросу ничего не найдено.</cp_no_position>
+	<cp_no_position_code>Объект продан или сдан в аренду. Выберите
+		другой аналог на нашем сайте.</cp_no_position_code>
+	<search_form_title>Поиск товара</search_form_title>
+	<search_no_position>По Вашему запросу ничего не найдено!
+	</search_no_position>
+	<no_value_search_field>Введите слово или словосочетание для
+		поиска!</no_value_search_field>
+	<developer_site>Разработка:</developer_site>
+	<design_site>Дизайн:</design_site>
+	<developer_alex>Alex Tsurkin разработка web-систем, создание сайтов
+	</developer_alex>
+	<developer_fanart>FanArt дизайн сайтов</developer_fanart>
+	<FormSearchFirldNoValue>Показывать все
+	</FormSearchFirldNoValue>
+	<FormSearchNameRegion>Область</FormSearchNameRegion>
+	<FormSearchNameRRegion>Район области</FormSearchNameRRegion>
+	<FormSearchNameRRegionN>Р-н области</FormSearchNameRRegionN>
+	<FormSearchNameCity>Город (поселок)</FormSearchNameCity>
+	<FormSearchNameRCIty>Район города</FormSearchNameRCIty>
+	<FormSearchNameACityN>Р-н города</FormSearchNameACityN>
+	<FormSearchNameACity>Массив города</FormSearchNameACity>
+	<FormSearchNameAdress>Улица</FormSearchNameAdress>
+	<FormSearchNameSq>Общая площадь</FormSearchNameSq>
+	<FormSearchNameSqYchastka>Площадь участка (соток)
+	</FormSearchNameSqYchastka>
+	<FormSearchNameSqMS>Общая площадь (м2/соток)</FormSearchNameSqMS>
+	<FormSearchNameSq_flat>Общая площадь (м2)</FormSearchNameSq_flat>
+	<FormSearchNameSq_commercial>Общая площадь (м2)
+	</FormSearchNameSq_commercial>
+	<FormSearchNameSq_home>Общая площадь (м2)</FormSearchNameSq_home>
+	<FormSearchNameSq_buildings>Общая площадь (м2)
+	</FormSearchNameSq_buildings>
+	<FormSearchNameSq_land>Общая площадь (соток)
+	</FormSearchNameSq_land>
+	<FormSearchNamePrice><![CDATA[
+		Цена за объект
+		<b class="form-span-exchange"></b>]]>
+	</FormSearchNamePrice>
+	<FormSearchNamePriceM><![CDATA[
+		Цена за м2
+		<b class="form-span-exchange"></b>]]>
+	</FormSearchNamePriceM>
+	<FormSearchNamePriceM_flat><![CDATA[
+		Цена за м2
+		<b class="form-span-exchange"></b>]]>
+	</FormSearchNamePriceM_flat>
+	<FormSearchNamePriceM_commercial><![CDATA[
+		Цена за м2
+		<b class="form-span-exchange"></b>]]>
+	</FormSearchNamePriceM_commercial>
+	<FormSearchNamePriceM_home><![CDATA[
+		Цена за м2
+		<b class="form-span-exchange"></b>]]>
+	</FormSearchNamePriceM_home>
+	<FormSearchNamePriceM_buildings><![CDATA[
+		Цена за м2
+		<b class="form-span-exchange"></b>]]>
+	</FormSearchNamePriceM_buildings>
+	<FormSearchNamePriceM_land><![CDATA[
+		Цена за сотку
+		<b class="form-span-exchange"></b>]]>
+	</FormSearchNamePriceM_land>
+	<FormSearchNamePriceMS>Цена за </FormSearchNamePriceMS>
+	<FormSearchNameDate>Дата внесения</FormSearchNameDate>
+	<FormSearchNameDateMin>Дата внесения от</FormSearchNameDateMin>
+	<FormSearchNameDateMax>Дата внесения до</FormSearchNameDateMax>
+	<FormSearchNameSale>Продажа</FormSearchNameSale>
+	<FormSearchNamePriceDay>Цена за сутки</FormSearchNamePriceDay>
+	<FormSearchNamePriceManth>Цена за месяц</FormSearchNamePriceManth>
+	<ImSummaryHeader>Описание</ImSummaryHeader>
+	<SubmitImWord>Сохранить как Word</SubmitImWord>
+	<SubmitImPrint>Версия для печати</SubmitImPrint>
+	<SubmitImFriend>Отправить другу</SubmitImFriend>
+	<SubmitImFavorit>Добавить в избранное</SubmitImFavorit>
+	<SubmitPdf>Создать PDF</SubmitPdf>
+	<clickPhoto>Нажмите для просмотра фото недвижимости</clickPhoto>
+	<ImDivListHeaderPrice>Здесь падают цены</ImDivListHeaderPrice>
+	<ImDivListHeaderHot>Горящие предложения</ImDivListHeaderHot>
+	<Ok>Готово</Ok>
+	<VubratEwe>Выбрать еще</VubratEwe>
+	<MapFormSaleRent><![CDATA[
+		<input type="radio" name="map_type_cat" id="map_type_sale"
+			checked="checked" value="sale" />
+		<label>Продажа</label>
+		<br />
+		<input type="radio" name="map_type_cat" id="map_type_rent"
+			value="rent" />
+		<label>Аренда</label>]]>
+	</MapFormSaleRent>
+	<MapFormTypeIm><![CDATA[
+		<select class="MapFormSelect" id="MapFormTypeIm" name="MapFormTypeIm">
+			<option value="flat" checked="checked">Квартиры</option>
+			<option value="commercial">Коммерческая недвижимость</option>
+			<option value="home">Коттеджи. Дома. Дачи.</option>
+			<option value="buildings">ОСЗ. Здания.</option>
+			<option value="land">Земельные участки</option>
+		</select>]]>
+	</MapFormTypeIm>
+	<PageStatPosAll>Объeктов в базе</PageStatPosAll>
+	<PageStatPosSegodnja>Новых за сегодня</PageStatPosSegodnja>
+	<PageStatPosNedely>Новых за неделю</PageStatPosNedely>
+	<PageStatPosMesjac>Новых за месяц</PageStatPosMesjac>
+	<ss_summary_h>4 вида поиска и широкий выбор сортировок</ss_summary_h>
+	<ss_list_icon_h>Набор вспомогательных иконок </ss_list_icon_h>
+	<ss_user_cab_h>Личный кабинет</ss_user_cab_h>
+	<ss_im_link_h>Свойства объекта</ss_im_link_h>
+	<ss_reklama_h>Реклама</ss_reklama_h>
+	<ss_list_icon_h_text><![CDATA[
+		<p>Мы выбрали самые основные параметры недвижимости и поместили их в
+			иконки. Познакомившись, единственный раз с их обозначениями – Вы
+			будете постоянно экономить свое время, пробегаю только глазами по
+			иконкам.</p>]]>
+	</ss_list_icon_h_text>
+	<ss_im_link><![CDATA[
+		<table cellpadding="0" cellspacing="0" border="0" class="TableSSIn">
+			<tr>
+				<td class="TableSSInImg">
+					<img title="Сохранить как Word" alt="Сохранить как Word"
+						src="http://img.alfabrok.ua/files/images/submit/submitWord.png">
+				</td>
+				<td class="TableSSInText">
+					<p>
+						<strong>Сохранить как Word</strong>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableSSInImg">
+					<img title="Отправить другу" alt="Отправить другу"
+						src="http://img.alfabrok.ua/files/images/submit/submitMailFrient.png">
+				</td>
+				<td class="TableSSInText">
+					<p>
+						<strong>Отправить другу</strong>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableSSInImg">
+					<img title="Добавить в избранное" alt="Добавить в избранное"
+						src="http://img.alfabrok.ua/files/images/submit/submitFaworit.png">
+				</td>
+				<td class="TableSSInText">
+					<p>
+						<strong>Добавить объект в избранное</strong>
+					</p>
+				</td>
+			</tr>
+		</table>]]>
+	</ss_im_link>
+	<ss_user_cab><![CDATA[
+		<table cellpadding="0" cellspacing="0" border="0" class="TableSSIn">
+			<tr>
+				<td class="TableSSInImg">
+					<img title="Рассылка объектов на Вашу почту по зданным параметрам поиска"
+						alt="Рассылка объектов на Вашу почту по зданным параметрам поиска"
+						src="http://img.alfabrok.ua/files/images/submit/submitMailMy.png">
+				</td>
+				<td class="TableSSInText">
+					<p>
+						<strong>Рассылка</strong>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableSSInImg">
+					<img title="Добавление объектов в избранное" alt="Добавление объектов в избранное"
+						src="http://img.alfabrok.ua/files/images/submit/submitFaworit.png">
+				</td>
+				<td class="TableSSInText">
+					<p>
+						<strong>Добавить объект в избранное</strong>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableSSInImg">
+					<img title="Отправить заявку на поиск объекта" alt="Отправить заявку на поиск объекта"
+						src="http://img.alfabrok.ua/files/images/submit/submitSubscription.png">
+				</td>
+				<td class="TableSSInText">
+					<p>
+						<strong>Отправить заявку на поиск объекта</strong>
+					</p>
+				</td>
+			</tr>
+			<tr>
+				<td class="TableSSInImg">
+					<img title="Добавить объект на сайт " alt="Добавить объект на сайт "
+						src="http://img.alfabrok.ua/files/images/submit/AddIm.png">
+				</td>
+				<td class="TableSSInText">
+					<p>
+						<strong>Добавить объект на сайт</strong>
+					</p>
+				</td>
+			</tr>
+		</table>]]>
+	</ss_user_cab>
+	<ss_reklama><![CDATA[
+		<p>Размещение рекламы на сайте.</p>]]>
+	</ss_reklama>
+	<im_accordion_plan>План недвижимости</im_accordion_plan>
+	<im_accordion_video>Видео недвижимости</im_accordion_video>
+	<im_similar>Nice</im_similar>
+	<im_similar_arr_h><![CDATA[
+		<li>
+			<a rel='nofollow' href="#im_similar_arr">Район</a>
+		</li>]]>
+	</im_similar_arr_h>
+	<im_similar_str_h><![CDATA[
+		<li>
+			<a rel='nofollow' href="#im_similar_str">Улица</a>
+		</li>]]>
+	</im_similar_str_h>
+	<im_similar_spa_h><![CDATA[
+		<li>
+			<a rel='nofollow' href="#im_similar_spa">Общая площадь</a>
+		</li>]]>
+	</im_similar_spa_h>
+	<im_similar_pri_h><![CDATA[
+		<li>
+			<a rel='nofollow' href="#im_similar_pri">Цена</a>
+		</li>]]>
+	</im_similar_pri_h>
+	<im_similar_pri_sq_h><![CDATA[
+		<li>
+			<a rel='nofollow' href="#im_similar_pri_sq">Цена за м.кв (сотку)</a>
+		</li>]]>
+	</im_similar_pri_sq_h>
+	<helpYSearchAdress>Введите адрес для поиска по карте
+	</helpYSearchAdress>
+	<helpExampleYSearchAdress>Например: г. Киев, ул. Крещатик
+	</helpExampleYSearchAdress>
+	<btmYSearchAdress>Найти</btmYSearchAdress>
+	<formYMapTitle>Карта улиц и домов Киева, других городов Украины
+	</formYMapTitle>
+	<formYMapSearchTitle>Карта недвижимости</formYMapSearchTitle>
+	<formYMapSearchCount>Найдено объектов</formYMapSearchCount>
+	<formYMapSearchClean>Сбросить все параметры поиска
+	</formYMapSearchClean>
+	<formYMapSearchRealEstateAds>Выберите параметры для поиска:
+	</formYMapSearchRealEstateAds>
+	<formYMapSearchInfrastructure>Инфраструктура Киева
+	</formYMapSearchInfrastructure>
+	<formYMapSearchFullScreen>Развернуть карту
+	</formYMapSearchFullScreen>
+	<formYMapSearchFullScreenTitle>Развернуть карту во весь экран
+	</formYMapSearchFullScreenTitle>
+	<formYMapSearchStrtScreen>Свернуть карту
+	</formYMapSearchStrtScreen>
+	<formYMapSearchStrtScreenTitle>Свернуть карту к стандартному
+		размеру</formYMapSearchStrtScreenTitle>
+	<btmYMapSearch>Найти на карте</btmYMapSearch>
+	<lYMapSearchCountRoom>Количество комнат :
+	</lYMapSearchCountRoom>
+	<formYMapSearch></formYMapSearch>
+	<formYMapSearchShowHelp>Показать подсказки
+	</formYMapSearchShowHelp>
+	<formYMapSearchHideHelp>Скрыть подсказки</formYMapSearchHideHelp>
+	<formYMapSearchShowInfrastricture>Показать инфраструктуру
+	</formYMapSearchShowInfrastricture>
+	<formYMapSearchHideInfrastricture>Скрыть инфраструктуру
+	</formYMapSearchHideInfrastricture>
+	<formYMapHelpObject_title>Объявления по типам недвижимости
+	</formYMapHelpObject_title>
+	<formYMapHelpObject_4c3ec3ec5e9b5>На карте отображаются предложения
+		по продаже/аренде жилой недвижимости
+	</formYMapHelpObject_4c3ec3ec5e9b5>
+	<formYMapHelpObject_4c3ec3ec5e9b7>На карте отображаются предложения
+		по продаже/аренде коммерческой недвижимости
+	</formYMapHelpObject_4c3ec3ec5e9b7>
+	<formYMapHelpObject_4c3ec51d537c0>На карте отображаются предложения
+		по продаже/аренде загородной недвижимости
+	</formYMapHelpObject_4c3ec51d537c0>
+	<formYMapHelpObject_4c3ec51d537c2>На карте отображаются предложения
+		по продаже/аренде ОСЗ. зданий</formYMapHelpObject_4c3ec51d537c2>
+	<formYMapHelpObject_4c3ec51d537c3>На карте отображаются предложения
+		по продаже земельных участков</formYMapHelpObject_4c3ec51d537c3>
+	<viewImYPanorama>Панорама</viewImYPanorama>
+</words>

@@ -1,0 +1,30 @@
+@charset "utf-8";
+/* CSS Document */
+body
+{
+	background: url(../images/bg/star_tile.gif) top left;
+	margin:0px;
+	padding:0px;
+}
+body, table {
+	font-family: Tahoma, Geneva, sans-serif;
+	font-size: 12px;
+	color: #000000
+}
+#footer
+{
+	background: url(../images/bg/frame_main_1.png);
+	position:fixed;
+	bottom:0;
+	text-align:center;
+	width:100%;
+	font-size:10px;
+	padding:5px 0;
+	color:#FFF;
+}
+
+.headings a { color:  #DDDDDD }
+a:hover { text-decoration:none;  }
+.clear { clear:both; font-size:1px; height:1px; line-height:1px; min-height:1px; width:100%; }
+
+.a-h3-dialog-close { text-align: right; margin: 5px 10px 5px; font-size:12px; font-weight: normal; }

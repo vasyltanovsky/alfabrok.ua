@@ -1,0 +1,19 @@
+@import "body.css";
+@import "dialog.windows.css";
+@import "form.search.css";
+@import "imovables.css";
+
+@import "page.css";
+@import "service.css";
+@import "news.css";
+@import "user.css";
+/*@import "jquery.tooltip.css";*/
+@import "Ysearch.css";
+
+/*		*/
+@import "jquery-ui-1.8.4.custom.css";
+
+/*	zapatec	*/
+@import "css.zapatec/zpcal.css";
+@import "css.zapatec/template.css";
+@import "css.zapatec/winxp.css";

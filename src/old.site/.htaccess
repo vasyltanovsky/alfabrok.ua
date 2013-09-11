@@ -1,0 +1,95 @@
+AddDefaultCharset UTF-8
+rewriteEngine on
+rewriteBase /
+
+Options +FollowSymlinks
+
+#
+RewriteCond %{HTTP_HOST} ^alfabrok.ua$
+RewriteRule ^(.*)$ http://www.alfabrok.ua/$1 [NC,R=301,L]
+
+#	SERVICE
+RewriteRule ^press/([^/]+)/([^/]+).html  /press.php?page=$1&news_id=$2 [L]
+RewriteRule ^press/([^/]+).html /press.php?page=$1 [L] 
+
+#	PRODUCTS
+RewriteRule ^immovables/([^/]+)/([^/]+)/([^/]+)/([^/]+).html  /immovables.php?1=$1&type_cat=$2&page=$3&im_id=$4 [L]
+RewriteRule ^immovables/([^/]+)/([^/]+)/([^/]+).html  /immovables.php?1=$1&type_cat=$2&page=$3 [L]
+RewriteRule ^immovables/([^/]+)/([^/]+).html  /immovables.php?1=$1&type_cat=$2 [L]
+RewriteRule ^immovables/([^/]+).html  /immovables.php?1=$1 [L]
+
+RewriteRule ^([KkКк])(\d+) /immovables.php?1=flat&im_code=$1$2
+RewriteRule ^([CcСс])(\d+) /immovables.php?1=commercial&im_code=$1$2
+RewriteRule ^([HmМм])(\d+) /immovables.php?1=home&im_code=$1$2
+RewriteRule ^([MhНн])(\d+) /immovables.php?1=buildings&im_code=$1$2
+RewriteRule ^([TtТт])(\d+) /immovables.php?1=land&im_code=$1$2
+
+#	PRODUCTS
+RewriteRule ^production/([^/]+)/([^/]+)/([^/]+).html  /production.php?dict=$1&page=$2&pc_id=$3 [L]
+RewriteRule ^production/([^/]+)/([^/]+).html  /production.php?dict=$1&page=$2 [L]
+RewriteRule ^production/([^/]+).html  /production.php?dict=$1 [L]
+
+#	support
+RewriteRule ^support/([^/]+).html  /support.php?dict=$1 [L]
+RewriteRule ^support/([^/]+).html  /support.php?1=$1 [L]
+
+#	registration
+RewriteRule ^registration/([^/]+)/([^/]+).html  /registration.php?1=$1&dict=$2 [L]
+RewriteRule ^registration/([^/]+).html  /registration.php?1=$1 [L]
+
+#	library
+RewriteRule ^library/([^/]+)/([^/]+).html  /library.php?dict=$1&news=$2 [L]
+RewriteRule ^library/([^/]+).html  /library.php?dict=$1 [L]
+
+#	SERVICE
+RewriteRule ^service/([^/]+)/([^/]+).html  /service.php?page=$1&sc_id=$2 [L]
+RewriteRule ^service/([^/]+).html /service.php?page=$1 [L] 
+
+#	PROMOTION
+RewriteRule ^promotion/([^/]+).html /promotion.php?sc_id=$1 [L] 
+#
+RewriteRule ^portfolio/([^/]+).html /portfolio.php?pc_id=$1 [L] 
+
+#ADDINGOBJECT
+RewriteRule ^addingobject/([^/]+)/([^/]+).html  /addingobject.php?1=$1&2=$2 [L]
+RewriteRule ^addingobject/([^/]+).html  /addingobject.php?1=$1 [L]
+RewriteRule ^addingobject.html  /addingobject.php [L]
+
+#USER
+RewriteRule ^user/([^/]+)/([^/]+).html  /user.php?1=$1&2=$2 [L]
+RewriteRule ^user/([^/]+).html  /user.php?1=$1 [L]
+
+RewriteRule ^(.*)/([^/]+)/([^/]+).html? $1.php?1=$2&page_id=$3 [L]
+RewriteRule ^(.*)/([^/]+).html $1.php?1=$2 [L]
+
+
+RewriteRule ^index\.html /index\.php [NC] ####
+RewriteRule ^immovables\.html /immovables\.php [NC] ####
+RewriteRule ^YMap\.html /YMap\.php [NC]
+RewriteRule ^rules\.html /rules\.php [NC]
+RewriteRule ^registration\.html /registration\.php [NC]
+RewriteRule ^user\.html /user\.php [NC]
+
+
+RewriteRule ^productionsearch\.html /productionsearch\.php [NC]
+RewriteRule ^production\.html /production\.php [NC]
+RewriteRule ^library\.html /library\.php [NC]
+RewriteRule ^clients\.html /clients\.php [NC]
+RewriteRule ^market\.html /market\.php [NC]
+RewriteRule ^service\.html /service\.php [NC]
+RewriteRule ^promotion\.html /promotion\.php [NC]
+RewriteRule ^portfolio\.html /portfolio\.php [NC]
+RewriteRule ^support\.html /support\.php [NC]
+RewriteRule ^contacts\.html /contacts\.php [NC]
+RewriteRule ^press\.html /press\.php [NC]
+RewriteRule ^sitemap\.html /sitemap\.php [NC]
+RewriteRule ^partners\.html /partners\.php [NC]
+RewriteRule ^about\.html /about\.php [NC]
+RewriteRule ^404\.html /404\.php [NC]
+RewriteRule ^project\.html /project\.php [NC]
+RewriteRule ^immovables\.html /immovables\.php [NC]
+RewriteRule ^s_immovables\.html /s_immovables\.php [NC]
+RewriteRule ^servicesite\.html /servicesite\.php [NC]
+
+ErrorDocument 404 /404.html
+

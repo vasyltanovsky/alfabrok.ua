@@ -1,0 +1,5 @@
+User-Agent: *
+Disallow:/js/*
+Disallow:/files/*
+Host: alfabrok.ua
+Sitemap: http://alfabrok.ua/sitemap.xml

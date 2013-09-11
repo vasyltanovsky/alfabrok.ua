@@ -1,0 +1,264 @@
+@charset "utf-8";
+/* CSS Document */
+/*header*/
+.HeaderPage{ width:995px; margin:0 auto; height:135px;}
+	.HeaderPage div{ }
+		.Headerlogo{ text-align:center; width:49%; display:inline-block; float:left;  padding-top:4px; }
+			.Headerlogo img{ border:none}
+			.Headerlogo a {border:none;}
+		.DHeaerUserLib {text-align:left; width:25%; padding-top:45px; display:inline-block; float:left}
+		.DHeaderStat {text-align:right !important; width:26%; display:inline-block; float:left;  }
+			.DHeaderStatValue{ text-align:left; float:right; border:2px solid #808080; background:#FFF; padding:4px 6px 7px 7px; width:150px;  border-bottom:none; }
+				.div_table_stat_site{ width:100%; font-size:11px;}
+				/*.DHeaderTel { margin:10px 0 10px 0; font-size:20px; padding:0px 0 2px 0}
+					.DHeaderTel span{ font-size:14px;}
+				.DHeaderStatValue p{ padding:0; margin:0; line-height:16px;} */
+				.DHeaderTel { margin:1px 0 0 0; padding-left:88px; }
+				.DHeaderTel .icon { height:20px; float:left; margin:0 10px 0 0;  }
+				.DHeaderTel .i-city { margin:0 15px 0 0;}
+				.DHeaderTel .code { font-size:11px; float:left; margin:2px 3px 0 0; }
+				.DHeaderTel .tel { float:left; font-weight:bold; }
+				
+				.DivTopHeaderMenuSearch { margin:2px 0 6px 0; }
+					#search_top_field { width:100px; border:1px solid #A5A5A5; padding-left:5px; }
+					#search_top_submit { background: url("http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent; color:#FFF; cursor:pointer; border: none; padding:1px 5px}	
+					#divPointerCode { padding:4px 0 0 90px;}
+					#divPointerCode span { cursor:pointer; background:#FFF; display:block; padding:0px 5px; border:1px solid #A5A5A5; float:left; margin:0 3px 0 0  }
+					#divPointerCode span:hover { background:#ebb923; color:#FFF}
+					
+	
+.HeaderMenu{width:995px; margin:0px auto 0 auto; text-align:center; background: #808080; padding:5px 0 5px 0;}
+	.HeaderMenu a{ display:inline-block; font-size:14px; text-align:center; text-decoration:none; color:#FFF; margin-right:3px; margin:0 1px; padding:2px 1%; vertical-align:bottom; cursor:pointer;}
+	
+	#FormEnter { display:none; }
+	.HeaderMenu a:hover{ text-decoration:underline!important;}
+	.HeaderMenu a img{border:none} 
+	.MenuTopActive{text-decoration:underline!important}
+
+		#TUserEnterLogin {width:150px ; border:1px solid #A5A5A5; height:16px; margin-bottom:0px !important; padding:2px 0 3px 3px !important;}
+		#TUserEnterPass {width:150px ; border:1px solid #A5A5A5; height:16px; margin-bottom:0px !important; padding:2px 0 3px 3px !important;}
+		.HeaderUserEnter span { display:inline-block; font-weight:normal; padding-left:0 !important; position:relative; margin-top:-30px !important; vertical-align:top;}
+		.errOutputEnter{position:absolute; margin-top:0; margin-bottom:10px; margin-left:180px; color:#F00; font-weight:normal; text-align:left;}
+			.errOutputEnter br {height:0}
+		.LinkRegUser{display:inline-block; width:auto; background:none!important; padding:1px 0 0 0!important; height:20px!important; color:#3a7bee!important; text-decoration:underline !important; font-weight: normal!important}
+		#EnterSubmit{ margin-top:0 !important; background: url("http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50%;  width:80px!important;  height:20px; padding:0 0 4px 6px !important;}
+		
+		.DivCatMenu { width:995px; margin:15px auto 0 auto;background:#e5e5e5;}
+			.SpanCatMenuImSea {margin-right:10px; font-size:14px; font-weight: normal} 
+			#ImMenu { padding:5px 5px 5px 10px; border-bottom:none;}
+			
+			.ALinkSendOrder, .ALinkAddImIndex { float:right;
+			background:url("http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent;
+			cursor:pointer;
+			display:inline-block;
+			overflow:visible;
+			color:#FFF;
+			padding:3px 10px 4px 25px;
+			position:relative;
+			text-align:center;
+			text-decoration:none !important; margin-bottom:2px; }
+			.ALinkSendOrder, .ALinkAddImIndex:hover { color:#FFF!important;}
+			 .ALinkAddImIndex { display:none; }
+			.ALinkAddImIndex span { margin-left:-20px; margin-top:1px; position:absolute; height:16px; width:21px; background:url(http://img.alfabrok.loc/files/images/bg/s_AddImALinkBg.png) left center no-repeat;
+			width:92px;
+			}
+			.ALinkSendOrder span{ margin-left:-20px; margin-top:1px; position:absolute; height:16px; width:21px; background:url(http://img.alfabrok.loc/files/images/bg/s_SendOrderLinkBg.png) left center no-repeat;
+			width:90px;/*        */
+			}
+			.ALinkAddImIndex { margin-right:5px;}
+			
+				.DivCatMenuLinkImages {margin-top:1px; height: 119px; max-height:119px; overflow:hidden; }
+				.DivCatMenuLinkImages a {display:inline-block !important; width:198px; text-align: left; float:left;}
+				.DivCatMenuLinkImages a img { border:none;  width: 199px!important; height: 119px!important;} /* for firefox 199*/
+			
+				.DivCatMenuLink a {display:inline-block !important; width:20%; text-align: left; float:left;}
+				
+				#FlatAlink{ background: url("http://img.alfabrok.loc/files/images/bg/cat/4.jpg") bottom right no-repeat; text-decoration:none; font-weight:bold; color: #FFF;
+				padding:5px 0 5px 5px; width:194px;}
+				#CommercialAlink{ background:url(http://img.alfabrok.loc/files/images/bg/cat/5.jpg) bottom right no-repeat; text-decoration:none; font-weight:bold; color: #FFF;
+				padding:5px 0 5px 5px;width:194px;}
+				#HomeAlink{ background:url(http://img.alfabrok.loc/files/images/bg/cat/1.jpg) bottom right no-repeat; text-decoration:none; font-weight:bold; color: #FFF;
+				padding:5px 0 5px 5px;width:194px;}
+				#BuildingsAlink{ background:url(http://img.alfabrok.loc/files/images/bg/cat/3.jpg) bottom right no-repeat; text-decoration:none; font-weight:bold; color: #FFF;
+				padding:5px 0 5px 5px;width:194px;}
+				#LandAlink {background:url(http://img.alfabrok.loc/files/images/bg/cat/2.jpg) bottom right no-repeat; text-decoration:none; font-weight:bold; color: #FFF;
+				padding:5px 0 5px 5px;width:194px;}
+
+
+
+
+/*center*/
+.TitlePage{ margin:0 0 0 22%; padding:0}
+.DivNavigation{margin:0 0 10px 0; padding:0}
+
+.TableCenterPage{width:100%; margin:0}
+	.TCPTdLeft{ width:20%;}
+	.TCPTdCenter{ width:80%;}
+	.TCPTdRight{ width:20%;}
+
+.TitleStandartPage{ color:#808080;margin:0px 0 10px; padding:0 0 0 0px; }
+.TableStandartCenterPage{width:100%; margin:0 0; }
+	.TSCPTdLeft{ width:20%; min-width:20%; padding:5px 5px 0 5px}
+		.TSCPTdLeft a{display:block; width:90%}
+	.TSCPTdCenter{width:80%; padding:0 10px;}
+		.TSCPTdCenter table {}
+	.TSCPTdRight{ width:20% !important; min-width:20% !important; padding:5px 5px 0 5px}
+	
+/*	��� ��� ������� �������� �� 2 �����*/
+.DivCenterPageNP{ width:995px; margin:0 auto; padding:5px 0 20px 0; background:#FFF;  min-height:400px!important;}
+.DivCenterPage{ width:995px; margin:0 auto; padding:10px 0px 20px 0px; background:#FFF;  min-height:400px!important;}
+.DivCenterPageLeft{width:50%; float:left;}
+.DivCenterPageRight{width:50%; float:left}
+
+/*	��������� ��� ������������ ������*/
+.TitleCenterPage{ margin:0; color:#5a5a5a}
+
+/*	������ ������ �� �����*/
+.DivCenterPageText{ margin:0 0 0 0;}
+#loading { background: url(http://img.alfabrok.loc/files/images/prelouder/ajax-loader.gif) no-repeat scroll center center transparent; /*display:none;*/ height:20px; margin:0; position:absolute; width: 750px; margin-top:-20px;}
+
+
+/*	PRODUCTION	*/
+.DivPrCatNav{border-bottom:1px solid #dfe0e2; padding-bottom:5px; margin-bottom:15px; margin-top:5px;}	
+	.DivPrCatNav a {text-decoration:none;}
+	
+.TableCatalogPage{width:100%; margin-top:0px;}
+	.TCTdLeft{ width:30%}
+	.TCTdList{ width:700px; padding-right:20px}
+	
+	.TitleCatalog{color:#808080;margin:0px 0 10px; padding:0 0 0 0px;}
+	
+	.DivCPList{ float:left; width:300px; margin-bottom:10px; display:inline-block}
+		.CPALink{ font-size:16px; display:block; margin-bottom:5px}
+		.DivCPList img {border:none}
+	.DivCPList{display:inline}
+	.DivCPList{display:inline-block}
+
+	.DivCPListNoImage {margin-bottom:10px; width:100%}
+	.DivCPListNoImage img {border:none; }
+
+	.TableCPositionFull{width:100%;}
+		.TacleCPFullTdImage{width:160px;}
+		.TacleCPFullTdText table {border:1px solid #E1E1E1;}
+		.TacleCPFullTdText table td{ padding:0 0 0 5px; border:1px solid #E1E1E1; text-align:center}
+		.TacleCPFullTdText table td p{ padding-right:0px !important}
+		.pages{ display:inline-block; width:800px; text-align:center}	
+	
+	/*	BAN	*/
+	.DivListImBan {background:url(http://img.alfabrok.loc/files/images/bg/bgDivAll.png) top left repeat-x; border:2px solid #E5E5E5; padding:0 0 5px  7px;}
+		.DivListImBan h3 {font-size:14px; font-weight: normal; display:block; text-align:left; margin-top:2px; color:#292929; margin-bottom:10px; }
+		.DivListImBanIn{ width:245px; display: inline-block; vertical-align:top !important}
+			.DivListImBanIm { width:80px; display:inline-block; }
+				.DivListImBanIm img{ border:1px solid #b7b8bc; padding:2px}
+			.DivListImBanText{ width:150px; display:inline-block; height:95px; vertical-align:top;  }
+				.DivListImBanText p{margin-left:3px; font-size:12px; line-height:14px; margin-bottom:4px; }
+				.DivListImBanText span{ background: url(http://img.alfabrok.loc/files/images/bg/cena.png) center right no-repeat; padding:3px 10px; text-align:center; width:auto;}  
+			.DivListImBanAViewAll {}		
+	/*	HOT	*/
+	.DivListImHot {background:url(http://img.alfabrok.loc/files/images/bg/bgDivAll.png) top left repeat-x; border:2px solid #E5E5E5; padding:0 0 5px 7px; text-align:center}
+		.DivListImHot h3 {font-size:14px; font-weight: normal; display:block; text-align:left; margin-top:2px; color:#292929; margin-bottom:9px;}
+		.DivListImHotIn{ width:240px; display: inline-block; vertical-align:top !important; padding-top:3px; }
+			.DivListImHot img{ border:1px solid #b7b8bc; padding:2px}
+			.DivListImHotImSpan{ text-align:center; background:#fdcf00; font-size:20px; padding:5px 10px; position: absolute;  margin-left:-200px; margin-top:160px; }
+			.DivListImHotImSpanRS{ text-align:center; background:#fdcf00; font-size:20px; padding:5px 10px; position: absolute;  margin-left:-70px; margin-top:-2px; }
+			.DivListImHotAViewAll { float:right; margin: 0 20px 0px 0;}
+	.links_block #linksListBan span { display:block; margin:0 10px 5px 0; }
+	
+	/*	*/
+	#linksListBan{ margin:10px 0 15px 0}
+	#linksListBan span { display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px; margin-left:5px;}
+	#linksListBan span:hover {border: 1px solid #ebb923; background:url("http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent;  color: #FFF!important;}
+		.AlinkActive { border: 1px solid #ebb923!important;  background:url("http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent !important;  color: #FFF!important;}
+		.SpanImFromLityType { margin-right:145px;}
+	.ImFormLinkType label { padding:0 0 0 5px}	
+		
+		/*	INDEX PAGE	*/
+		.TableIndexPage {width:100%; }
+			.TableIndexMap td { padding-top:15px; }
+			.TableIndexPageTdPadding {width:450px; padding-right:20px;}
+		
+		/*	one click	*/
+		
+		.tableIndexOneClick { width:99%;  }
+			.tableIndexOneClick td, th { border-top:1px solid #F3F3F3; border-left:1px solid #E4E4E4; padding:5px 10px; font-weight:normal;} 
+			.tableIndexOneClick .header th { border-top:none;}
+			.tableIndexOneClick .name { border-left:none; width:180px;}
+			.tableIndexOneClick .sale { width:350px;}
+			.tableIndexOneClick .rent { width:350px;}
+		
+			/**MAP**/
+			
+			.DivMapIndexBg{ background:#e5e5e5; padding:0px 10px 10px 10px;}
+				.TableIndexMap{ width:100%;}
+					.TdIndexMap{ background:#FFF; padding-left:20px}
+					.TdTableIndexMapH { width:160px;}
+						.TableIndexMapH{font-size:14px; font-weight: normal; display:block; text-align:left; margin-top:0px; color:#292929; margin-bottom:10px;}
+					.TdTableIndexMapRentSale{width:80px;}	
+						.TdTableIndexMapRentSale input{ margin-bottom:8px;}
+					.TdIndexMapBtmSearchMap {text-align:right; padding:5px 0 14px 0}
+					.TdTableIndexMapCityTypeIm{text-align:right; padding-bottom:7px;}
+			.DivMap {height:400px; width:395px;}
+				.DivMapImgCityBg {position:absolute; z-index:0;}
+				.DivListAreaActive { position:absolute; z-index:1;}
+					.DivListAreaActive img {display:none}
+				.DivMapAreasMouse {position:absolute; z-index:2;}
+				.HoverArea{ position:absolute; left:0;}
+					
+					.DivViewFormArea { width:100%; height:400px; display:none}
+						.DivViewFormArea h3  {font-size:18px; font-weight:normal; margin:0 0 0 0px}
+						.DivViewFormAreaListChecked { margin:15px 0 0  0px}
+						.DivViewFormAreaA {  background: url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) repeat-x scroll 50% top #EEECEC; border:1px solid #DDDDDD; 						color:#333333; cursor:pointer; display:inline-block; margin:20px 0 0 0px; overflow:visible; 	padding:3px 10px 3px 25px; position:relative; text-align:center; text-decoration:none !important;}
+							.DivViewFormAreaA span {position:absolute; margin-left:-20px}
+						.DivViewFormAreaA:hover {border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333;}
+				/**/
+				.MapFormSelect{ background:#FFFFFF; border:1px solid #D5D5D5; color:#000000; margin-bottom:2px; padding:2px; width:150px;}
+				#BtmSearchMap {margin:0!important}
+				
+		/*	SERVICE*/
+		.TableInfo{ width:100%;  margin-bottom:10px;}
+			.TableInfoTdImage{ width:140px; text-align:left; padding-bottom:10px;}
+			.TableInfoTdImage img { border:1px solid #B7B8BC; padding:2px;}
+				.ImgInfo{ padding:2px; background:url(http://img.alfabrok.loc/files/images/bg/infoBorder.png) center center no-repeat;}
+			.TableInfoTdDescription{  padding-bottom:10px; padding-left:15px;}
+				.ALinkInfo{font-size:14px;  }
+			
+		/*	PAGE PARTNERS*/
+		.	.PartnerListImage{ width:200px!important; display:inline-block; text-align:left; float:left; min-width:200px; padding-bottom:10px;}
+			.PartnerListImage img {max-width:200px;}
+			.PartnerListText{display:inline-block; text-align:left; float:left; margin-left:20px; padding:0 20px 10px 20px;}
+				.PPName{ margin-top:0}
+				.PPUrl{}
+				
+		/* 	FORM ALERT IS OK*/
+		#FormAlertIsOk { background:url("http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_75_ffe45c_1x100.png") repeat-x scroll 50% top #FFE45C; border:1px solid #ebb923; padding:10px; margin-bottom:20px; display:none }
+			#FormAlertIsOk p { margin:0;}
+			
+
+/*	CONTACTS	*/
+.contact-table { width:100%;}
+.td-map-route { width:600px; text-align:right;}
+.map-route {}
+.map-route .map { z-index:1;}
+.map-route .map-car { z-index:2; position:relative; }
+#mapcar1 {}
+#mapcar2 {}
+#mapcar3 {}
+
+.contact-tel { margin:0 0 20px 0; }
+	.contact-tel .icon { height:30px; float:left; margin:0 10px 0 0;  }
+	.contact-tel .i-city { margin:0 15px 0 0;}
+	.contact-tel .code { font-size:13px; float:left; margin:5px 3px 0 0; }
+	.contact-tel .tel { font-size:13px; float:left; margin:5px 0 0 0; font-weight:bold; }
+/*footer*/
+.DivFooter{ width:100%; height:59px; padding-top:20px; color:#000; text-align:center; background:url(http://img.alfabrok.loc/files/images/bg/bg_bottom.png) top left repeat-x}
+	.DivFooter img {border:none}
+	.DivFooter div{ float:left; display:inline-block;}
+	.DivFooter div{display:inline}
+	.DivFooterCopy{ padding-top:3px; width:575px; text-align:center}
+	.DivFooterDeveloper{padding-top:3px; padding-right:5px}
+	.DivFooterAlex{padding-right:15px; padding-top:5px}
+	.DivFooterAnd{padding-right:5px; padding-top:3px;}
+	.DivFooterFanArt{}
+/*catalog*/
+.DivTableCP {}
+	.DivTableCP h3{ margin:0}

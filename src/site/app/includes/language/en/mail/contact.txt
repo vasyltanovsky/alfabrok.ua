@@ -1,0 +1,10 @@
+Subject: Message from the feedback form site
+
+Hello!
+------------------------------
+Member:  #name#. 
+Contact Information:
+1. Е-mail: #email#
+------------------------------
+Message: #textmsq#.
+------------------------------

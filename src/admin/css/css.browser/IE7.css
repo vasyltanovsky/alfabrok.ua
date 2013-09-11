@@ -1,0 +1,16 @@
+@charset "utf-8";
+/* CSS Document */
+	img, input, a { behavior:url(/css/iepngfix.htc)}
+	
+	.DHeaerUserLib{display:inline!important; width:25%!important}
+	.Headerlogo{display:inline!important}
+	.DHeaderStat{display:inline!important; width:24%!important}
+	
+	.ALinkSendOrder, .ALinkAddImIndex { display: inline-block!important; float:right!important; margin-left:500px; position: absolute;}
+	
+	.DivListImHotIn { display:inline!important}
+	.DivListImBanIn {display:inline!important;}
+		.DivListImBanIm{display:inline!important;}
+		.DivListImBanText{display:inline!important;}
+		
+		.TdIndexMapBtmSearchMap{ padding-bottom:0}

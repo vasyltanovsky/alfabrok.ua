@@ -1,0 +1,49 @@
+@charset "windows-1251";
+/* CSS Document */
+	#d-filter {
+	background:url("../images/bg/frame_main_1.png") repeat scroll 0 0 transparent;
+	color:#FFF;
+	padding:10px 0 10px 0;
+}
+#d-filter h3 {
+	margin:0;
+	font-size:14px;
+	font-weight:normal;
+	padding-left:10px;
+}
+#d-filter ul {
+	margin:10px 0 10px 0;
+	list-style:none;
+	padding:0;
+}
+#d-filter ul li {
+	padding:0 15px 10px 10px;
+	width:auto;
+	border-right: 1px solid #CCC;
+	display: inline-block;
+}
+.d-filter-select {
+	margin-top:5px;
+	border:1px solid #666;
+	margin-bottom:4px;
+}
+.d-filter-input {
+	margin-top:5px;
+	background:#FFF;
+	cursor:pointer;
+	border:1px solid #dfdfdf;
+}
+.d-filter-input:hover {
+	border:1px solid #FBCB09;
+}
+.d-filter-button-search {
+	margin-left:10px;
+	cursor:pointer
+}
+.d-filter-button-search: hover {
+	border: 1px solid #242e3a;
+	background: #242e3a url(images/ui-bg_flat_100_242e3a_40x100.png) 50% 50% repeat-x;
+}
+#d-filter button {
+	padding: 4px 10px;
+}

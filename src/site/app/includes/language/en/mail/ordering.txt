@@ -1,0 +1,19 @@
+Subject: Order issued. Sport Maroc Development
+
+Hello #user_fio#!
+------------------------------
+
+Your order is issued.
+You will contact our manager.
+
+Number order: #order_id#
+Delivery address: #user_adress#
+Delivery Date: #delivery_date#
+------------------------------
+
+#goods_list#
+------------------------------
+
+Thank you.
+
+

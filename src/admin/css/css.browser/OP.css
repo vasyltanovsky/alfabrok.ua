@@ -1,0 +1,23 @@
+@charset "utf-8";
+/* CSS Document */
+	/*header*/
+	.HeaderMenu {padding-bottom:-5px;}
+		.d-lang {height:25px;}		
+		.td_ret_menu_index{ text-align:center; width:900px;}
+	/*map*/
+		.TdIndexMap{height:400px!important;}
+		.MapSearchFormIm{height:400px!important;}
+		.DivViewFormArea {height:400px!important;}
+		.DivMap  {height:400px!important;}
+		
+	/*	FORM SEARCH IMMOVABLES*/	
+		.DivSearchPosition {z-index:100;}
+		.TableSearchFormDivwidth {width:300px!important;}
+		.SearchFormLabel {width:120px!important; float:left;}
+		.FormSearchInputText{float:left;}
+		.SliderWidth{float:left;}
+		
+		
+		.SearchFormAdvasedLabel{width:190px!important; float:left;}
+		.SliderWidthAdvased{float:left; width:}
+		

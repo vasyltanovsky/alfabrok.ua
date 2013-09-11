@@ -1,0 +1,65 @@
+@charset "utf-8";
+/* CSS Document */
+.DivHeader {
+	border-bottom: 1px solid transparent;
+	margin-bottom:2px;
+	background:url(../images/bg/opacity.png);
+	font-size:13px;
+	color:#FFF;
+	padding:5px 10px;
+}
+.DivHeader a {
+	color:#FFF;
+	text-decoration:underline;
+}
+.DivHeaderNameProduct {
+	display:inline-block;
+	float:left
+}
+.DivHeaderFR {
+	float:right
+}
+.DivHeaderFR div {
+	display:inline-block;
+	padding:0 3px 0px 3px;
+}
+.DivHeaderNameAdmin {
+	border-right:1px solid #FFF;
+}
+.DivHeaderHelp {
+	border-right:1px solid #FFF;
+}
+.DivHeaderExit {
+}
+.TableLogoInfo {
+	height:70px;
+	margin-top:20px;
+	width:100%;
+}
+.TdLogo {
+	width:180px;
+}
+.TdInfo {
+	vertical-align:bottom;
+}
+.DivInfo {
+	border:1px solid #8095AB;
+	background:none repeat scroll 0 0 #354A61;
+	padding:5px;
+	color:#8095AB;
+}
+
+#InterestingBg{
+	width:584px;
+	height:514px;
+	background:url(../images/bg/interesting-bg.png) no-repeat;
+	position:absolute;
+	z-index:-10;
+	top:0;
+	left:0;
+}
+/**/
+#divFormLang { position: absolute; top:50px; right:10px; float: right; z-index:5}
+#divFormLang input { border:1px solid #8095AB; color:#FFF; background: #485A70; cursor:pointer }
+#divFormLang input:hover { border:1px solid #485A70; color:#FFF; background: #8095AB; cursor:pointer }
+.input-rus-d, .input-rus-d:hover, .input-eng-d, .input-ukr-d { border:1px solid #485A70!important; color:#FFF!important; background: #8095AB!important; cursor: default!important}

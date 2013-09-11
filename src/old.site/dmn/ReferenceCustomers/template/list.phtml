@@ -1,0 +1,33 @@
+<?php if ($Data) : ?>
+<table class="table-list" cellspacing="0" cellpadding="0" border="0">
+	<tr class="headings">
+		<td width="10"></td>
+		<td width="150">ФИО</td>
+		<td width="150">Телефон</td>
+		<td width="70">Тип</td>
+		<td width="">Описание</td>
+		<td width="70">Дата добавления</td>
+		<?php if(strpos ( $_COOKIE ["roles"], '4f4bbfb6f03bf')): ?>
+		<td width="150"></td>
+		<?php endif; ?>
+	</tr>
+	<tbody>
+		
+		<?php foreach ( $Data as $key => $value ) : ?>
+		<tr>
+			<td width="10"><?php echo $value["rc_id"]?></td>
+			<td><?php echo $value["rc_fio"]?></td>
+			<td><?php echo $value["rc_tel"]?></td>
+			<td><?php echo $value["dict_name"]?></td>
+			<td><?php echo strip_tags($value["rc_summary"])?></td>
+			<td><?php echo $value["date_add"]?></td>
+			<?php if(strpos ( $_COOKIE ["roles"], '4f4bbfb6f03bf')): ?>
+			<td><a href="#" onclick="TEdit('DMN_ReferenceCustomers', 'getItem', '<?php echo $value["rc_id"]?>')" title="Просмотр/Редактирование">Просмотр/Редактирование</a> <a href="#" onclick="TDelete('DMN_ReferenceCustomers', 'delete', '<?php echo $value["rc_id"]?>', '1')" title="Удалить">Удалить</a></td>
+			<?php endif; ?>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?php else: ?>
+<b>Нет позиций!</b>
+<?php endif; ?>

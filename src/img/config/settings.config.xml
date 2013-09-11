@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+	<Email admin="A.Tsurkin@avtologistika.com" charset="utf-8"/>
+	<Module>
+		<ModuleLanguages default="ru" default_id="2"/>
+	</Module>
+	<table_identifidation>
+		<ct_id table="catalog" title="ct_title" link="ct_url" id="ct_url"/>
+		<page_id table="pages_structure" title="page_name" link="page_url" id="page_url"/>
+		<user_id table="users_site" title="user_company" link="user_id" id="user_id"/>
+	</table_identifidation>
+</settings>
+<!-- 
+
+/
+$CONFIG ['Email'] ['admin'] = 'A.Tsurkin@avtologistika.com';
+$CONFIG ['Email'] ['charset'] = 'utf-8';
+$CONFIG ['Email'] ['name'] = '';
+$CONFIG ['Email'] ['subs'] = '';
+//
+$CONFIG ['Module'] ['ModuleLanguages'] ['default'] = 'ru';
+$lang_id = $CONFIG ['Module'] ['ModuleLanguages'] ['default_id'] = 2;
+if (empty ( $_COOKIE ['lang_id'] )) {
+	$_COOKIE ['lang_id'] = $CONFIG ['Module'] ['ModuleLanguages'] ['default_id'];
+	$_COOKIE ['lang_code'] = $CONFIG ['Module'] ['ModuleLanguages'] ['default'];
+}
+$CONFIG ['Module'] ['currencyConverter'] ['url'] = 'http://cashexchange.com.ua/XmlApi.ashx?district=Kyiv&city=kiev';
+$CONFIG ['Module'] ['currencyConverter'] ['timeout'] = '5';
+
+//
+$CONFIG ['Module'] ['ControlCatalogGoods'] ['ms_setting_list'] = '';
+$CONFIG ['Module'] ['ControlCatalogGoods'] ['ms_setting_pos'] = '';
+$CONFIG ['Module'] ['ControlCatalogGoods'] ['no_isset_cat'] = '';
+
+$CONFIG ["section"] ['promyishlennyiy-alpinizm'] = "4e988066825fe";
+$CONFIG ["section"] ['demontajnie-rabotyi'] = "4e98808294d01";
+$CONFIG ["catalog"] ['4e9880e3ba9ee'] = "4e9fde6d0983d";
+$CONFIG ["catalog"] ['4e98814247cc6'] = "4e9fde6d09831";
+
+/*	*/
+$CONFIG ["table_identifidation"] ['ct_id'] ["table"] = $tbl ['catalog'] ['name'];
+$CONFIG ["table_identifidation"] ['ct_id'] ["title"] = "ct_title";
+$CONFIG ["table_identifidation"] ['ct_id'] ["link"] = "ct_url";
+$CONFIG ["table_identifidation"] ['ct_id'] ["id"] = "ct_url";
+
+$CONFIG ["table_identifidation"] ['page_id'] ["table"] = $tbl ['pages_structure'] ['name'];
+$CONFIG ["table_identifidation"] ['page_id'] ["title"] = "page_name";
+$CONFIG ["table_identifidation"] ['page_id'] ["link"] = "page_url";
+$CONFIG ["table_identifidation"] ['page_id'] ["id"] = "page_url";
+
+$CONFIG ["table_identifidation"] ['user_id'] ["table"] = $tbl ['users_site'] ['name'];
+$CONFIG ["table_identifidation"] ['user_id'] ["title"] = "user_company";
+$CONFIG ["table_identifidation"] ['user_id'] ["link"] = "user_id";
+$CONFIG ["table_identifidation"] ['user_id'] ["id"] = "user_id";
+//$CONFIG ['PreSrc'] = '/insurance';
+?>
+
+ -->

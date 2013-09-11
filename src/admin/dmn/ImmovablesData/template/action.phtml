@@ -1,0 +1,21 @@
+<div id="d-filter">
+	<h3>Фильтр страницы</h3>
+	<form action="" method="POST" id="pageFormSearch">
+		<ul>
+			<li>
+				<label>Код недвижимости</label><br />
+				<input class="ui-autocomplete-input FormSearchInputText" type="text" value="<?php echo $Data['im_code']?>" name="im_code" id="im_code"/> 
+			</li>
+		</ul>
+		<button style="" onclick="TSearchForm('DMN_ImmovablesData', 'getPage');" class="d-filter-button-search ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" id=""><span>Применить</span></button>
+	</form>
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$( "#im_code" ).autocomplete({
+		source: "../t-ajax.php?zone=dmn&cont=DMN_ImmovablesData&action=getPageJson&dataType=json&field_name=im_code",
+		minLength: 2
+	});
+});
+</script>	

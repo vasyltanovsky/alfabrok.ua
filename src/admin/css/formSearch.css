@@ -1,0 +1,65 @@
+/* CSS Document */
+#SearchFormIm{}
+	.TableSearchFormDivwidth{ width:280px;}
+	.TableSearchFormDivwidth2 {width:400px;}
+	.TableSearchFormDivwidth2.FormSearchInputText {width:170px!important; background: #FFF ; padding:2px 2px; margin-bottom:2px; border:1px solid #D5D5D5; color:#000;}
+	.FormSearchInputText {width:150px; background: #FFF ; padding:2px 2px; margin-bottom:2px; border:1px solid #D5D5D5; color:#000;}
+		
+	.SearchFormLabel {width:120px; display:inline-block}
+	.SearchFormLabelList{width:150px; display:block; background: #FFF; padding:2px 2px 2px 5px; margin-bottom:0px; border:1px solid #D5D5D5; color:#000; background-position: 0 -16px; border-bottom:none!important;}
+	.label-form-btm { width:150px; background: #FFF; margin-bottom:2px; border:1px solid #D5D5D5; padding:0px 2px 2px 5px; border-top:none!important;}
+	.SearchFormLabelList span {float:right; margin:1px 2px auto auto}	
+	.TableSearchForm{width:100%}
+		.TableSearchFormTdStandartPropCat{}
+		.TableSearchForm td {width:auto;}
+			.SliderWidth { width:145px; margin-left:120px; margin-bottom:5px;}
+			
+	/**/
+	.SearchFormLabelBE  { display:inline-block; width:40px; text-align:center}
+	.FormSearchInputTextBE {width:80px; background: #FFF ; padding:2px 2px; margin-bottom:2px; border:1px solid #D5D5D5; color:#000;}
+	
+	/**/
+	#DivImPropForm {display:none; vertical-align:top}
+	.DivSearchPosition { position: absolute; min-width:240px; background:#FFF; display:none; max-height:300px; overflow: auto; z-index:5}
+		.DivSearchPosition fieldset{border:none; background:#FFF; border: 1px solid #d5d5d5;}
+	
+.FormImShow	{margin:10px 0 15px 0} 
+	
+	#SearchSbtIm { float:right;
+			background:url("images/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent;
+			cursor:pointer;
+			overflow:visible;
+			color:#FFF;
+			padding:2px 10px 2px 10px;
+			position:relative;
+			text-align:center;
+			border:1px solid #FFF;
+			text-decoration:none !important;}
+			
+	.exchange_label { width:164px;}
+	.exchange_select { width:86px;}
+	.form-span-exchange { font-size:9px; font-weight:normal; }
+	.SearchFormAdvasedDivFloat{ width:380px; display: inline-block; vertical-align:top}
+		.SearchFormAdvasedLabel {display:inline-block; width:190px; color:#000}
+		.SearchFormAdvasedDivFloat ul { margin:0; padding:0;}
+			.SearchFormAdvasedDivFloat ul li { margin:0; padding:0; list-style:none;}
+			.SliderWidthAdvased {width:145px; margin-left:195px; margin-bottom:5px;}
+
+			.UlListCheckbox{ background:none repeat scroll 0 0 #FFFFFF; border:1px solid #D5D5D5; }
+			
+			
+			#tabs ul li.ui-state-default{ background:url("images/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% #EBB923;  border:1px solid #FFF; font-weight:bold}
+			#tabs ul li.ui-state-default a {color:#666666}
+			#tabs ul li.ui-state-active{ background:url(images/ui-bg_glass_100_f6f6f6_1x400.png) repeat-x scroll 50% 50% #CCCCCC; border:1px solid #D5D5D5; color:#666666;font-weight:bold}
+			#tabs ul li.ui-state-active a { color:#666666;}
+			#tabs ul li.ui-state-hover{ background:url(images/ui-bg_glass_100_f6f6f6_1x400.png) repeat-x scroll 50% 50% #CCCCCC; border:1px solid #D5D5D5; color:#666666; font-weight:bold}
+			#tabs ul li.ui-state-hover a { color:#666666!important;}
+			
+
+.regionalBlock {}
+	.regionalBlock .regionalTextInput { background: url(../files/images/bg/arrow_m01_down-20111002134017-00030.png) 135px 5px no-repeat #FFFFFF; border: 1px solid #D5D5D5; color: #000000; margin-bottom: 2px; padding: 2px; width: 150px; display:block; min-height:18px; border-radius: 4px 4px 4px 4px;}
+	.regionalBlock .reginalTree { display:none; min-width:200px; padding:10px; border:1px solid #EEECEC; position:absolute; z-index:10; background:#FFF; max-height:200px; overflow-y: scroll; overflow-x: hidden; }
+		.regionalBlock .rlist {}
+			.regionalBlock .rlist .item {}
+			.regionalBlock .rlist .val { display:inline-block;}
+			.regionalBlock .rlist .plus { width:10px; display:inline-block; float:left; cursor:pointer; }

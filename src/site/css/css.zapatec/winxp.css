@@ -1,0 +1,320 @@
+/* $Id: winxp.css 10008 2008-02-15 12:00:49Z smaxim $ */
+/*
+ * Controls the icons that are displayed according to the specified rules, 
+ * depending on the validity of the data entered
+ */
+/*
+ "zpStatusImg" class images for form fields -- apply appropriate rules here.
+ The script auto-applies one of each of these CLASS attributes to a series of
+        nested <span>s with an innermost .zpStatusImg class <span> we style:
+ 1) "zpIsRequired" or "zpNotRequired".
+ 2) "zpIsEmpty" or "zpNotEmpty".
+ 3) "zpIsEditing" or "zpNotEditing".
+ 4) "zpIsValid" or "zpNotValid".
+ 5) Always "zpStatusImg", this is the one styled.
+*/
+
+.zpFormWinxp .zpStatusImg,
+.zpFormWinxp .zpCheckboxStatusImg,
+.zpFormWinxp .zpRadioStatusImg { /* Container for field status image */
+        padding: 0px 12px;
+        height: 14px;
+        width: 13px;
+        background-repeat: no-repeat;
+        background-position: right;
+        margin-left:5px;
+        margin-right:3px;
+        display: inline-block;
+        vertical-align: top;
+} 
+
+.zpFormWinxp .zpCommonStatusImg {
+        opacity: 0.66;
+        filter: alpha(opacity=66);
+        padding-bottom: 5px; /* Fixes alignment of asterisk ->  don't remove! */
+}
+
+.zpFormWinxp .zpCheckboxStatusImg,
+.zpFormWinxp .zpRadioStatusImg { /* Container for checkbox and radio status images */
+        opacity: 1.0;
+        filter: alpha(opacity=100);
+}
+
+
+.zpFormWinxp .zpIsRequired .zpStatusImg{
+        background-image: url(icons/required.gif);
+}
+
+.zpFormWinxp .zpIsEditing .zpStatusImg { /* properties of status image while editing field */
+       opacity: 1.0;
+       filter: alpha(opacity=100);
+}
+
+.zpFormWinxp .zpIsEditing .zpNotEmpty .zpCommonStatusImg{
+       background-image: url(icons/editing.gif);
+}
+
+.zpFormWinxp .zpNotEditing .zpNotEmpty .zpNotValid .zpStatusImg{
+        background-image: url(icons/invalid.gif);
+}
+
+.zpFormWinxp .zpIsValid .zpStatusImg{ /* Shown when field is valid */
+        background-image: url(icons/validated.gif);
+}
+
+.zpFormWinxp .zpIsFetching .zpStatusImg { /* shown while inputing into field */
+        background-image: url(icons/fetching.gif) !important;
+}
+
+/*
+ * Controls the look and feel of the form
+ */
+
+.zpFormWinxp .errOutput{ /* style for error field */
+        background-color: #C70032;
+        padding: 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: white;
+        display: none;
+}
+
+
+.zpFormWinxp textarea {  
+        border:1px solid #d6d6d6;
+		width: 270px;
+}
+
+.zpFormWinxp .zpFormLabel { /* style for form fields labels */
+        width: 13em;
+        float: left;
+		line-height:20px;
+}
+
+.zpFormWinxp .zpExpandedTable, 
+.zpFormWinxp .zpExpandedTable td,  
+.zpFormWinxp .zpExpandedTable th  {  
+        border:1px solid #919B9C;
+        border-collapse:collapse;                        
+}
+
+.zpFormWinxp .zpExpandedTable span { /* fixes the table cell height error, caused by invisible spans */
+        display:none;
+}
+
+.zpFormWinxp .zpExpandedTable .multipleButton { /* multiply button in table container */
+        margin:2px;
+}
+
+.zpFormWinxp .multipleButton{  /* style for field multiply button (if present) */
+        margin-left: 10px; 
+        text-align: center;
+        width:20px;
+}                              
+
+* html .zpFormWinxp .multipleButton {  /*IE6 Fix of button height*/
+        height:20px;
+}
+ 
+*:first-child+html .zpFormWinxp .multipleButton { /*IE7 Fix of button height*/
+        height:20px;
+} 
+
+
+.zpFormWinxp {  /* Common form properties */
+       	padding:0 0;
+}
+
+.zpFormWinxp .zpFormContent{ /* Form content container style */
+        background: url("winxp/xpform.jpg") repeat-x bottom #FCFCFE;
+        border: solid 1px #919b9c;
+        margin: 0px 10px;
+        padding: 0px 10px 10px 10px;
+}
+
+* html .zpFormWinxp .zpFormContent{ /* IE6 fix */
+        padding-top: 10px;
+}
+
+.zpFormWinxp .button{  /* style for form submit buttons */
+			cursor:pointer;
+			border:none;
+			background: #54BAFF;
+        	background: url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png) repeat-x scroll 50% 50% transparent;
+     		text-align:center;
+			color:#fff;
+			height:24px;
+			margin:10px 0 0 0;
+			padding:2px 0 8px 0;
+			width:100px;
+}
+
+#debugContainer
+{
+	background:#333;
+	border:3px solid #9CF;
+}
+* html .zpFormWinxp .button{ /* IE6 buttontext  fix */
+        padding-bottom:0px;
+}
+
+*:first-child+html .zpFormWinxp .button{ /* IE7 buttontext fix */
+        padding-bottom:0px;
+}
+
+
+.zpFormWinxp .zpFormButtons{ 
+        text-align: right;
+        margin: 10px;
+}
+
+.zpFormWinxp fieldset{  /* form fieldset style */
+        margin-top: 10px;
+		border: none;
+		padding:0;
+}
+
+* html .zpFormWinxp fieldset{  /* IE6 fix */
+        margin-bottom:5px;
+}                   	
+
+.zpFormWinxp legend{  /* form legend: sign of the fieldset */
+        color: #0046DC;
+        padding:0px 5px;
+}
+
+* html .zpFormWinxp legend{
+        margin-bottom: 10px;
+}
+
+.zpFormWinxp select {
+        background-color:#FFFFFF;
+        border:1px solid #7F9DB9;
+        margin-bottom: 5px;
+}
+
+.zpFormWinxp_multiple{ height:100px !important;} 
+                              /* Dropdown styles */
+.zpFormWinxp .dropDownArrow { /* All Browsers */
+        background-image: url(winxp/down_arrow.gif);
+        padding:9px 9px; 
+        padding-top:12px;
+        background-repeat: no-repeat;
+        margin-left:-1px;
+        display: inline;
+        cursor: pointer;
+} 
+
+* html .zpFormWinxp .dropDownArrow {  /* IE6 */
+        vertical-align:top; /* important -> don't remove */
+        height: 20px;
+        background-image: url(winxp/down_arrow_hilite.gif);
+        padding: 0px 12px;
+        background-repeat: no-repeat;
+        margin-left:-1px; 
+        margin-top:1px;
+        display: inline-block;
+        cursor: pointer;
+}                                   
+
+*+html .zpFormWinxp .dropDownArrow {  /* IE7 */
+        margin-top:1px;
+        vertical-align:top !important;
+        height: 20px;
+        background-image: url(winxp/down_arrow.gif);
+        padding: 0px 12px;
+        background-repeat: no-repeat;
+        margin-left:-1px;
+        display: inline-block;
+        cursor: pointer;
+} 
+
+.zpFormWinxp .dropDownArrow:hover,
+.zpFormWinxp .dropDownArrow:active,
+.zpFormWinxp .dropDownArrow:focus { /* All Browsers hover */
+        background-image: url(winxp/down_arrow_hilite.gif);
+} 
+                                /* end of dropdown styles */
+
+
+.zpFormWinxp .fieldError {
+        font-weight: bold;
+}
+
+.zpFormWinxp input {
+   border:1px solid #D6D6D6;
+	height:18px;
+	margin-bottom:4px;
+	padding:2px;
+	width:auto;
+}
+.zpFormWinxp select {
+        border:1px solid #A5A5A5;
+		height:24px;	
+		padding:1px 0 1px 0 ;
+		margin-bottom: 2px;
+        width:270px;
+}
+
+* html .zpFormWinxp input.zpFormRequired { /* fix for IE 6 - fixing width  */
+				width:270px;
+}
+
+
+.zpFormWinxp .zpFormError{ /* text: this field is required style */
+ 		vertical-align:top;
+        color: #F73460;
+        padding: 0px 0 10px 200px;
+        font-weight: normal;
+        display: inline-block;
+	    /*position for error mesage*/
+        position:relative;
+	}
+
+.zpFormWinxp .zpRadioLabel { /* label for checkbox and radio elements */
+        padding-left: 5px;
+        vertical-align:top;
+}
+
+ 
+.zpFormWinxp .zpFormCheckbox { /* checkbox style */
+        border:none !important;
+        padding:0px;
+        margin:0px;
+        width:auto;
+        background:none;
+}
+
+.zpFormWinxp .zpFormRadio {  /* radio style */
+        border:none;
+        padding:0px;
+        margin:0px;
+        width:auto;
+        background:none;
+}
+
+* html .zpFormWinxp .zpFormCheckbox { /* ie6 checkbox style */
+        margin:-3px;
+        width:14px !important;
+        margin:-3px -3px -3px -1px;
+}
+       
+* html .zpFormWinxp .zpFormRadio { /* ie6 radio style */
+        margin:-3px -3px -3px -1px;
+        vertical-align:3%;
+        width:14px !important; 
+}
+
+
+*+html .zpFormWinxp .zpFormCheckbox { /* ie7 checkbox style */
+        margin:-3px;
+}
+       
+*+html .zpFormWinxp .zpFormRadio { /* ie7 radio style */
+        margin:-3px;
+        vertical-align:3%;
+}
+
+.zpFormWinxp .zpWrongValue{ /* highlighting field when trying to input not allowed symbol */
+        background-color: #EA888C !important;
+}

@@ -1,0 +1,81 @@
+<?php
+@ini_set('memory_limit', '128M');
+define ( "DEBUG", 0 );
+error_reporting ( E_CORE_ERROR );
+//константы
+define ( 'SLASH', '/' );
+define ( 'DOC_ROOT', $_SERVER ['DOCUMENT_ROOT'] );
+/*$dblocation = '77.120.115.198';
+		$dbname = "alfabrok_db";
+	$dbuser = "alfabrok07102010";
+	$dbpasswd = "tyKNtGEj";
+	*/
+$dblocation = 'localhost';
+$dbname = "alfabrok";
+$dbuser = "u_alfabrok";
+$dbpasswd = "jb1qli0O";
+#	таблици БД
+#	каталог файлов, структура сайта, тексты, описание страниц
+$tbl_pages = 'pages';
+#каталог недвижимости
+$tbl_im = 'immovables';
+#список характеристик недвижимости
+$tbl_im_pl = 'im_properties_list';
+#значение характеристик
+$tbl_im_pi = 'im_properties_info';
+#фото недвижимости
+$tbl_im_ph = 'immovables_photos';
+$tbl_im_ph_label = 'im_photo_label';
+#Описание недвижимости
+$tbl_im_su = 'immovables_summary';
+#недвижимости
+$tbl_im_link = 'im_links';
+#недвижимости
+$tbl_im_text = 'im_texts';
+#видео недвижимости
+$tbl_im_vi = 'immovables_videos';
+#	словарь
+$tbl_dictionaries = 'dictionaries';
+#	список словарей
+$tbl_list_dictionaries = 'list_dictionaries';
+
+#каталог услуг
+$tbl_service = 'service_catalog';
+#partner
+$tbl_partner = 'partner';
+#guestbook
+$tbl_guestbook = 'guestbook';
+#news
+$tbl_news = 'news';
+#пользователи сайта
+$tbl_user_site = 'users_site';
+#Избранная недвиж	
+$tbl_user_if = 'user_favorites';
+#подписки пользователя	
+$tbl_user_subs = 'users_subscription';
+
+#каталог продукции
+$tbl_cp = 'catalog_position';
+$tbl_cs = 'catalog_style';
+
+#доступ к админ панели
+$tbl_accounts = 'system_accounts';
+#кеширование сайта
+$tbl_cache_site = 'cache_site';
+
+// Устанавливаем соединение с базой данных
+$dbcnx = mysql_connect ( $dblocation, $dbuser, $dbpasswd );
+if (! $dbcnx)
+	exit ( "<P>В настоящий момент сервер базы данных не доступен, поэтому корректное отображение страницы невозможно</p>" );
+	// Выбираем базу данных
+if (! @mysql_select_db ( $dbname, $dbcnx ))
+	exit ( "<P>В настоящий момент база данных не доступна,  поэтому корректное отображение страницы невозможно.</P>" );
+@mysql_query ( 'set NAMES utf8' );
+@mysql_query ( 'SET sql_mode=STRICT_ALL_TABLES' );
+
+if (! function_exists ( 'get_magic_quotes_gpc' )) {
+	function get_magic_quotes_gpc() {
+		return false;
+	}
+}
+ini_set ( "memory_limit", "256M" );

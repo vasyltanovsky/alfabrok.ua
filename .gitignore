@@ -123,6 +123,8 @@ DocProject/Help/html
 doc/*
 dis/*
 db/*
+immovables/*
+config.php
 
 # Click-Once directory
 publish/

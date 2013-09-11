@@ -1,0 +1,19 @@
+# www.robotstxt.org/
+# http://code.google.com/web/controlcrawlindex/
+
+User-agent: *
+Disallow: /.cache/
+Disallow: /.settings/
+Disallow: /application/
+Disallow: /build/
+Disallow: /cache_files/
+Disallow: /class/
+Disallow: /config/
+Disallow: /css/
+Disallow: /files/
+Disallow: /jobs/
+Disallow: /js/
+Disallow: /uploads/
+Disallow: /utils/
+Host: alfabrok.ua
+Sitemap: http://alfabrok.ua/sitemap.xml

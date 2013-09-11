@@ -1,0 +1,3 @@
+Справочник Клиентов
+
+TShowPage('DMN_ReferenceCustomers', 'getPage')

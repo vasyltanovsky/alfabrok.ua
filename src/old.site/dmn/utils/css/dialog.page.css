@@ -1,0 +1,119 @@
+@charset "utf-8";
+/* CSS Document */
+.ui-dialog {
+	border: 1px solid #242E3A!important;
+}
+#loading {
+	height:20px;
+	width:100%;
+	padding:5px;
+	background: #FFF url(../images/prelouder/ajax-loader.gif) center center no-repeat;
+	position: fixed;
+	z-index:50;
+	top:0;
+}
+#dialog-page-body {
+	position:absolute;
+	z-index:60;
+	background:url(../images/bg/opacity.png);
+	width:100%;
+	height:100%;
+	top:0;
+	left:0;
+}
+#d-dialog {
+	top:0;
+	position:absolute;
+	z-index:70;
+	text-align:center;
+	width: 80%;
+	vertical-align:top;
+}
+#d-dialog-in {
+	text-align: left;
+	border: 1px solid #242E3A !important;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	background:#FFF;
+	height:90%;
+	width:80%;
+	margin:50px auto;
+	min-height:400px;
+	
+}
+#d-overflow {
+	overflow:auto;
+}
+/*		TABLE	*/
+ .t-dialog {
+	width:100%;
+}
+.td-dialog-close .ui-dialog-title {
+	float:left;
+	display:inline-block;
+	margin:7px 16px 7px 13px;
+}
+.td-dialog-close .ui-dialog-titlebar-close {
+	float:right;
+	display:inline-block;
+	height:18px;
+	margin:5px 3px 0;
+	padding:1px;
+	width:19px;
+}
+.td-dialog-close .ui-dialog-titlebar-close:hover {
+	background: #242e3a repeat-x;
+	color: #ffffff;
+}
+.td-dialog-close .ui-dialog-titlebar-close span:hover {
+	background-image: url(images/ui-icons_ffffff_256x240.png);
+}
+
+.jqueryForm {
+	margin-bottom:10px;
+}
+
+.jqueryForm  fieldset {
+	border:1px solid #DFDFDF;
+	margin:5px 1px 10px;
+	padding:10px;
+}
+
+.jqueryForm  input {
+	border:1px solid #7F9DB9;
+	margin-bottom:8px;
+}
+
+.jqueryForm  label {
+	float:left;
+	line-height:20px;
+	width:200px;
+}
+.jqueryForm  fieldset legend{
+	color:#666666;
+	padding:0 5px;
+}
+.errOutput {
+	background-color:#C70032;
+	color:white;
+	display:none;
+	margin-bottom:10px;
+	padding:10px;
+}
+
+.errOutputGood {
+	-moz-border-radius: 2px;
+	display:none;
+	background-color: #DAC237;
+	color: #333;
+	margin-bottom:10px;
+	padding:10px;
+}
+
+.errOutputShow {
+	-moz-border-radius: 2px;
+	background-color:#C70032;
+	color:white;
+	margin-bottom:10px;
+	padding:10px;
+}

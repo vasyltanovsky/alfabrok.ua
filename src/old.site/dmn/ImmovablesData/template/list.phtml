@@ -1,0 +1,42 @@
+<?php if ($Data) : ?>
+<table class="table-list" cellspacing="0" cellpadding="0" border="0">
+	<tr class="headings">
+		<td width="80">Код</td>
+		<td width="150">Изображение</td>
+		<td width="">Адрес (Улица)/Описание</td>
+		<td width="140">Аренда/ Продажа/ Топ</td>
+		<td width="70">Отображать</td>
+		<td width="200"></td>
+	</tr>
+	<tbody>
+		
+		<?php foreach ( $Data as $key => $value ) : ?>
+		<tr>
+			<td><?php echo $value["im_code"];?></td>
+			<td>
+				<?php if($value["im_photo"]) :?>
+					<img width="120" src="/files/images/immovables/si_<?php echo $value["im_photo"];?>.jpg">
+				<?php endif;?>
+			</td>
+			<td>
+			
+				<p><?php echo $dictionaries->buld_table[$value["im_city_id"]]["dict_name"];?>,<?php echo $dictionaries->buld_table[$value["im_area_id"]]["dict_name"];?>,<?php echo $dictionaries->buld_table[$value["im_adress_id"]]["dict_name"];?></p>
+				<p style="font-size: 9px;"><?php echo $value["im_title"];?></p>
+			</td>
+			<td>
+				<img width="16" src="../utils/images/link/001_<?php echo ($value["im_is_rent"] ? "01" : "02");?>.png"> 
+				<img width="16" src="../utils/images/link/001_<?php echo ($value["im_is_sale"] ? "01" : "02");?>.png">  
+				<img width="16" src="../utils/images/link/001_<?php echo ($value["im_is_hot"] ? "01" : "02");?>.png"></td>
+			<td><img width="16" src="../utils/images/link/001_<?php echo ($value["hide"] == "show" ? "01" : "02");?>.png"></td>
+			<td>
+				<a href="/dmn/immovablesPosition/template.data.retention.php?action=getArchive&im_id=1079" target="_blank" title="Скачать архивом">Скачать архивом</a><br/>
+			
+				<a href="/dmn/immovablesPosition/template.data.retention.php?action=getWithoutMark&im_id=1079" target="_blank" title="">Скачать архивом (без лого)</a>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?php else: ?>
+<b>Нет позиций!</b>
+<?php endif; ?>

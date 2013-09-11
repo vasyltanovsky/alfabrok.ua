@@ -1,0 +1,75 @@
+@charset "utf-8";
+/* CSS Document */
+
+body
+{
+	color:#333;
+	font-family:Tahoma;
+	font-size:12px;
+	background: #F9F9F9;
+	height:100%;
+	min-height:100%;
+	padding:0;
+	margin:0;
+}
+.acms{color:#425E66; font:bold 68px/60px Gadget,sans-serif; letter-spacing:-3pt; margin:20px 0 0; padding:0; text-align:center; margin-bottom:20px;}
+.acms span{color:#E4B21E; }
+.acms img{margin-bottom:-5px}
+#header{background:none repeat scroll 0 0 #354A61; height:30px}
+	#header img { margin: 35px 0 0 35px;}
+.SystemName { color:#01458c; font-size:14px; text-align: center; margin-top:25px}	
+	.SystemName span{ font-size:16px; font-weight:bold}
+#login		{ margin:8em auto; width:320px;}
+label 		{ display:block; width:100% !important; font-size:13px !important; color:#777777 !important; padding-left:10px; margin-top:10px;}
+fieldset	{ border:0 !important ; margin:0 !important; padding:0 !important;}
+form {
+	
+	-moz-box-shadow:0 4px 18px #C8C8C8;
+	background:none repeat scroll 0 0 #FFFFFF ;
+	border:1px solid #E5E5E5 ;
+	font-weight:normal;
+	margin-left:8px;
+	padding:10px 12px !important;
+}
+.zpCommonStatusImg{margin:10px 0; padding-right:5px;}
+input
+{
+	background:none repeat scroll 0 0 #FBFBFB !important;
+	border:1px solid #E5E5E5 !important;
+	font-size:24px;
+	margin:2px 6px 0 10px !important;
+	padding:3px;
+	width:260px !important;
+}
+#EnterSubmit{ margin:20px 195px 5px !important;  width:80px !important; cursor:pointer; border:1px solid #133b83 !important; background:#133b83 !important; padding:0 !important; padding:2px 0 5px 0px !important; height:25px !important; font-size:14px !important; color:#FFF !important;}
+#EnterSubmit:hover{border:1px solid #BBBBBB !important; }
+
+.errOutput {
+	background:#FFEBE8;
+	border:1px solid #CC0000;
+	display:none;
+	margin:0 0 20px 10px;
+	padding:10px 0 10px 20px;
+}
+
+#footer
+{
+
+	position:fixed;
+	bottom:0;
+	text-align:center;
+	width:100%;
+	font-size:11px;
+	padding:9px 0;
+	color:#FFF;
+	background:none repeat scroll 0 0 #354A61;
+	
+}
+
+.user-ip
+{
+	float:right;
+	color:white;
+	margin-top:5px;
+	margin-right:20px;
+}

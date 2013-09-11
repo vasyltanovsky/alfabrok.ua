@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /.cache/
+Disallow: /.settings/
+Disallow: /class/
+Disallow: /config/
+Disallow: /files/

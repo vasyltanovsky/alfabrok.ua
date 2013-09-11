@@ -1,0 +1,78 @@
+@charset "utf-8";
+/* CSS Document */
+.TableListLogo {width:100%;}
+.TableListLogo td {padding:5px 5px 5px 5px; border-right:1px solid #A5A5A5; border-bottom:1px solid #A5A5A5;}
+.TdListLogoNoRight { border-right:none !important;}
+.TdListLogoALignCenter {text-align: left; padding:3px 0 0 3px}
+.TablePhotoListPhotoUserAdd {  width:180px; float:left; margin:0 5px 5px 0; border:1px solid  #A5A5A5; -moz-border-radius: 4px 4px 4px 4px;}
+.TdListLogoATypePhoto {padding:3px 5px}
+#DivFormAddLogo{ border:1px solid  #3A7BEE; margin:0 10px 10px 0; padding:0 0 10px 10px}
+	.DivFormAddLogoH{color:#5A5A5A; margin:5px 0;padding:0; font-size:18px;}
+	#DivFormAddLogo textarea{ width:200px;}
+	#DivFormAddLogo input{ width:200px;}
+	#submitImg{width:100px !important; background:url(http://img.alfabrok.loc/files/images/bg/form_btn.png) center left no-repeat; border:none; color:#FFF; padding:4px 0; cursor:pointer} 
+	
+#UserAddLogoErrorRequery{background:#C00;  margin:0 10px 10px 0;}	
+	#UserAddLogoErrorRequery p{padding:5px; color:#FFF; font-weight:bold;}
+	
+#submitAdd{display:block; padding:5px 0 5px 25px; background: url(http://img.alfabrok.loc/files/images/bg/add_logo_bg.png) left center no-repeat}	
+
+.UserImFavoritesId{ display:block; background: url(http://img.alfabrok.loc/files/images/bg/icons2_11.png) left center no-repeat; padding-left:25px; margin-top:10px;}
+
+
+.UserCabinetMenu { width:155px; padding-top:5px; padding-right:10px;}
+	.UPL { display:block; padding-left:22px; margin-bottom:5px;}
+		.AUFavorites{ background:url(http://img.alfabrok.loc/files/images/bg/icons2_11.png) center left no-repeat;}
+		.AUSubs{ background: url(http://img.alfabrok.loc/files/images/bg/submitMailFrient_l.png) center left no-repeat;}
+		.AUimadd{ background: url(http://img.alfabrok.loc/files/images/bg/icons2_10_l.png) center left no-repeat;}
+		.AUorder{ background:url(http://img.alfabrok.loc/files/images/bg/icons2_06_l.png) center left no-repeat;}
+.UserTSCPTdCenter {padding:0 10px 0 0;}
+	.UserTSCPTdCenter ul{ margin:0 auto; padding:0 15px;}
+
+.UserTSCPTdTop { width:300px;}
+
+	.DivAddImUser{ width:100%; margin-bottom:10px;  }	
+		.DivAddImUser div { display:inline-block; width:24%;}
+		.DivAddImUser div p { margin:5px 10px;}
+		.DivAddImActive{ background: url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png) repeat-x scroll 50% 50%; border:1px solid #FED22F;
+color:#363636;}
+		.DivAddImNActive{ background: url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) repeat-x scroll 50% 50% #E6E6E6 !important;border:1px solid #DDDDDD;}
+
+	.UAddSome{ display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px 3px 25px; position:relative;
+text-decoration:none; margin-bottom:10px;}
+	.UAddSome span {position:absolute; margin-left:-20px}
+	.UAddSome:hover {border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333;}
+	
+	.UAddSomeImportant{ display:inline-block;  border: 1px solid #dddddd; background: url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png) repeat-x scroll 50% 50% transparent; color: #FFF; cursor:pointer; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px 3px 25px; position:relative;
+text-decoration:none; margin-bottom:10px;}
+	.UAddSomeImportant span {position:absolute; margin-left:-20px}
+	
+#FormAddImgIm { background:url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) repeat-x scroll 50% top #EEECEC; border:1px solid #DDDDDD; padding:10px 0 10px 10px; margin-top:0px; margin-bottom:10px} 
+#FormImAddSum {  margin-top:10px; margin-bottom:10px} 
+.eventFormLang a{ margin-right:5px;}
+
+#FormAddImgIm input, select, file {
+background:none repeat scroll 0 0 #FFFFFF;
+border:1px solid #D5D5D5;
+color:#000000;
+margin-bottom:2px;
+padding:2px;
+width:150px;}
+
+/*	SUBS 	*/
+#DivAddSubsFirstStep { vertical-align:top!important; }
+	#RadioImCatalogId { display:inline-block; width:300px; margin-right:20px; float:left}
+		#RadioImCatalogId div { margin-bottom:10px;}
+	#RadioImRS {display:inline-block; width:300px; margin-top:0; float:left}
+		#RadioImRS div { margin-bottom:10px;}
+#DivAddSubsSecondStep { margin-top:10px;}
+	.SubsAdPropFormBg { background: url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) repeat-x scroll 50% top #EEECEC; padding:10px 0 10px 10px; border:1px solid #DDDDDD}
+
+#SubsResult {display:none}
+#SubsSbtIm {margin-top:10px;display:none}	
+
+	.TdSubsListDate { width:100px;}
+	.TdSubsListCatalog{ text-align:left !important}
+	.TdSubsListDell{ width:150px;}
+		.TdSubsListDell a { margin-bottom:0 !important;}
+/*	SUBS 	*/

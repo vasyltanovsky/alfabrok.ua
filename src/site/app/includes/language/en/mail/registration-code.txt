@@ -1,0 +1,10 @@
+Subject: Registration on the site Sport Maroc Development
+
+Hello #user#!
+------------------------------
+You are registered on the site Sport Maroc Development!
+To confirm registration please go to <a href="#link#">confirm link</a>.
+------------------------------
+Thank you.
+
+

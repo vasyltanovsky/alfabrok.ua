@@ -1,0 +1,1 @@
+<?php require_once("application/includes/map_city/citys.check.array.php");

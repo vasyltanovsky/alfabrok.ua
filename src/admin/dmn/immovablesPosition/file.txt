@@ -1,0 +1,2 @@
+INSERT INTO immovables_photos (`im_photo_id`, `im_photo_type`, `im_id`, `im_photo_order`, `im_file_type`) VALUES
+													 	('50c98a33ebfcd', '4c5a97c04ffa1', 2628, 27, 'jpg');;;;

@@ -1,0 +1,29 @@
+@charset "utf-8";
+/* CSS Document */
+div.DivListServiceIndex{width:16%; display:inline-block; text-align:center; padding:10px 0; vertical-align:top}
+div.DivListServiceIndex{display:inline}
+div.DivCenterPage>div.DivListServiceIndex{display:inline-block}
+div.DivListServiceIndex a { display:block}
+div.DivListServiceIndex img {}
+
+.DivServiceBlock {}
+	.HServiceTitle { margin:0; font-size:14px }
+	.DivServiceDescBlock {}
+
+/*	SERVICE SITE	*/
+.DivServiceSiteHeader {	background:url(../files/images/bg/bgDivAll.png) top left repeat-x; border:2px solid #E5E5E5; padding:0 0 5px  7px; text-align:center}
+	
+	.DivServiceSiteHeader ul {padding:0 10px; margin:0 auto}
+
+	.TableStandartSS { width:100% }
+		.TableStandartSS td { padding:0 0 10px 0}
+		.DivServiceSiteHeader h3 { font-size:14px; font-weight: normal; margin-top:2px; color:#292929; margin-bottom:10px;}
+		.TdSSFree {width:50%; }
+		.TdSSFreePadding {padding-right:10px !important; padding-left:10px !important;}
+		.DivServiceSiteListA { text-align:left; vertical-align:top; height:210px;}
+
+	.TablaPropListSS { width:270px; border:1px solid #F9F0E9; margin:0 10px 4px 0; display: inline-block}
+		.TablePropAdvasedTdTextSS { vertical-align: inherit !important; padding:0 5px!important;}
+	.TableSSIn {}
+		.TableSSInImg {}		
+		.TableSSInText { padding:10px 10px 0 10px!important; }

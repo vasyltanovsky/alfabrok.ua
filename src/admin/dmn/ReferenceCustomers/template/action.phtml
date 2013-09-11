@@ -1,0 +1,52 @@
+<div id="d-filter">
+	<h3>Фильтр страницы</h3>
+	<form action="" method="POST" id="pageFormSearch">
+		<ul>
+			<li>
+				<label>ФИО</label><br />
+				<input class="ui-autocomplete-input FormSearchInputText" type="text" name="rc_fio" id="rc_fio"/> 
+			</li>
+			<li>
+				<label>Телефон</label><br />
+				<input class="ui-autocomplete-input FormSearchInputText" type="text" name="rc_tel" id="rc_tel"/> 
+			</li>
+			<!-- <li>
+				<label>Текст с описания</label><br />
+				<input class="ui-autocomplete-input FormSearchInputText" type="text" name="rc_summary" id="rc_summary"/> 
+			</li>  -->
+			<li>
+				<label>Тип клиента</label><br />
+				<select class="d-filter-select"  name="type_id">
+					<option value="">не выбрано</option>
+					<?php echo sel_parent_id($TypeDict, $type_id, 'dict_id', 'dict_name'); ?>
+				</select>
+			</li>
+		</ul>
+		<button style="" onclick="TSearchForm('DMN_ReferenceCustomers', 'getPage');" class="d-filter-button-search ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" id=""><span>Применить</span></button>
+	</form>
+</div>
+
+<div class="eventForm">
+	<a href="#" onclick="TAddSpecialCode('DMN_ReferenceCustomers', 'getItem');" class="ui-state-default ui-corner-all bottom-padding" title="Добавить" id="submitAdd"><span class="ui-icon ui-icon-plus"></span>Добавить</a> 
+	<!-- 
+	<a href="#" onclick="TAddSpecialCode('DMN_Places', 'getPlace');" class="ui-state-default ui-corner-all bottom-padding" title="редактировать пункт &laquo;Каталогa&raquo;" id="submitEdit"><span class="ui-icon ui-icon-pencil"></span>редактировать пункт</a> 
+	<a href="#" onclick="TAddSpecialCode('DMN_Places', 'dellPlace');" class="ui-state-default ui-corner-all bottom-padding" title="удалить пункт &laquo;Каталогa&raquo;" id="submitDell"><span class="ui-icon ui-icon-trash"></span>удалить пункт</a></div>
+	-->
+</div>
+
+<script type="text/javascript">
+$(document).ready(function(){
+	$( "#rc_fio" ).autocomplete({
+		source: "../t-ajax.php?zone=dmn&cont=DMN_ReferenceCustomers&action=getPageJson&dataType=json&field_name=rc_fio",
+		minLength: 2
+	});
+	$( "#rc_tel" ).autocomplete({
+		source: "../t-ajax.php?zone=dmn&cont=DMN_ReferenceCustomers&action=getPageJson&dataType=json&field_name=rc_tel",
+		minLength: 2
+	});
+	$( "#rc_summary" ).autocomplete({
+		source: "../t-ajax.php?zone=dmn&cont=DMN_ReferenceCustomers&action=getPageJson&dataType=json&field_name=rc_summary",
+		minLength: 2
+	});
+});
+</script>	

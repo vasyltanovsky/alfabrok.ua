@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.HeaderPage{ width:900px; margin:0 auto; background:url(../files/images/bg/header_bg.png) top left no-repeat; height:134px;}
+	.Headerlogo{ float:left; width:20%;}
+	.Headerlogo img{ border:none}
+	.Headerlogo a {border:none}
+.HeaderMenu{width:900px; margin:0 auto; background:url(../files/images/bg/menu_bg.png) top left repeat-x; height:36px}
+	.HeaderMenu a{ display:inline-block; width:auto; padding:9px 13px 7px 13px; height:20px; background:url(../files/images/bg/menu_right-border.png) right top repeat-y; text-decoration:none; color:#5a5a5a; font-weight:bold}
+	.HeaderMenu a:hover{ background:url(../files/images/bg/menu_a_a.png) top right;}
+	.MenuTopActive{ background:url(../files/images/bg/menu_a_a.png) top right !important;} 
+
+	.HeaderUserEnter{ width:420px; float:right; padding-top:0; text-align:right}
+		#login {margin-top:5px;}
+		.HeaderUserEnter fieldset {margin:0px !important; padding:0px !important;}
+		.HeaderUserEnter label {width:50px !important; }
+		.EntSbt {background: url(../files/images/bg/btn_form_enter.png) top left no-repeat !important; border:0px !important ;  padding:6px 0 0 6px !important; line-height:20px !important; height:20px !important;  margin-bottom:0 !important}
+		.HeaderUserEnter input {width:80px !important; border:1px solid #A5A5A5; height:16px !important; margin-bottom:6px !important; padding:3px 0 0 6px !important;}
+		.HeaderUserEnter span { display:inline-block; font-weight:normal; padding-left:0 !important;position:relative; margin-top:-30px !important; vertical-align:top;}
+		.errOutputEnter{position:absolute; margin-top:32px; margin-bottom:10px; margin-left:65px; color:#F00; font-weight:normal; padding-left:40px; background: #FFF url(../files/images/bg/error_enter_znak.png) top left no-repeat; text-align:left;}
+		.LinkRegUser{display:inline-block; width:auto; background:none!important; padding:1px 0 0 0!important; height:20px!important; color:#3a7bee!important; text-decoration:underline !important; font-weight: normal!important}
+		

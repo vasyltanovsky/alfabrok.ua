@@ -1,0 +1,18 @@
+@charset "utf-8";
+/* CSS Document */
+body { color: #333; font-family: Tahoma, Geneva, sans-serif; line-height:1.4; font-size:12px; padding: 0; margin: 0; background: url(../files/images/bg/bg_top.png) top left repeat-x; }
+
+p {	margin:5px 0px 0px 0px; line-height:18px; padding-right:5px;}
+
+a {	text-decoration: underline; color: #3A7BEE;}
+a:hover { text-decoration:none; color: #ebb923;}
+a:focus { outline: none;-moz-outline-style: none;}
+h1{font-size:20px; font-weight:normal}
+table,table td { vertical-align:top; text-align:left; }
+
+.clear { clear:both; font-size:1px; height:1px; line-height:1px; min-height:1px; width:100%; }
+
+.AlinkSubmit {padding:2px 10px; width:100px; text-align: center; text-decoration:none}
+
+#Preloader {background: url(../files/images/preloader/ajax-loader.gif) center center no-repeat; z-index:100; top:0; left:0; position:absolute; width:95%; height:95%; display:none;} 
+#PreloaderM {background:url(../files/images/preloader/ajax-loader_mini.gif) center center no-repeat; width:16px; height:16px; position: absolute; display:none }

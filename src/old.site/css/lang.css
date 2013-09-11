@@ -1,0 +1,66 @@
+@charset "windows-1251";
+/* CSS Document */
+
+/**************		FORM LANGUAGE	********************/
+	.d-lang
+	{
+		margin-top:-1px;
+		float:right;
+		width:80px;
+		position: relative;
+		display:inline-block;
+		vertical-align:middle;
+	}
+	.d-lang input
+	{
+		border: 1px solid #FFF;
+		font-size: 0px;
+		cursor: pointer;
+		margin-top:3px;
+	}
+	
+	.input-rus
+	{
+		width:22px;
+		height: 20px;
+		background: url(../files/images/flag/flag-rus.png) center center;
+		margin-right:3px;
+	}
+	.input-rus-d
+	{
+		width:22px;
+		height: 20px;
+		background: url(../files/images/flag/flag-rus-d.png) center center;
+		margin-right:3px;
+	}
+	.input-ukr
+	{	
+		width:22px;
+		height: 20px;
+		background: url(../files/images/flag/flag-ukr.png) center center;
+		margin-right:3px;
+		
+	}
+	.input-ukr-d
+	{	
+		width:22px;
+		height: 20px;
+		background: url(../files/images/flag/flag-ukr-d.png) center center;
+		margin-right:3px;
+		
+	}
+	.input-eng
+	{
+		width:22px;
+		height: 20px;
+		background: url(../files/images/flag/flag-eng.png) center center;
+		margin-right:3px;
+	}
+	.input-eng-d
+	{
+		width:22px;
+		height: 20px;
+		background:  url(../files/images/flag/flag-eng-d.png) center center;
+		margin-right:3px;
+	}
+	/**************		FORM LANGUAGE	********************/

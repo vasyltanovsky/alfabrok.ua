@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href=""?>
+<words>
+	<GoToMain>Home </GoToMain>
+	<CompaniName>MD Group</CompaniName>
+	<CompaniLogo>MD Group</CompaniLogo>
+	<FOOTER_COPY_TEXT>All rights reserved</FOOTER_COPY_TEXT>
+	<ALINK_IN_RU>Rus</ALINK_IN_RU>
+	<ALINK_IN_EN>Eng</ALINK_IN_EN>
+	<ALINK_IN_UA>Укр</ALINK_IN_UA>
+	<BACK>Back</BACK>
+	<SEARCH_INT_CODE></SEARCH_INT_CODE>
+	<SEARCH_TBM>Search</SEARCH_TBM>
+	<INDEX>Home</INDEX>
+	<PARTNERS>Partners </PARTNERS>
+	<SITEMAP>Site map </SITEMAP>
+	<copyright> 2002-2012 MD Group. All rights reserved.</copyright>
+	
+	<!--  errors -->
+	<HADLER_PAGE_ERROR_TITLE>Error accessing page! 
+	</HADLER_PAGE_ERROR_TITLE>
+	<no_position_news>No news </no_position_news>
+	<no_position_vacance>No vacancies </no_position_vacance>
+	
+	<TOO_TOP_PAGE>Up </TOO_TOP_PAGE>
+	<TOO_TOP_PAGE_TITLE>To move to the top of the page back to sort by all fill in the request 
+	</TOO_TOP_PAGE_TITLE>
+	
+	<back>back</back>
+	<backScript></backScript>
+	
+	<!-- vacancii -->
+	<vacanciiSortOrder>sort by </vacanciiSortOrder>
+	<vacanciiSortOrderAll>all</vacanciiSortOrderAll>
+	<fillOutAnApplication>fill in the request </fillOutAnApplication>
+	
+	<!-- shops -->
+	<shopsStore>Store-Locator </shopsStore>
+	<shopsPanorama>Panorama</shopsPanorama>
+	
+	<!-- social -->
+	<socialFLink></socialFLink>
+	<socialTLink></socialTLink>
+	<socialVLink></socialVLink>
+	<socialF></socialF>
+	<socialT></socialT>
+	<socialV></socialV>
+	
+	<!--  brend_about -->
+	<brend_about>About brand </brend_about>
+	<!--  forms -->
+	<lastname>Last name</lastname>
+	<name>Name</name>
+	<middlename>Middle name</middlename>
+	<dateofbirth>Date of birth </dateofbirth>
+	<city>City </city>
+	<education>Education </education>
+	<experience>Experience </experience>
+	<homephone>Home phone</homephone>
+	<mobilephone>Mobile phone</mobilephone>
+	<form_anket_msq>Send the application</form_anket_msq>
+	<form_resume>Attach resume</form_resume>
+	<lastname_error>Specify\ last\ name</lastname_error>
+	<name_error>Specify\ имя</name_error>
+	<middlename_error>Specify\ отчество</middlename_error>
+	<dateofbirth_error>Specify\ дату\ рождения</dateofbirth_error>
+	<city_error>Specify\ город</city_error>
+	<education_error>Specify\ education</education_error>
+	<experience_error>Specify\ experience</experience_error>
+	<homephone_error>Specify\ home\ phone</homephone_error>
+	<mobilephone_error>Specify\ mobile\ phone</mobilephone_error>
+	<form_anket_msq_error>Send\ application </form_anket_msq_error>
+	<form_resume_error>Attach resume</form_resume_error>
+	<VacanceSend>Message send.</VacanceSend>
+	<form_email_req_err_error>Enter\ correct\ E-mail</form_email_req_err_error>
+	
+	<!-- mesages -->
+	<form_message_title>Title</form_message_title>
+	<form_message_text>Summary</form_message_text>
+	<form_message_send>Send</form_message_send>
+	<form_message_save_success>Message send</form_message_save_success>
+	
+	<!--  news  -->
+	<all_news>All news</all_news>
+</words>

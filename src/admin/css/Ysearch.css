@@ -1,0 +1,130 @@
+@charset "utf-8";
+/* CSS Document */
+.DivYMapPageFull { width:100%; z-index: 400; position:absolute; top:0px;  left:0; background:#FFF; padding-bottom:10px; }
+.TableIndexPagefull { width:96%!important; margin-left:2%;}
+/*	*/
+#divYSearchAdress { background: #808080; padding:8px 10px;}
+	#divYSearchAdress p { margin:0; color:#FFF}
+	#divYSearchAdress .help {}
+	#formYSearchAdress { margin:2px 0 }
+		#fieldYSearchAdress { width:915px; padding:3px 0; border:1px solid #808080}
+		#btmYSearchAdress { padding:3px; cursor:pointer; background:url("images/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent; color:#FFF; border:0; }
+	#divYSearchAdress .example {}	
+/*	*/
+.YMapTitle { color: #808080; margin: 10px 0 10px; padding: 0 0 0 0; float:left}
+#yLoading { position: absolute; z-index: 500; width: 150px; height: 26px; background: #FFF url(../files/images/preloader/ajax-loader.gif) center center no-repeat;  display: none; margin-left: 225px; }	
+#TdYMap {}
+
+a.hideFullScreen { float:right; display:block; margin:15px 5px 0 0; display:none }
+a.showFullScreen { padding: 2px 3px 3px 3px;  text-decoration: none; border:1px solid #FFF; background:#808080; color:#FFF; margin:3px 0 3px; display:block; width:127px; font-size:13px;    }
+a.showFullScreen span { display:block; height: 16px; width: 16px; position: relative;  background-position: -16px -80px; float:left; background-image: url(base/images/ui-icons_ffffff_256x240.png); overflow: hidden; text-indent: -99999px; margin:2px 3px -1px 0;  }
+a.showFullScreen:hover { border:1px solid #808080}
+
+span.clean { color:#3A7BEE; padding: 2px 3px 0px 3px;  text-decoration: none; border-bottom:1px dotted #3A7BEE; margin:3px 0 3px; display:block; width:220px; font-size:13px;    }
+span.clean span { display:block; height: 16px; width: 16px; position: relative;  background-position: -64px -80px; float:left; background-image: url(base/images/ui-icons_2e83ff_256x240.png); overflow: hidden; text-indent: -99999px; margin-right:3px;  }
+
+#hideHelp { color:#3A7BEE; padding: 2px 3px 0px 3px;  text-decoration: none; border-bottom:1px dotted #3A7BEE; margin:3px 0 3px; display:block; width:130px; font-size:13px;    }
+#hideHelp span { display:block; height: 16px; width: 16px; position: relative;  background-position: -48px -144px; float:left; background-image: url(base/images/ui-icons_2e83ff_256x240.png); overflow: hidden; text-indent: -99999px; margin:0 3px -1px 0;  }
+#showHelp { color:#3A7BEE; padding: 2px 3px 0px 3px;  text-decoration: none; border-bottom:1px dotted #3A7BEE; margin:3px 0 3px; display:block; width:140px; font-size:13px; display:none     }
+#showHelp span { display:block; height: 16px; width: 16px; position: relative;  background-position: -48px -144px; float:left; background-image: url(base/images/ui-icons_2e83ff_256x240.png); overflow: hidden; text-indent: -99999px; margin:0 3px -1px 0; }
+
+#hideInfra { color:#3A7BEE; padding: 2px 3px 0px 3px;  text-decoration: none; border-bottom:1px dotted #3A7BEE; margin:3px 0 3px; display:block; width:165px; font-size:13px; display:none    }
+#hideInfra span { display:block; height: 16px; width: 16px; position: relative;  background-position: 0 -112px; float:left; background-image: url(base/images/ui-icons_2e83ff_256x240.png); overflow: hidden; text-indent: -99999px; margin:0 3px -1px 0;  }
+#showInfra { color:#3A7BEE; padding: 2px 3px 0px 3px;  text-decoration: none; border-bottom:1px dotted #3A7BEE; margin:3px 0 3px; display:block; width:175px; font-size:13px;     }
+#showInfra span { display:block; height: 16px; width: 16px; position: relative;  background-position: 0 -112px; float:left; background-image: url(base/images/ui-icons_2e83ff_256x240.png); overflow: hidden; text-indent: -99999px; margin:0 3px -1px 0; }
+
+
+span.clean, #hideHelp, #showHelp, #showInfra, #hideInfra { cursor:pointer; color: #3A7BEE}
+span.clean:hover, #hideHelp:hover, #showHelp:hover, #showInfra:hover, #hideInfra:hover { color: #EBB923}
+
+/*	*/
+#indexYMap { border:1px solid #808080}
+/*	*/
+#TdYMapForm { width:250px; border:1px solid #B7B8BC; padding:0 10px 10px 10px}
+	#TdYMapForm hr { color:#B7B8BC; background:#B7B8BC; border: none; height:1px; margin-top:10px; }
+	#TdYMapForm .title{ color: #808080; margin: 5px 0 0; padding: 0 0 0 0;}
+	#TdYMapForm .RealEstateAds{ margin:10px 0 5px 0; font-weight:bold; color:#808080}
+	
+	#TdYMapForm .link{ display:block;}
+		#CountSearchIm { margin:10px 0 0 0; font-weight:bold; color:#EBB923; display:none; }
+	#formYMapSearch {}
+		#formYMapSearch .fDiv { margin-top:5px; }
+			.lName { display:block; margin-bottom:2px;} 
+			.lMin { width:20px; margin-right:5px; float:left;}
+		 	.fMin { width:70px; float:left; margin-right:10px; border: 1px solid #D5D5D5; font-size:11px; padding:2px;}
+		#accYMapSearchTypeIm { width:240px; margin-bottom:10px;}
+			#accYMapSearchTypeIm .fDiv { margin-left:5px;}
+			#accYMapSearchTypeIm .ui-helper-reset {line-height:1.4}
+			#accYMapSearchTypeIm .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {background:none; border:none;}
+			#accYMapSearchTypeIm .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active {background:none; border:none;}
+			#accYMapSearchTypeIm .ui-widget-content {background:none; border:none; padding:5px 0 5px 10px!important}
+			/*#accYMapSearchTypeIm .ui-icon { left:0px!important}	
+			*/
+			#accYMapSearchTypeIm .ui-accordion-header a { padding-left:0em; line-height:0.6!important}
+			#accYMapSearchTypeIm .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {text-decoration:none; color:#ebb923; font-weight:normal;}
+			#accYMapSearchTypeIm .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { font-weight:normal; color:#3A7BEE; text-decoration:underline; padding:0 0 0 2.2.em}
+			#accYMapSearchTypeIm .ui-state-hover a{text-decoration:none; color:#ebb923;}
+			
+			#accPosImLinkFlat {}
+				#accPosImLinkFlat .ui-icon-ymap-arrow-s{}
+				#accPosImLinkFlat .ui-icon-ymap-arrow-e{}
+			#accPosImLinkCommercial {}
+				#accPosImLinkCommercial .ui-icon-ymap-arrow-s{}
+				#accPosImLinkCommercial .ui-icon-ymap-arrow-e{}
+			#accPosImLinkHome {}
+				#accPosImLinkHome .ui-icon-ymap-arrow-s{}
+				#accPosImLinkHome .ui-icon-ymap-arrow-e{}
+			#accPosImLinkBuildings {}
+				#accPosImLinkBuildings .ui-icon-ymap-arrow-s{}
+				#accPosImLinkBuildings .ui-icon-ymap-arrow-e{}
+			#accPosImLinkLand { }
+				#accPosImLinkLand .ui-icon-ymap-arrow-s{}
+				#accPosImLinkLand .ui-icon-ymap-arrow-e{}	
+			#btmYMapSearch { display:block; padding:5px 5px; margin:0 0 10px 0;  font-size:14px; text-align:center; text-decoration:none; cursor:pointer; background:url("images/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent; color:#FFF; border:0; }
+	
+	
+	.yTable { font-size:12px; width:255px;}
+	.yTable td { text-align:left}
+	.yTableTdImg { width:165px; }
+	.yTableTdImg img { width:160px;}
+	.yImProp img { width:40px; }
+	.yTable p { margin:0 0 0 0; padding:0; line-height:14px;}
+	.yTable	.yImSI {}
+	.yTable	.yImSI span { color:#666}
+	.yTable	.yImTitle {}
+	.yTable	.yImPrice {}
+	.yTable	.yImPrice span{}
+	.yTable	.yImPrice .ImSpanPrice { display:block; width:auto!important; background:none; font-size:12px; line-height:15px; font-weight:bold; padding:0!important; text-align:left; color:#EBB923}
+	.yTable .yImPriceM { display:block; width:auto!important; background:none; font-size:11px; font-weight:bold; padding:0!important; text-align:left; color:#EBB923}
+	.yTable .yImPriceD { display:block; width:auto!important; background:none; font-size:11px; font-weight:bold; padding:0!important; text-align:left; color:#EBB923}
+	.yTable .yImPriceM span { color:#666; font-weight:normal}
+	.yTable .yImPriceD span { color:#666; font-weight:normal}
+	.yTable	.yImAdress { color:#666; padding:5px 0 0 0; }
+
+	.yGroupIm .yTable { margin-bottom:5px; border-bottom:1px solid #dfdfdf; width: 225px; }
+	.yGroupIm .yImLink { padding-bottom: 4px;}
+	
+	.AYReadMore, .AYPanorama {  border: 1px solid #FFFFFF; display: block; margin: 0 0; padding: 0px 3px 1px; }
+	.AYPanorama span {  background-image: url(../files/images/bg/yPanorama.png); background-position: 17px 0;  display: block;  float: left;  height: 16px;  margin: 0px 3px -1px 0;  overflow: hidden; position: relative;  text-indent: -99999px; width: 16px;}
+	/*.AYPanorama:hover span {  background-image: url(../files/images/bg/yPanorama.png); background-position: 0 0!important; }*/
+	.AYReadMore span { background-image: url("base/images/ui-icons_2e83ff_256x240.png"); background-position: -208px -128px;  display: block;  float: left;  height: 16px;  margin: 0px 3px -1px 0;  overflow: hidden; position: relative;  text-indent: -99999px; width: 16px;}
+	.AYReadMore { margin-top: 5px;}
+/*	.YMaps-b-balloon-content {width:270px!important;}
+/*	*/
+#YHelp { position:absolute; z-index:399; }
+	#YHelpTypeObject { margin:20px; padding:20px; background:#fff; display:none }
+	#YHelpTypeObject .title{ color:#808080; margin:0 0 10px 0; padding:0; font-size:18px;  }
+	#YHelpTypeObject .list{ font-size:11px;}
+	#YHelpTypeObject .list .pos{ display:inline-block; width:120px; float:left; margin-right:4px;}
+	#YHelpTypeObject .list .pos a{ display:block; margin:0 0 5px 0; font-size:12px; }
+	#YHelpTypeObject .list .pos p{ line-height:13px}
+/*	*/
+	#aShowPanorama { color:#FFF; text-decoration:none; cursor:pointer; position:absolute; z-index:500; margin:5px 0 -35px 105px; display:block; width:80px; padding:4px 3px; background: url("images/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent; border:1px solid #999;  }
+	#aShowPanorama span { margin:1px 3px -2px 0} 
+	#aShowPanorama:hover { text-decoration:none;  border:1px solid #666;  }
+/*	*/
+/*	*/
+/*	*/
+/*	*/
+/*	*/
+/*	*/

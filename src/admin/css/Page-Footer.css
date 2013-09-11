@@ -1,0 +1,11 @@
+@charset "utf-8";
+/* CSS Document */
+.DivFooter{ width:100%; height:59px; padding-top:20px; color:#000; text-align:center; background:url(../files/images/bg/bg_bottom.png) top left repeat-x}
+	.DivFooter img {border:none}
+	.DivFooter div{ float:left; display:inline-block;}
+	.DivFooter div{display:inline}
+	.DivFooterCopy{ padding-top:3px; width:575px; text-align:center}
+	.DivFooterDeveloper{padding-top:3px; padding-right:5px}
+	.DivFooterAlex{padding-right:15px; padding-top:5px}
+	.DivFooterAnd{padding-right:5px; padding-top:3px;}
+	.DivFooterFanArt{}
