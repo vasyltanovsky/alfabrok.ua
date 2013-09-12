@@ -3,12 +3,15 @@ function initLang($langCodeDefault) {
 	$language = new languageClass ( '', $_COOKIE ['lang_code'], $_COOKIE ['lang_id'], $langCodeDefault );
 	$language->do_get_this ( substr ( $_SERVER ['REDIRECT_URL'], 1, 2 ) );
 	
-	if ($language->set_cookie) {
+//if(empty($_COOKIE ['lang_code'])) {
+$language->lang_code = "ru";
+$language->lang_id = 1;
+	//if ($language->set_cookie) {
 		setcookie ( 'lang_code', $language->lang_code, 0, '/' );
 		setcookie ( 'lang_id', $language->lang_id, 0, '/' );
 		$_COOKIE ['lang_code'] = $language->lang_code;
 		$_COOKIE ['lang_id'] = $language->lang_id;
-	}
+//	}
 	
 	try {
 		//обрабатываем xml таблиц БД

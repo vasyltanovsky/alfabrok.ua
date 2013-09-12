@@ -70,7 +70,7 @@ class aControllerClass {
 	function getView($view = null, $backtraceNumber) {
 		$backtrace = debug_backtrace ();
 		if (empty ( $view )) {
-			$this->view .= sprintf ( "%s/%s.php", str_replace ( "Controller", "", $backtrace [$backtraceNumber] ["class"] ), $backtrace [$backtraceNumber] ["function"] );
+			$this->view .= strtolower(sprintf ( "%s/%s.php", str_replace ( "Controller", "", $backtrace [$backtraceNumber] ["class"] ), $backtrace [$backtraceNumber] ["function"] ));
 		} else {
 			$this->view .= sprintf ( "%s.php", $view );
 		}

@@ -394,11 +394,11 @@ RewriteRule ^dmn http://admin.alfabrok.ua [NC,R=301,L]
 
 RewriteRule ^ru/index/index / [NC,R=301,L]
 
-RewriteRule ^([Kk])([0-9]+) /ru/immovables/detailsbycode/flat/$1$2 [NC,R=301,L]   
-RewriteRule ^([Cc])([0-9]+) /ru/immovables/detailsbycode/commercial/$1$2 [NC,R=301,L]
-RewriteRule ^([Hm])([0-9]+) /ru/immovables/detailsbycode/home/$1$2 [NC,R=301,L]
-RewriteRule ^([Mh])([0-9]+) /ru/immovables/detailsbycode/buildings/$1$2 [NC,R=301,L]
-RewriteRule ^([Tt])([0-9]+) /ru/immovables/detailsbycode/land/$1$2
+RewriteRule ^([KkКк])([0-9]+) /ru/immovables/detailsbycode/flat/$1$2 [NC,R=301,L]   
+RewriteRule ^([CcСс])([0-9]+) /ru/immovables/detailsbycode/commercial/$1$2 [NC,R=301,L]
+RewriteRule ^([HhНн])([0-9]+) /ru/immovables/detailsbycode/home/$1$2 [NC,R=301,L]
+RewriteRule ^([MmМм])([0-9]+) /ru/immovables/detailsbycode/buildings/$1$2 [NC,R=301,L]
+RewriteRule ^([TtТт])([0-9]+) /ru/immovables/detailsbycode/land/$1$2
 
 <IfModule mod_rewrite.c>
   RewriteCond %{HTTPS} !=on
@@ -439,7 +439,7 @@ RewriteRule ^([Tt])([0-9]+) /ru/immovables/detailsbycode/land/$1$2
 # <IfModule mod_rewrite.c>
 #   RewriteCond %{REQUEST_FILENAME} !-f
 #   RewriteCond %{REQUEST_FILENAME} !-d
-#   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ $1.$3 [L]
+#   RewriteRule ^(.+)\.(\d+)\.(js|css|png|jpg|gif)$ /files/images/$1.$3 [NC,R=301,L]
 # </IfModule>
 
 

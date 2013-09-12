@@ -4,13 +4,6 @@
 </div>
 <script type="text/javascript">
 	$(document).ready(function(){
-	/*	if($("#4c3eb33182810").attr("checked")){
-			$("#4c3eb33182810_f").show();
-		}
-		if($("#4c3eb33182812").attr("checked")){
-			$("#4c496bd58da0d_f").show();
-		}*/
-		
 		$("body").click(function(e){			
 			if($(e.target).attr("class") != "SearchFormLabelList" && $(e.target).attr("class") != "DivSearchPosition" 
 				//&& $(e.target).attr("id") != "4c3eb33182810"

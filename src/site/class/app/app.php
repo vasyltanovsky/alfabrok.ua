@@ -76,18 +76,21 @@ class appClass {
 	
 	public function formatControllerObject($controller, $action, $param) {
 		try {
+			if (! class_exists ( $controller ))
+				throw new ExceptionObject ( $controller, "\"$controller\" не существует контроллера" );
 			$this->controllerDataObj = new $controller ( );
+			if (! method_exists ( $this->controllerDataObj, $action ))
+				throw new ExceptionObject ( $action, "\"$action\" не существует метода" );
 			$this->controllerDataObj->setResult ( $this->controllerDataObj->$action ( $param ) );
 			$this->appDataObj->setTitle ( $this->controllerDataObj->appDataObj->getTitle () );
 			$this->appDataObj->setKeyw ( $this->controllerDataObj->appDataObj->getKeyw () );
 			$this->appDataObj->setDesc ( $this->controllerDataObj->appDataObj->getDesc () );
-			//devLogs::_printr($this->controllerDataObj);
-		} catch ( Exception $ex ) {
-			throw new ExceptionObject ( $ex, "Ошибка обращения к контроллеру" );
+		} catch ( Exception $exc ) {
+			header ( "HTTP/1.1 301 Moved Permanently" );
+			header ( "Location: http://" . $_SERVER ['HTTP_HOST'] . "/404.html" );
+			exit ();
+			echo ExceptionFullGet::ExcError ( $exc );
 		}
-		//header("HTTP/1.1 301 Moved Permanently"); 
-	//header("Location: http://" . $_SERVER['HTTP_HOST'] . "/404.html"); 
-	//exit();
 	}
 	
 	public function getResult() {

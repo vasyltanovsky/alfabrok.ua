@@ -345,7 +345,7 @@ class ImSiteForm {
 			//echo $PropSelectStart . " im_properties_info fi " . $ReturnQuery . " left join immovables i on fi.im_id = i.im_id " . $this->StandartImQuery . $PropGroupBY;
 			$PropSelectClass = new mysql_select ( 'im_properties_info fi', $ReturnQuery . " left join immovables i on fi.im_id = i.im_id " . $this->StandartImQuery . $PropGroupBY );
 			$PropSelectClass->select_table ( "im_prop_id", NULL, NULL, NULL, $PropSelectStart );
-			$PropSelectArrClass = new functional ( );
+			$PropSelectArrClass = new functionalClass ( );
 			$PropSelectQuery = $PropSelectArrClass->prepare_array_to_select_mor ( $PropSelectClass->table, 'im_id' );
 			
 			if ($PropSelectQuery)
@@ -361,7 +361,7 @@ class ImSiteForm {
 		$provider = new mysql_select ( "" );
 		$provider->select_table_query ( sprintf ( "select i.im_id from immovables i %s %s", $this->StandartImQuery, $query ) );
 		if (count ( $provider->table ) > 0)
-			return functional::prepare_array_to_select_mor ( $provider->table, 'im_id' );
+			return functionalClass::prepare_array_to_select_mor ( $provider->table, 'im_id' );
 		else
 			return FALSE;
 	}

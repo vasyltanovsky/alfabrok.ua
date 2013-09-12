@@ -39,3 +39,4 @@ $routes ['report'] ['printpage'] = array (4 => 'im_id' );
 $routes ['report'] ['word'] = array (4 => 'im_id' );
 $routes ['report'] ['pdf'] = array (4 => 'im_id' );
 $routes ['report'] ['sendtofriend'] = array (4 => 'im_id' );
+$routes ['images'] ['bg'] = array (4 => 'folder', 5 => 'img' );

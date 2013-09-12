@@ -28,19 +28,19 @@ class immovablesController extends aControllerClass {
 		$this->buildDictionaries ();
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
 		$Data = array ();
-		$model->getListHotPrice ( array ("is_hot" => true, "im_catalog_id" => "4c3ec3ec5e9b5", "limit" => 10 ) );
+		$model->getListHotPrice ( array ("is_hot" => true, "hide" => "show", "im_catalog_id" => "4c3ec3ec5e9b5", "limit" => 10 ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array ("is_hot" => true, "im_catalog_id" => "4c3ec3ec5e9b7", "limit" => 10 ) );
+		$model->getListHotPrice ( array ("is_hot" => true, "hide" => "show", "im_catalog_id" => "4c3ec3ec5e9b7", "limit" => 10 ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array ("is_hot" => true, "im_catalog_id" => "4c3ec51d537c0", "limit" => 10 ) );
+		$model->getListHotPrice ( array ("is_hot" => true, "hide" => "show", "im_catalog_id" => "4c3ec51d537c0", "limit" => 10 ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array ("is_hot" => true, "im_catalog_id" => "4c3ec51d537c2", "limit" => 10 ) );
+		$model->getListHotPrice ( array ("is_hot" => true, "hide" => "show", "im_catalog_id" => "4c3ec51d537c2", "limit" => 10 ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array ("is_hot" => true, "im_catalog_id" => "4c3ec51d537c3", "limit" => 10 ) );
+		$model->getListHotPrice ( array ("is_hot" => true, "hide" => "show", "im_catalog_id" => "4c3ec51d537c3", "limit" => 10 ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
 		return $this->partialView ( array ("Data" => $Data, "Dictionaries" => $this->dictionaries, "title" => getLangString ( "ImDivListHeaderHot" ), "cssClass" => "links_block" ), "/immovables/minpricelist" );
@@ -49,65 +49,76 @@ class immovablesController extends aControllerClass {
 		$this->buildDictionaries ();
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
 		$Data = array ();
-		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec3ec5e9b5", "limit" => 15 ) );
+		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec3ec5e9b5", "limit" => 15, "hide" => "show" ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec3ec5e9b7", "limit" => 15 ) );
+		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec3ec5e9b7", "limit" => 15, "hide" => "show" ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec51d537c0", "limit" => 15 ) );
+		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec51d537c0", "limit" => 15, "hide" => "show" ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec51d537c2", "limit" => 15 ) );
+		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec51d537c2", "limit" => 15, "hide" => "show" ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec51d537c3", "limit" => 15 ) );
+		$model->getListHotPrice ( array ("im_catalog_id" => "4c3ec51d537c3", "limit" => 15, "hide" => "show" ) );
 		if ($model->list)
 			$Data = array_merge ( $Data, $model->list );
 		return $this->partialView ( array ("Data" => $Data, "Dictionaries" => $this->dictionaries, "title" => getLangString ( "ImDivListHeaderPrice" ), "cssClass" => "minprice" ), "/immovables/minpricelist" );
 	}
 	public function search($param) {
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables" ) );
-		$model->getItemByCode ( strtoupper ( $param ["id"] ) );
-		if ($model->item) {
-			global $arWords;
-			header ( "HTTP/1.1 301 Moved Permanently" );
-			header ( sprintf ( "Location: http://%s/ru/%s/%s/1/%s", $_SERVER ['HTTP_HOST'], $arWords ["TypeCatImNameArrIdPAge"] [$model->item ["im_catalog_id"]], ($model->item ["im_is_sale"] ? "sale" : "rent"), $model->item ["im_id"] ) );
-			exit ();
+		if (! strpos ( $param ["id"], "," )) {
+			$model->getItemByCode ( strtoupper ( translit ( $param ["id"] ) ) );
+			if ($model->item) {
+				global $arWords;
+				header ( "HTTP/1.1 301 Moved Permanently" );
+				header ( sprintf ( "Location: http://%s/ru/%s/%s/1/%s", $_SERVER ['HTTP_HOST'], $arWords ["TypeCatImNameArrIdPAge"] [$model->item ["im_catalog_id"]], ($model->item ["im_is_sale"] ? "sale" : "rent"), $model->item ["im_id"] ) );
+				exit ();
+			}
 		}
+		$param ["im_codes"] = $model->buildImmovablesCodeForStingToStringQuery ( strtoupper ( $param ["id"] ) );
+		$param ["hide"] = "show";
+		$model->getList ( $param );
+		$model->buildDictionaries ();
+		$paramAll ["im_ids"] = $model->buildImmovablesIdForPropertiesQuery ();
+		$model->getPropertiesList ( $paramAll );
+		$model->buildPropertiesData ();
 		return $this->View ( array ("Model" => $model ) );
 	}
 	public function similarList($param) {
 		$this->buildDictionaries ();
+		$param ["hide"] = "show";
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
-		$model->buildDictionaries();
+		$model->buildDictionaries ();
 		return $this->partialView ( array ("Model" => $model ) );
 	}
 	public function getImmovablesListYmap($param) {
 		set_time_limit ( 10000 );
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
-		$param["hide"] = "show";
-		$param["limit"] = "100";
-		$model->getList($param);
-		$model->getImmovablesListToYmap();
-		return $this->getJson($model->list);
+		$param ["hide"] = "show";
+		$param ["limit"] = "100";
+		$model->getList ( $param );
+		$model->getImmovablesListToYmap ();
+		return $this->getJson ( $model->list );
 	}
 	/*	details	*/
 	public function detailsbycode($param) {
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables" ) );
-		$model->getItemByCode ( $param ["im_code"] );
+		$model->getItemByCode ( strtoupper ( translit ( $param ["im_code"] ) ) );
 		if (! $model->item) {
 			header ( "HTTP/1.1 301 Moved Permanently" );
 			header ( "Location: http://" . $_SERVER ['HTTP_HOST'] . "/ru/immovables/search?im_code=" . $param ["im_code"] );
 			exit ();
 		}
 		$this->routingObj->setParamItem ( "type_cat", ($model->item ["im_is_sale"] ? "sale" : "rent") );
+		$this->routingObj->setParamItem ( "im_id", $model->item ["im_id"] );
 		$model->buildDictionaries ();
-		$model->getItemProperties ( $param ["im_id"] );
+		$model->getItemProperties ( $model->item ["im_id"] );
 		$this->buildImmovablesAppData ( $model );
-		return $this->View ( array ("Model" => $model ), sprintf ( "immovables/details%s" ) );
+		return $this->View ( array ("Model" => $model ), sprintf ( "immovables/details%s", $this->routingObj->getParamItem ( "type_cat" ) ) );
 	}
-	public function detailsRent($param) {
+	public function detailsrent($param) {
 		$this->routingObj->setParamItem ( "type_cat", "rent" );
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables" ) );
 		$model->getItem ( $param ["im_id"] );
@@ -118,7 +129,7 @@ class immovablesController extends aControllerClass {
 		$this->buildImmovablesAppData ( $model );
 		return $this->View ( array ("Model" => $model ) );
 	}
-	public function detailsSale($param) {
+	public function detailssale($param) {
 		$this->routingObj->setParamItem ( "type_cat", "sale" );
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables" ) );
 		$model->getItem ( $param ["im_id"] );

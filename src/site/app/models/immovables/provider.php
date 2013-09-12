@@ -37,6 +37,10 @@ class immovablesProviderClass extends providerClass {
 	
 	public function buildStandartImmovablesQuery($param) {
 		$query = "where 1=1";
+		if (! empty ( $param ['im_ids'] ))
+			$query .= " and i.im_id IN {$param ["im_ids"]}";
+		if (! empty ( $param ['im_codes'] ))
+			$query .= " and i.im_code IN {$param ["im_codes"]}";
 		if (! empty ( $param ['im_catalog_id'] ))
 			$query .= " and i.im_catalog_id='{$param ["im_catalog_id"]}'";
 		if (! empty ( $param ['hide'] ))
@@ -58,13 +62,13 @@ class immovablesProviderClass extends providerClass {
 		if (! empty ( $param ['im_prace_manth_like'] ))
 			$query .= sprintf ( " and i.im_prace_manth < %s AND i.im_prace_manth > %s", $param ['im_prace_manth_like'] * 1.25, $param ['im_prace_manth_like'] * 0.75 );
 		if (! empty ( $param ['im_priceb'] ))
-			$query .= " and i.im_prace >= {$param ["im_priceb"]}";	
+			$query .= " and i.im_prace >= {$param ["im_priceb"]}";
 		if (! empty ( $param ['im_pricee'] ))
-			$query .= " and i.im_prace <= {$param ["im_pricee"]}";	
+			$query .= " and i.im_prace <= {$param ["im_pricee"]}";
 		if (! empty ( $param ['im_priceb'] ))
-			$query .= " and i.im_space >= {$param ["im_spaceb"]}";	
+			$query .= " and i.im_space >= {$param ["im_spaceb"]}";
 		if (! empty ( $param ['im_pricee'] ))
-			$query .= " and i.im_space <= {$param ["im_spacee"]}";	
+			$query .= " and i.im_space <= {$param ["im_spacee"]}";
 		return $query;
 	}
 	

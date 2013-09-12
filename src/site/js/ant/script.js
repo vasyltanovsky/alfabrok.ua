@@ -1,12 +1,11 @@
 /* Author:
  */
+var imDownPraceObj = new indexBan('#linksListBan', '#positionListBan', '?action=hot_price');
 /* =============== functions.js ============ */
 $(document).ready( function() {
-	
 	$('img').bind("contextmenu", function(e) {
 		return false;
 	});
-
 	$('#search_top_field').focus( function() {
 		if (this.value == this.defaultValue) {
 			this.value = '';
@@ -52,6 +51,28 @@ $(document).ready( function() {
 	$('#hideFullOneMap').click( function() {
 		yFunc.hideOneFullScreen();
 		map.redraw();
+	});
+	$("body").click(function(e){			
+			if($(e.target).attr("class") != "SearchFormLabelList" && $(e.target).attr("class") != "DivSearchPosition" 
+				//&& $(e.target).attr("id") != "4c3eb33182810"
+				&& $(e.target).parent().attr("class") != "DivSearchPosition" 
+				&& $(e.target).parent().attr("class") != "SearchFormLabelList"
+				&& $(e.target).parent().parent().attr("class") != "DivSearchPosition"
+				&& $(e.target).parent().parent().parent().attr("class") != "DivSearchPosition"
+				&& $(e.target).parent().parent().attr("class") != "SearchFormLabelList"	
+				&& $(e.target).parent().parent().parent().parent().parent().attr("class") != "TableSearchFormTdStandartPropCat"		
+				){
+				$(".DivSearchPosition").hide();
+				$(".TableSearchForm tbody tr:first-child td label span").addClass("ui-icon ui-icon-triangle-1-s");
+			}
+		});	
+	/*	*/
+	indexLinkHideTr();
+	/* index im. banner down price */
+	imDownPraceObj.clickCatBottom($("#linksListBan #linkBan-home"));
+
+	$('#linksListBan span').click( function() {
+		imDownPraceObj.clickCatBottom(this);
 	});
 });
 /* =============== im.post.get.js ============ */

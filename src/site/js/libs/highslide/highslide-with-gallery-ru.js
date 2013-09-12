@@ -1,37 +1,56 @@
-/** 
- * Name:    Highslide JS
- * Version: 4.1.10 (2011-03-16)
- * Config:  default +slideshow +positioning +transitions +viewport +thumbstrip
- * Author:  Torstein Hønsi
- * Support: www.highslide.com/support
- * License: www.highslide.com/#license
- */
-if (!hs) { var hs = {
+/******************************************************************************
+Name:    Highslide JS
+Version: 4.1.4 (April 17 2009)
+Config:  default +slideshow +positioning +transitions +viewport +thumbstrip
+Author:  Torstein Hшnsi
+Support: http://highslide.com/support
+
+Licence:
+Highslide JS is licensed under a Creative Commons Attribution-NonCommercial 2.5
+License (http://creativecommons.org/licenses/by-nc/2.5/).
+
+You are free:
+	* to copy, distribute, display, and perform the work
+	* to make derivative works
+
+Under the following conditions:
+	* Attribution. You must attribute the work in the manner  specified by  the
+	  author or licensor.
+	* Noncommercial. You may not use this work for commercial purposes.
+
+* For  any  reuse  or  distribution, you  must make clear to others the license
+  terms of this work.
+* Any  of  these  conditions  can  be  waived  if  you  get permission from the 
+  copyright holder.
+
+Your fair use and other rights are in no way affected by the above.
+******************************************************************************/
+var hs = {
 // Language strings
 lang : {
-	cssDirection: 'ltr',
-	loadingText : 'Подождите...',
-	loadingTitle : 'Кликните для завершения',
-	focusTitle : '',
-	fullExpandTitle : '',
-	creditsText : '',
-	creditsTitle : 'Go to the Highslide JS homepage',
-	previousText : 'Пред.',
-	nextText : 'След.', 
-	moveText : 'Move',
-	closeText : 'Закрыть', 
-	closeTitle : 'Закрыть (esc)', 
-	resizeTitle : 'Изменить размер',
-	playText : 'Слайшоу',
-	playTitle : 'Начать слайдшоу(spacebar)',
-	pauseText : 'Пауза',
-	pauseTitle : 'Пауза слайдшоу(spacebar)',
-	previousTitle : 'Пред. (arrow left)',
-	nextTitle : 'След. (arrow right)',
-	moveTitle : '',
-	fullExpandText : '1:1',
-	number: 'Изображение %1 из %2',
-	restoreTitle : ''
+		cssDirection: 'ltr',
+		loadingText : 'Подождите...',
+		loadingTitle : 'Кликните для завершения',
+		focusTitle : '',
+		fullExpandTitle : ')',
+		creditsText : '',
+		creditsTitle : '',
+		previousText : 'Пред.',
+		nextText : 'След.', 
+		moveText : 'Move',
+		closeText : 'Закрыть', 
+		closeTitle : 'Закрыть (esc)', 
+		resizeTitle : 'Изменить размер',
+		playText : 'Слайшоу',
+		playTitle : 'Начать слайдшоу(spacebar)',
+		pauseText : 'Пауза',
+		pauseTitle : 'Пауза слайдшоу(spacebar)',
+		previousTitle : 'Пред. (arrow left)',
+		nextTitle : 'След. (arrow right)',
+		moveTitle : '',
+		fullExpandText : '1:1',
+		number: 'Изображение %1 из %2',
+		restoreTitle : ''
 },
 // See http://highslide.com/ref for examples of settings  
 graphicsDir : 'highslide/graphics/',
@@ -54,7 +73,6 @@ fullExpandPosition : 'bottom right',
 fullExpandOpacity : 1,
 showCredits : true, // you can set this to false if you want
 creditsHref : 'http://highslide.com/',
-creditsTarget : '_self',
 enableKeyListener : true,
 openerTagNames : ['a'], // Add more to allow slideshow indexing
 transitions : [],
@@ -71,6 +89,7 @@ minWidth: 200,
 minHeight: 200,
 allowSizeReduction: true, // allow the image to reduce to fit client size. If false, this overrides minWidth and minHeight
 outlineType : 'drop-shadow', // set null to disable outlines
+wrapperClassName : 'highslide-wrapper', // for enhanced css-control
 skin : {
 	controls:
 		'<div class="highslide-controls"><ul>'+
@@ -143,7 +162,6 @@ overrides : [
 	'minHeight',
 	'maxWidth',
 	'maxHeight',
-	'pageOrigin',
 	'slideshowGroup',
 	'easing',
 	'easingClose',
@@ -166,10 +184,8 @@ slideshows : [],
 pendingOutlines : {},
 clones : {},
 onReady: [],
-uaVersion: /Trident\/4\.0/.test(navigator.userAgent) ? 8 :
-	parseFloat((navigator.userAgent.toLowerCase().match( /.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/ ) || [0,'0'])[1]),
+uaVersion: parseFloat((navigator.userAgent.toLowerCase().match( /.+(?:rv|it|ra|ie)[\/: ]([\d.]+)/ ) || [0,'0'])[1]),
 ie : (document.all && !window.opera),
-//ie : navigator && /MSIE [678]/.test(navigator.userAgent), // ie9 compliant?
 safari : /Safari/.test(navigator.userAgent),
 geckoMac : /Macintosh.+rv:1\.[0-8].+Gecko/.test(navigator.userAgent),
 
@@ -230,9 +246,7 @@ animate: function(el, prop, opt) {
 	}	
 },
 css: function(el, prop) {
-	if (el.style[prop]) {
-		return el.style[prop];
-	} else if (document.defaultView) {
+	if (document.defaultView) {
 		return document.defaultView.getComputedStyle(el, null).getPropertyValue(prop);
 
 	} else {
@@ -247,19 +261,31 @@ css: function(el, prop) {
 
 getPageSize : function () {
 	var d = document, w = window, iebody = d.compatMode && d.compatMode != 'BackCompat' 
-		? d.documentElement : d.body;
+		? d.documentElement : d.body;	
+	
+	
+	var b = d.body;
+	var xScroll = (w.innerWidth && w.scrollMaxX) 
+			? w.innerWidth + w.scrollMaxX : Math.max(b.scrollWidth, b.offsetWidth),
+		yScroll = (w.innerHeight && window.scrollMaxY) 
+			? w.innerHeight + w.scrollMaxY : Math.max(b.scrollHeight, b.offsetHeight),
+		pageWidth = hs.ie ? iebody.scrollWidth :
+			(d.documentElement.clientWidth || self.innerWidth),
+      	pageHeight = hs.ie ? Math.max(iebody.scrollHeight, iebody.clientHeight) : 
+			(d.documentElement.clientHeight || self.innerHeight);
 	
 	var width = hs.ie ? iebody.clientWidth : 
 			(d.documentElement.clientWidth || self.innerWidth),
 		height = hs.ie ? iebody.clientHeight : self.innerHeight;
 	
-	hs.page = {
+	return {
+		pageWidth: Math.max(pageWidth, xScroll),
+		pageHeight: Math.max(pageHeight, yScroll),
 		width: width,
 		height: height,		
 		scrollLeft: hs.ie ? iebody.scrollLeft : pageXOffset,
 		scrollTop: hs.ie ? iebody.scrollTop : pageYOffset
-	};
-	return hs.page;
+	}
 },
 
 getPosition : function(el)	{
@@ -355,28 +381,31 @@ getNode : function (id) {
 },
 
 discardElement : function(d) {
-	if (d) hs.garbageBin.appendChild(d);
+	hs.garbageBin.appendChild(d);
 	hs.garbageBin.innerHTML = '';
 },
 dim : function(exp) {
 	if (!hs.dimmer) {
-		hs.dimmer = hs.createElement ('div', {
-				className: 'highslide-dimming highslide-viewport-size',
+		hs.dimmer = hs.createElement ('div', 
+			{ 
+				className: 'highslide-dimming',
 				owner: '',
 				onclick: function() {
-					
+					 
 						hs.close();
 				}
-			}, {
-                visibility: 'visible',
-				opacity: 0
+			}, { 
+				position: 'absolute',
+				visibility: 'visible',
+				left: 0,
+				opacity: 0 
 			}, hs.container, true);
+		hs.addEventListener(window, 'resize', hs.setDimmerSize);
 	}
-
 	hs.dimmer.style.display = '';
-
+	hs.setDimmerSize();
 	hs.dimmer.owner += '|'+ exp.key;
-	if (hs.geckoMac && hs.dimmingGeckoFix)
+	if (hs.geckoMac && hs.dimmingGeckoFix) 
 		hs.setStyles(hs.dimmer, {
 			background: 'url('+ hs.graphicsDir + 'geckodimmer.png)',
 			opacity: 1
@@ -387,23 +416,30 @@ dim : function(exp) {
 undim : function(key) {
 	if (!hs.dimmer) return;
 	if (typeof key != 'undefined') hs.dimmer.owner = hs.dimmer.owner.replace('|'+ key, '');
-
+	
 	if (
 		(typeof key != 'undefined' && hs.dimmer.owner != '')
 		|| (hs.upcoming && hs.getParam(hs.upcoming, 'dimmingOpacity'))
 	) return;
-
-	if (hs.geckoMac && hs.dimmingGeckoFix) hs.dimmer.style.display = 'none';
+	if (hs.geckoMac && hs.dimmingGeckoFix) 
+		hs.setStyles(hs.dimmer, { background: 'none', width: 0, height: 0 });
 	else hs.animate(hs.dimmer, { opacity: 0 }, hs.dimmingDuration, null, function() {
-		hs.dimmer.style.display = 'none';
+		hs.setStyles(hs.dimmer, { display: 'none', width: 0, height: 0 });
+	});
+},
+setDimmerSize : function(exp) {
+	if (!hs.dimmer) return;
+	var h = (hs.ie && exp && exp.wrapper) ? 
+		parseInt(exp.wrapper.style.top) + parseInt(exp.wrapper.style.height)+ (exp.outline ? exp.outline.offset : 0) : 0; 
+	hs.setStyles(hs.dimmer, { 
+		width: hs.page.pageWidth +'px', 
+		height: Math.max(hs.page.pageHeight, h) +'px'
 	});
 },
 transit : function (adj, exp) {
-	var last = exp || hs.getExpander();
-	exp = last;
+	var last = exp = exp || hs.getExpander();
 	if (hs.upcoming) return false;
 	else hs.last = last;
-	hs.removeEventListener(document, window.opera ? 'keypress' : 'keydown', hs.keyHandler);
 	try {
 		hs.upcoming = adj;
 		adj.onclick(); 		
@@ -419,8 +455,10 @@ transit : function (adj, exp) {
 
 previousOrNext : function (el, op) {
 	var exp = hs.getExpander(el);
-	if (exp) return hs.transit(exp.getAdjacentAnchor(op), exp);
-	else return false;
+	if (exp) {
+		adj = exp.getAdjacentAnchor(op);
+		return hs.transit(adj, exp);
+	} else return false;
 },
 
 previous : function (el) {
@@ -460,8 +498,7 @@ keyHandler : function(e) {
 		case 13: // Enter
 			op = 0;
 	}
-	if (op !== null) {
-		hs.removeEventListener(document, window.opera ? 'keypress' : 'keydown', hs.keyHandler);
+	if (op !== null) {if (op != 2)hs.removeEventListener(document, window.opera ? 'keypress' : 'keydown', hs.keyHandler);
 		if (!hs.enableKeyListener) return true;
 		
 		if (e.preventDefault) e.preventDefault();
@@ -561,16 +598,8 @@ mouseClickHandler : function(e)
 		if (e.target.form) return true;
 		var match = el.className.match(/highslide-(image|move|resize)/);
 		if (match) {
-			hs.dragArgs = { 
-				exp: exp , 
-				type: match[1], 
-				left: exp.x.pos, 
-				width: exp.x.size, 
-				top: exp.y.pos, 
-				height: exp.y.size, 
-				clickX: e.clientX, 
-				clickY: e.clientY
-			};
+			hs.dragArgs = { exp: exp , type: match[1], left: exp.x.pos, width: exp.x.size, top: exp.y.pos, 
+				height: exp.y.size, clickX: e.clientX, clickY: e.clientY };
 			
 			
 			hs.addEventListener(document, 'mousemove', hs.dragHandler);
@@ -597,6 +626,8 @@ mouseClickHandler : function(e)
 			else if (hasDragged || (!hasDragged && hs.hasHtmlExpanders)) {
 				hs.dragArgs.exp.doShowHide('hidden');
 			}
+			if (hasDragged) hs.setDimmerSize(exp);
+			
 			hs.hasFocused = false;
 			hs.dragArgs = null;
 		
@@ -645,16 +676,14 @@ wrapperMouseHandler : function (e) {
 		for (var i = 0; i < exp.overlays.length; i++) (function() {
 			var o = hs.$('hsId'+ exp.overlays[i]);
 			if (o && o.hideOnMouseOut) {
-				if (over) hs.setStyles(o, { visibility: 'visible', display: '' });
+				if (over) hs.setStyles(o, { visibility: 'visible' });
 				hs.animate(o, { opacity: over ? o.opacity : 0 }, o.dur);
 			}
 		})();	
 	} catch (e) {}
 },
 addEventListener : function (el, event, func) {
-	if (el == document && event == 'ready') {
-		hs.push(hs.onReady, func);
-	}
+	if (el == document && event == 'ready') hs.push(hs.onReady, func);
 	try {
 		el.addEventListener(event, func, false);
 	} catch (e) {
@@ -711,7 +740,7 @@ preloadImages : function (number) {
 init : function () {
 	if (!hs.container) {
 	
-		hs.getPageSize();
+		hs.page = hs.getPageSize();
 		hs.ieLt7 = hs.ie && hs.uaVersion < 7;
 		for (var x in hs.langDefaults) {
 			if (typeof hs[x] != 'undefined') hs.lang[x] = hs[x];
@@ -722,7 +751,7 @@ init : function () {
 		hs.container = hs.createElement('div', {
 				className: 'highslide-container'
 			}, {
-				position: 'absolute',
+				position: 'absolute', 
 				left: 0, 
 				top: 0, 
 				width: '100%', 
@@ -746,10 +775,8 @@ init : function () {
 		);
 		hs.garbageBin = hs.createElement('div', null, { display: 'none' }, hs.container);
 		hs.viewport = hs.createElement('div', {
-				className: 'highslide-viewport highslide-viewport-size'
-			}, {
-				visibility: (hs.safari && hs.uaVersion < 525) ? 'visible' : 'hidden'
-			}, hs.container, 1
+				className: 'highslide-viewport'
+			}, null, hs.container, 1
 		);
 		
 		// http://www.robertpenner.com/easing/ 
@@ -771,6 +798,7 @@ init : function () {
 ready : function() {
 	if (hs.isReady) return;
 	hs.isReady = true;
+	
 	for (var i = 0; i < hs.onReady.length; i++) hs.onReady[i]();
 },
 
@@ -889,12 +917,10 @@ hs.extend( hs.fx, {
 		},
 
 		_default: function(fx){
-			try {
-				if ( fx.elem.style && fx.elem.style[ fx.prop ] != null )
-					fx.elem.style[ fx.prop ] = fx.now + fx.unit;
-				else
-					fx.elem[ fx.prop ] = fx.now;
-			} catch (e) {}
+			if ( fx.elem.style && fx.elem.style[ fx.prop ] != null )
+				fx.elem.style[ fx.prop ] = fx.now + fx.unit;
+			else
+				fx.elem[ fx.prop ] = fx.now;
 		}
 	}
 });
@@ -941,7 +967,7 @@ hs.Outline.prototype = {
 preloadGraphic : function () {
 	var src = hs.graphicsDir + (hs.outlinesDir || "outlines/")+ this.outlineType +".png";
 				
-	var appendTo = hs.safari && hs.uaVersion < 525 ? hs.container : null;
+	var appendTo = hs.safari ? hs.container : null;
 	this.graphic = hs.createElement('img', null, { position: 'absolute', 
 		top: '-9999px' }, appendTo, true); // for onload trigger
 	
@@ -1057,15 +1083,14 @@ get : function(key) {
 calcBorders: function() {
 	// correct for borders
 	this.cb = (this.exp.content['offset'+ this.ucwh] - this.t) / 2;
-	
-	this.marginMax = hs['margin'+ this.ucrb];
+	this.marginMax = hs['margin'+ this.ucrb] + 2 * this.cb;
 },
 calcThumb: function() {
 	this.t = this.exp.el[this.wh] ? parseInt(this.exp.el[this.wh]) : 
 		this.exp.el['offset'+ this.ucwh];
 	this.tpos = this.exp.tpos[this.dim];
 	this.tb = (this.exp.el['offset'+ this.ucwh] - this.t) / 2;
-	if (this.tpos == 0 || this.tpos == -1) {
+	if (this.tpos == 0) {
 		this.tpos = (hs.page[this.wh] / 2) + hs.page['scroll'+ this.uclt];		
 	};
 },
@@ -1081,10 +1106,6 @@ calcExpanded: function() {
 	
 	// size and position
 	this.pos = this.tpos - this.cb + this.tb;
-	
-	if (this.maxHeight && this.dim == 'x')
-		exp.maxWidth = Math.min(exp.maxWidth || this.full, exp.maxHeight * this.full / exp.y.full); 
-		
 	this.size = Math.min(this.full, exp['max'+ this.ucwh] || this.full);
 	this.minSize = exp.allowSizeReduction ? 
 		Math.min(exp['min'+ this.ucwh], this.full) :this.full;
@@ -1106,7 +1127,7 @@ setSize: function(i) {
 		exp.content.style[this.lt] = this.get('imgPad')+'px';
 	} else
 	this.size = i;
-	
+
 	exp.content.style[this.wh] = i +'px';
 	exp.wrapper.style[this.wh] = this.get('wsize') +'px';
 	if (exp.outline) exp.outline.setPosition();
@@ -1166,12 +1187,12 @@ hs.Expander = function(a, params, custom, contentType) {
 	}	
 
 	// cancel other
-	if (!hs.allowSimultaneousLoading) for (var i = 0; i < hs.expanders.length; i++) {
+	for (var i = 0; i < hs.expanders.length; i++) {
 		if (hs.expanders[i] && hs.expanders[i].thumb != el && !hs.expanders[i].onLoadStarted) {
 			hs.expanders[i].cancelLoading();
 		}
 	}
-	hs.expanders[key] = this;
+	hs.expanders[this.key] = this;
 	if (!hs.allowMultipleInstances && !hs.upcoming) {
 		if (hs.expanders[key-1]) hs.expanders[key-1].close();
 		if (typeof hs.focusKey != 'undefined' && hs.expanders[hs.focusKey])
@@ -1180,8 +1201,8 @@ hs.Expander = function(a, params, custom, contentType) {
 	
 	// initiate metrics
 	this.el = el;
-	this.tpos = this.pageOrigin || hs.getPosition(el);
-	hs.getPageSize();
+	this.tpos = hs.getPosition(el);
+	hs.page = hs.getPageSize();
 	var x = this.x = new hs.Dimension(this, 'x');
 	x.calcThumb();
 	var y = this.y = new hs.Dimension(this, 'y');
@@ -1189,11 +1210,11 @@ hs.Expander = function(a, params, custom, contentType) {
 	this.wrapper = hs.createElement(
 		'div', {
 			id: 'highslide-wrapper-'+ this.key,
-			className: 'highslide-wrapper '+ this.wrapperClassName
+			className: this.wrapperClassName
 		}, {
 			visibility: 'hidden',
 			position: 'absolute',
-			zIndex: hs.zIndexCounter += 2
+			zIndex: hs.zIndexCounter++
 		}, null, true );
 	
 	this.wrapper.onmouseover = this.wrapper.onmouseout = hs.wrapperMouseHandler;
@@ -1224,14 +1245,14 @@ hs.Expander = function(a, params, custom, contentType) {
 
 hs.Expander.prototype = {
 error : function(e) {
-	if (hs.debug) alert ('Line '+ e.lineNumber +': '+ e.message);
-	else window.location.href = this.src;
+	//alert ('Line '+ e.lineNumber +': '+ e.message);
+	window.location.href = this.src;
 },
 
 connectOutline : function() {
 	var outline = this.outline = hs.pendingOutlines[this.outlineType];
 	outline.exp = this;
-	outline.table.style.zIndex = this.wrapper.style.zIndex - 1;
+	outline.table.style.zIndex = this.wrapper.style.zIndex;
 	hs.pendingOutlines[this.outlineType] = null;
 },
 
@@ -1276,8 +1297,8 @@ imageCreate : function() {
 		zIndex: 3
 	});
     img.title = hs.lang.restoreTitle;
-	if (hs.safari && hs.uaVersion < 525) hs.container.appendChild(img);
-    if (hs.ie && hs.flushImgSize) img.src = null;
+    if (hs.safari) hs.container.appendChild(img);
+    if (hs.ie) img.src = 'res://';
 	img.src = this.src;
 	
 	this.showLoading();
@@ -1312,20 +1333,20 @@ contentLoaded : function() {
 		hs.setStyles (this.wrapper, {
 			left: (x.tpos + x.tb - x.cb) +'px',
 			top: (y.tpos + x.tb - y.cb) +'px'
-		});
+		});		
 		
 		
 		this.initSlideshow();
 		this.getOverlays();
 		
 		var ratio = x.full / y.full;
+		
 		x.calcExpanded();
 		this.justify(x);
 		
 		y.calcExpanded();
 		this.justify(y);
 		if (this.overlayBox) this.sizeOverlayBox(0, 1);
-
 		
 		if (this.allowSizeReduction) {
 				this.correctRatio(ratio);
@@ -1390,7 +1411,7 @@ justify : function (p, moveOnly) {
 		}
 		if (p.pos + p.get('wsize') > p.scroll + p.clientSize - p.marginMax) {
 			if (!moveOnly && hasMovedMin && allowReduce) {
-				p.size = Math.min(p.size, p.get(dim == 'y' ? 'fitsize' : 'maxsize'));
+				p.size = p.get(dim == 'y' ? 'fitsize' : 'maxsize');
 			} else if (p.get('wsize') < p.get('fitsize')) {
 				p.pos = p.scroll + p.clientSize - p.marginMax - p.get('wsize');
 			} else { // image larger than viewport
@@ -1450,7 +1471,7 @@ correctRatio : function(ratio) {
 		x.size = xSize;
 		y.size = ySize;
 	}
-	changed = this.fitOverlayBox(this.useBox ? null : ratio, changed);
+	this.fitOverlayBox(useBox ? null : ratio);
 	if (useBox && y.size < y.imgSize) {
 		y.imgSize = y.size;
 		x.imgSize = y.size * ratio;
@@ -1465,10 +1486,8 @@ correctRatio : function(ratio) {
 		this.justify(y, true);
 		if (this.overlayBox) this.sizeOverlayBox();
 	}
-	
-	
 },
-fitOverlayBox : function(ratio, changed) {
+fitOverlayBox : function(ratio) {
 	var x = this.x, y = this.y;
 	if (this.overlayBox) {
 		while (y.size > this.minHeight && x.size > this.minWidth 
@@ -1476,10 +1495,8 @@ fitOverlayBox : function(ratio, changed) {
 			y.size -= 10;
 			if (ratio) x.size = y.size * ratio;
 			this.sizeOverlayBox(0, 1);
-			changed = true;
 		}
 	}
-	return changed;
 },
 
 show : function () {
@@ -1616,42 +1633,66 @@ fade : function(up, to) {
 			
 			exp.destroyOverlays();
 	
-			hs.animate( exp.wrapper, { opacity: 0 }, hs.restoreDuration, null, function(){
+			hs.animate( exp.wrapper, { opacity: 0 }, null, null, function(){
 				exp.afterClose();
 			});
 		}, t);		
 	}
 },
-crossfade : function (up, to, from) {
+
+crossfade : function (up, to) {
 	if (!up) return;
 	var exp = this, 
-		last = this.last,
-		x = this.x,
-		y = this.y,
+		dur = hs.transitionDuration, 
+		last = exp.last,
+		x = exp.x, 
+		y = exp.y,
 		lastX = last.x,
 		lastY = last.y,
+		overlayBox = exp.overlayBox,
 		wrapper = this.wrapper,
-		content = this.content,
-		overlayBox = this.overlayBox;
+		content = this.content;
 	hs.removeEventListener(document, 'mousemove', hs.dragHandler);
-	
-	hs.setStyles(content, { 
-		width: (x.imgSize || x.size) +'px', 
-		height: (y.imgSize || y.size) +'px'		
-	});
-	if (overlayBox) overlayBox.style.overflow = 'visible';
 	this.outline = last.outline;
 	if (this.outline) this.outline.exp = exp;
 	last.outline = null;
+	last.wrapper.style.overflow = 'hidden';
+	hs.setStyles(wrapper, {
+		left: lastX.pos +'px',
+		top: lastY.pos +'px',
+		width: lastX.get('wsize') +'px',
+		height: lastY.get('wsize') +'px'
+	});
+	hs.setStyles(content, {
+		display: 'none',
+		width: (x.imgSize || x.size) +'px', 
+		height: (y.imgSize || y.size) +'px',
+		left: (x.p1 + x.get('imgPad')) +'px',
+		top: (y.p1 + y.get('imgPad')) + 'px'
+	});
 	var fadeBox = hs.createElement('div', {
-			className: 'highslide-'+ this.contentType
-		}, { 
-			position: 'absolute', 
-			zIndex: 4,
-			overflow: 'hidden',
-			display: 'none'
-		}
-	);
+		className: 'highslide-image'
+	}, { 
+		position: 'absolute', 
+		zIndex: 4,
+		overflow: 'hidden',
+		display: 'none',
+		left: (lastX.p1 + lastX.get('imgPad')) +'px',
+		top: (lastY.p1 + lastY.get('imgPad')) +'px',
+		width: (lastX.imgSize || lastX.size) +'px',
+		height: (lastY.imgSize || lastY.size) +'px'
+	});
+	for (var i = 0; i < this.overlays.length; i++) {
+		var o = hs.$('hsId'+ this.overlays[i]);
+		if (o.style.visibility == 'hidden') o.style.display = 'none';
+	}
+	if (overlayBox) hs.setStyles(overlayBox, {
+		overflow: 'visible',
+		left: (lastX.p1 + lastX.cb) +'px',
+		top: (lastY.p1 + lastY.cb) +'px',
+		width: lastX.size +'px',
+		height: lastY.size +'px'
+	});
 	var names = { oldImg: last, newImg: this };
 	for (var n in names) { 	
 		this[n] = names[n].content.cloneNode(1);
@@ -1662,6 +1703,16 @@ crossfade : function (up, to, from) {
 		});
 		fadeBox.appendChild(this[n]);
 	}
+	hs.setStyles(this.oldImg, {
+		left: 0,
+		top: 0
+	});	
+	hs.setStyles(this.newImg, {
+		display: 'block',
+		opacity: 0,
+		left: (x.pos - lastX.pos + x.p1 - lastX.p1 + x.get('imgPad') - lastX.get('imgPad')) +'px',
+		top: (y.pos - lastY.pos + y.p1 - lastY.p1 + y.get('imgPad') - lastY.get('imgPad')) +'px'
+	});
 	wrapper.appendChild(fadeBox);
 	if (overlayBox) {
 		overlayBox.className = '';
@@ -1669,91 +1720,70 @@ crossfade : function (up, to, from) {
 	}
 	fadeBox.style.display = '';
 	last.content.style.display = 'none';
-	
-	
-	if (hs.safari && hs.uaVersion < 525) {
-		this.wrapper.style.visibility = 'visible';
+
+	if (hs.safari) {
+		var match = navigator.userAgent.match(/Safari\/([0-9]{3})/);
+		if (match && parseInt(match[1]) < 525) wrapper.style.visibility = 'visible';
 	}
-	hs.animate(wrapper, {
-		width: x.size
-	}, {
-		duration: hs.transitionDuration, 
-		step: function(val, args) {
-			var pos = args.pos,
-				invPos = 1 - pos;
-			var prop,
-				size = {}, 
-				props = ['pos', 'size', 'p1', 'p2'];
-			for (var n in props) {
-				prop = props[n];
-				size['x'+ prop] = Math.round(invPos * lastX[prop] + pos * x[prop]);
-				size['y'+ prop] = Math.round(invPos * lastY[prop] + pos * y[prop]);
-				size.ximgSize = Math.round(
-					invPos * (lastX.imgSize || lastX.size) + pos * (x.imgSize || x.size));
-				size.ximgPad = Math.round(invPos * lastX.get('imgPad') + pos * x.get('imgPad'));
-				size.yimgSize = Math.round(
-					invPos * (lastY.imgSize || lastY.size) + pos * (y.imgSize || y.size));
-				size.yimgPad = Math.round(invPos * lastY.get('imgPad') + pos * y.get('imgPad'));
-			}
-			if (exp.outline) exp.outline.setPosition({ 
-				x: size.xpos, 
-				y: size.ypos, 
-				w: size.xsize + size.xp1 + size.xp2 + 2 * x.cb, 
-				h: size.ysize + size.yp1 + size.yp2 + 2 * y.cb
-			});
-			last.wrapper.style.clip = 'rect('
-				+ (size.ypos - lastY.pos)+'px, '
-				+ (size.xsize + size.xp1 + size.xp2 + size.xpos + 2 * lastX.cb - lastX.pos) +'px, '
-				+ (size.ysize + size.yp1 + size.yp2 + size.ypos + 2 * lastY.cb - lastY.pos) +'px, '
-				+ (size.xpos - lastX.pos)+'px)';
-				
-			hs.setStyles(content, {
-				top: (size.yp1 + y.get('imgPad')) +'px',
-				left: (size.xp1 + x.get('imgPad')) +'px',
-				marginTop: (y.pos - size.ypos) +'px',
-				marginLeft: (x.pos - size.xpos) +'px'
-			});
-			hs.setStyles(wrapper, {
-				top: size.ypos +'px',
-				left: size.xpos +'px',
-				width: (size.xp1 + size.xp2 + size.xsize + 2 * x.cb)+ 'px',
-				height: (size.yp1 + size.yp2 + size.ysize + 2 * y.cb) + 'px'
-			});
-			hs.setStyles(fadeBox, {
-				width: (size.ximgSize || size.xsize) + 'px',
-				height: (size.yimgSize || size.ysize) +'px',
-				left: (size.xp1 + size.ximgPad)  +'px',
-				top: (size.yp1 + size.yimgPad) +'px',
-				visibility: 'visible'
-			});
-			
-			hs.setStyles(exp.oldImg, {
-				top: (lastY.pos - size.ypos + lastY.p1 - size.yp1 + lastY.get('imgPad') - size.yimgPad)+'px',
-				left: (lastX.pos - size.xpos + lastX.p1 - size.xp1 + lastX.get('imgPad') - size.ximgPad)+'px'
-			});		
-			
-			hs.setStyles(exp.newImg, {
-				opacity: pos,
-				top: (y.pos - size.ypos + y.p1 - size.yp1 + y.get('imgPad') - size.yimgPad) +'px',
-				left: (x.pos - size.xpos + x.p1 - size.xp1 + x.get('imgPad') - size.ximgPad) +'px'
-			});
-			if (overlayBox) hs.setStyles(overlayBox, {
-				width: size.xsize + 'px',
-				height: size.ysize +'px',
-				left: (size.xp1 + x.cb)  +'px',
-				top: (size.yp1 + y.cb) +'px'
-			});
-		},
-		complete: function () {
-			wrapper.style.visibility = content.style.visibility = 'visible';
-			content.style.display = 'block';
-			hs.discardElement(fadeBox);
-			exp.afterExpand();
-			last.afterClose();
-			exp.last = null;
+	function end() {
+		wrapper.style.visibility = content.style.visibility = 'visible';
+		content.style.display = 'block';
+		fadeBox.style.display = 'none';
+		exp.a.className += ' highslide-active-anchor';
+		exp.afterExpand();
+		last.afterClose();
+		exp.last = null;
+	}
+
+	hs.animate(last.wrapper, { 
+		left: x.pos,
+		top: y.pos,
+		width: x.get('wsize'),
+		height: y.get('wsize')
+	}, dur);
+	
+	hs.animate(fadeBox, {
+		width: x.imgSize || x.size,
+		height: y.imgSize || y.size,
+		left: x.p1 + x.get('imgPad'),
+		top: y.p1 + y.get('imgPad')
+	}, dur);
+	
+	hs.animate(this.oldImg, {
+		left: (lastX.pos - x.pos + lastX.p1 - x.p1 + lastX.get('imgPad') - x.get('imgPad')),
+		top: (lastY.pos - y.pos + lastY.p1 - y.p1 + lastY.get('imgPad') - y.get('imgPad'))
+	}, dur);		
+	
+	hs.animate(this.newImg, {
+		opacity: 1,
+		left: 0,
+		top: 0
+	}, dur);
+	if (overlayBox) hs.animate(overlayBox, {
+		left: x.p1 + x.cb,
+		top: y.p1 + y.cb,
+		width: x.size,
+		height: y.size
+	}, dur);
+	if (this.outline) var wrapStep =  function(val, args) {
+		if (args.prop == 'top') {
+			var stl = exp.wrapper.style;
+			var pos = {
+				w: parseInt(stl.width),
+				h: parseInt(stl.height),
+				x: parseInt(stl.left),
+				y: parseInt(stl.top)
+			};
+			exp.outline.setPosition(pos);
 		}
-		
+	};
+	hs.animate(wrapper, to.wrapper, {
+		duration: dur, 
+		complete: end,
+		step: wrapStep
 	});
+	
+	fadeBox.style.visibility = 'visible';
 },
 reuseOverlay : function(o, el) {
 	if (!this.last) return false;
@@ -1801,11 +1831,14 @@ preloadNext : function() {
 
 getAdjacentAnchor : function(op) {
 	var current = this.getAnchorIndex(), as = hs.anchors.groups[this.slideshowGroup || 'none'];
-	if (as && !as[current + op] && this.slideshow && this.slideshow.repeat) {
+	
+	/*< ? if ($cfg->slideshow) : ?>s*/
+	if (!as[current + op] && this.slideshow && this.slideshow.repeat) {
 		if (op == 1) return as[0];
 		else if (op == -1) return as[as.length-1];
 	}
-	return (as && as[current + op]) || null;
+	/*< ? endif ?>s*/
+	return as[current + op] || null;
 },
 
 getAnchorIndex : function() {
@@ -1844,11 +1877,10 @@ initSlideshow : function() {
 	ss.checkFirstAndLast();
 	ss.disable('full-expand');
 	if (ss.controls) {
-		this.createOverlay(hs.extend(ss.overlayOptions || {}, {
-			overlayId: ss.controls,
-			hsId: 'controls',
-			zIndex: 5
-		}));
+		var o = ss.overlayOptions || {};
+		o.overlayId = ss.controls;
+		o.hsId = 'controls';		
+		this.createOverlay(o);
 	}
 	if (ss.thumbstrip) ss.thumbstrip.add(this);
 	if (!this.last && this.autoplay) ss.play(true);
@@ -1859,8 +1891,7 @@ initSlideshow : function() {
 	}
 },
 
-cancelLoading : function() {
-	hs.discardElement (this.wrapper);
+cancelLoading : function() {	
 	hs.expanders[this.key] = null;
 	if (hs.upcoming == this.a) hs.upcoming = null;
 	hs.undim(this.key);
@@ -1871,7 +1902,6 @@ writeCredits : function () {
 	if (this.credits) return;
 	this.credits = hs.createElement('a', {
 		href: hs.creditsHref,
-		target: hs.creditsTarget,
 		className: 'highslide-credits',
 		innerHTML: hs.lang.creditsText,
 		title: hs.lang.creditsTitle
@@ -1896,17 +1926,13 @@ getInline : function(types, addOverlay) {
 			s = this[type +'Text'];
 		}
 		if (!this[type] && !s) {
-			this[type] = hs.getNode(this.a['_'+ type + 'Id']);
-			if (!this[type]) {
-				var next = this.a.nextSibling;
-				while (next && !hs.isHsAnchor(next)) {
-					if ((new RegExp('highslide-'+ type)).test(next.className || null)) {
-						if (!next.id) this.a['_'+ type + 'Id'] = next.id = 'hsId'+ hs.idCounter++;
-						this[type] = hs.getNode(next.id);
-						break;
-					}
-					next = next.nextSibling;
+			var next = this.a.nextSibling;
+			while (next && !hs.isHsAnchor(next)) {
+				if ((new RegExp('highslide-'+ type)).test(next.className || null)) {
+					this[type] = next.cloneNode(1);
+					break;
 				}
+				next = next.nextSibling;
 			}
 		}
 		if (!this[type] && !s && this.numberPosition == type) s = '\n';
@@ -1977,7 +2003,7 @@ showHideElements : function (tagName, visibility) {
 },
 
 focus : function() {
-	this.wrapper.style.zIndex = hs.zIndexCounter += 2;
+	this.wrapper.style.zIndex = hs.zIndexCounter++;
 	// blur others
 	for (var i = 0; i < hs.expanders.length; i++) {
 		if (hs.expanders[i] && i == hs.focusKey) {
@@ -1990,7 +2016,7 @@ focus : function() {
 	
 	// focus this
 	if (this.outline) this.outline.table.style.zIndex 
-		= this.wrapper.style.zIndex - 1;
+		= this.wrapper.style.zIndex;
 	this.content.className = 'highslide-'+ this.contentType;
 		this.content.title = hs.lang.restoreTitle;
 		
@@ -2021,10 +2047,12 @@ resize : function (e) {
 resizeTo: function(w, h) {
 	this.y.setSize(h);
 	this.x.setSize(w);
-	this.wrapper.style.height = this.y.get('wsize') +'px';
 },
 
 close : function() {
+	//show scroll when close highslide image
+	$("body").css("overflow", "scroll");
+	//show scroll when close highslide image
 	if (this.isClosing || !this.isExpanded) return;
 	if (this.transitions[1] == 'crossfade' && hs.upcoming) {
 		hs.getExpander(hs.upcoming).cancelLoading();
@@ -2092,7 +2120,6 @@ createOverlay : function (o) {
 		dur: (o.fade === 0 || o.fade === false || (o.fade == 2 && hs.ie)) ? 0 : 250
 	});
 	hs.extend(overlay, o);
-	
 		
 	if (this.gotOverlays) {
 		this.positionOverlay(overlay);
@@ -2209,7 +2236,7 @@ genOverlayBox : function() {
 			height: (this.y.size || this.y.full) +'px',
 			visibility : 'hidden',
 			overflow : 'hidden',
-			zIndex : hs.ie ? 4 : 'auto'
+			zIndex : hs.ie ? 4 : null
 		},
 		hs.container,
 		true
@@ -2261,7 +2288,7 @@ showOverlays : function() {
 	this.wrapper.appendChild (b);
 	for (var i = 0; i < this.overlays.length; i++) {
 		var o = hs.$('hsId'+ this.overlays[i]);
-		o.style.zIndex = o.zIndex || 4;
+		o.style.zIndex = o.hsId == 'controls' ? 5 : 4;
 		if (!o.hideOnMouseOut || this.mouseIsOver) {
 			o.style.visibility = 'visible';
 			hs.setStyles(o, { visibility: 'visible', display: '' });
@@ -2272,13 +2299,13 @@ showOverlays : function() {
 
 destroyOverlays : function() {
 	if (!this.overlays.length) return;
+	for (var i = 0; i < this.overlays.length; i++) {
+		var o = hs.$('hsId'+ this.overlays[i]);
+		if (o.parentNode == hs.viewport) hs.discardElement(o);
+	}
 	if (this.slideshow) {
 		var c = this.slideshow.controls;
 		if (c && hs.getExpander(c) == this) c.parentNode.removeChild(c);
-	}
-	for (var i = 0; i < this.overlays.length; i++) {
-		var o = hs.$('hsId'+ this.overlays[i]);
-		if (o && o.parentNode == hs.viewport && hs.getExpander(o) == this) hs.discardElement(o);
 	}
 	hs.discardElement(this.overlayBox);
 },
@@ -2319,6 +2346,7 @@ doFullExpand : function () {
 		
 		this.moveTo(xpos, this.y.pos);
 		this.doShowHide('hidden');
+		hs.setDimmerSize(this);
 	
 	} catch (e) {
 		this.error(e);
@@ -2333,7 +2361,6 @@ afterClose : function () {
 		if (this.outline && this.outlineWhileAnimating) this.outline.destroy();
 	
 		hs.discardElement(this.wrapper);
-	this.destroyOverlays();
 	if (!hs.viewport.childNodes.length) hs.viewport.style.display = 'none';
 	
 	if (this.dimmingOpacity) hs.undim(this.key);
@@ -2440,8 +2467,7 @@ hs.Thumbstrip = function(slideshow) {
 	function add (exp) {
 		hs.extend(options || {}, {
 			overlayId: dom,
-			hsId: 'thumbstrip',
-			className: 'highslide-thumbstrip-'+ mode +'-overlay ' + (options.className || '')
+			hsId: 'thumbstrip'
 		});
 		if (hs.ieLt7) options.fade = 0;
 		exp.createOverlay(options);
@@ -2459,7 +2485,6 @@ hs.Thumbstrip = function(slideshow) {
 				break;
 			}
 		}
-		if (i === undefined) return;
 		var as = dom.getElementsByTagName('a'),
 			active = as[i],
 			cell = active.parentNode,
@@ -2475,11 +2500,8 @@ hs.Thumbstrip = function(slideshow) {
 			mgnRight = 20;
 		if (scrollBy !== undefined) {
 			tblPos = curTblPos - scrollBy;
-			
-			if (minTblPos > 0) minTblPos = 0;
 			if (tblPos > 0) tblPos = 0;
 			if (tblPos < minTblPos) tblPos = minTblPos;
-			
 	
 		} else {
 			for (var j = 0; j < as.length; j++) as[j].className = '';
@@ -2495,7 +2517,6 @@ hs.Thumbstrip = function(slideshow) {
 		hs.animate(marker, isX ? { left: markerPos } : { top: markerPos }, null, 'easeOutQuad');
 		scrollUp.style.display = tblPos < 0 ? 'block' : 'none';
 		scrollDown.style.display = (tblPos > minTblPos)  ? 'block' : 'none';
-		
 	};
 	
 
@@ -2534,14 +2555,13 @@ hs.Thumbstrip = function(slideshow) {
 			hs.createElement('a', {
 				href: a.href,
 				onclick: function() {
-					if (/highslide-active-anchor/.test(this.className)) return false;
-					hs.getExpander(this).focus();
 					return hs.transit(a);
 				},
 				innerHTML: hs.stripItemFormatter ? hs.stripItemFormatter(a) : a.innerHTML
 			}, null, cell);
 		})();
 	}
+	
 	if (!floatMode) {
 		scrollUp.onclick = function () { scroll(-1); };
 		scrollDown.onclick = function() { scroll(1); };
@@ -2556,7 +2576,7 @@ hs.Thumbstrip = function(slideshow) {
 				delta = -e.detail/3;
 	        }
 	        if (delta) scroll(-delta * 0.2);
-			if (e.preventDefault) e.preventDefault();
+	        if (e.preventDefault) e.preventDefault();
 			e.returnValue = false;
 		});
 	}
@@ -2566,10 +2586,7 @@ hs.Thumbstrip = function(slideshow) {
 		selectThumb: selectThumb
 	}
 };
-hs.langDefaults = hs.lang;
-// history
-var HsExpander = hs.Expander;
-if (hs.ie && window == window.top) {
+if (hs.ie) {
 	(function () {
 		try {
 			document.documentElement.doScroll('left');
@@ -2582,39 +2599,29 @@ if (hs.ie && window == window.top) {
 }
 hs.addEventListener(document, 'DOMContentLoaded', hs.ready);
 hs.addEventListener(window, 'load', hs.ready);
+hs.langDefaults = hs.lang;
+// history
+var HsExpander = hs.Expander;
 
 // set handlers
-hs.addEventListener(document, 'ready', function() {
-	if (hs.expandCursor || hs.dimmingOpacity) {
+hs.addEventListener(window, 'load', function() {
+	if (hs.expandCursor) {
+		var sel = '.highslide img', 
+			dec = 'cursor: url('+ hs.graphicsDir + hs.expandCursor +'), pointer !important;';
+			
 		var style = hs.createElement('style', { type: 'text/css' }, null, 
 			document.getElementsByTagName('HEAD')[0]);
-			
-		function addRule(sel, dec) {		
-			if (hs.ie && hs.uaVersion < 9) {
-				var last = document.styleSheets[document.styleSheets.length - 1];
-				if (typeof(last.addRule) == "object") last.addRule(sel, dec);
-			} else {
-				style.appendChild(document.createTextNode(sel + " {" + dec + "}"));
-			}
+	
+		if (!hs.ie) {
+			style.appendChild(document.createTextNode(sel + " {" + dec + "}"));
+		} else {
+			var last = document.styleSheets[document.styleSheets.length - 1];
+			if (typeof(last.addRule) == "object") last.addRule(sel, dec);
 		}
-		function fix(prop) {
-			return 'expression( ( ( ignoreMe = document.documentElement.'+ prop +
-				' ? document.documentElement.'+ prop +' : document.body.'+ prop +' ) ) + \'px\' );';
-		}
-		if (hs.expandCursor) addRule ('.highslide img', 
-			'cursor: url('+ hs.graphicsDir + hs.expandCursor +'), pointer !important;');
-		addRule ('.highslide-viewport-size',
-			hs.ie && (hs.uaVersion < 7 || document.compatMode == 'BackCompat') ?
-				'position: absolute; '+
-				'left:'+ fix('scrollLeft') +
-				'top:'+ fix('scrollTop') +
-				'width:'+ fix('clientWidth') +
-				'height:'+ fix('clientHeight') :
-				'position: fixed; width: 100%; height: 100%; left: 0; top: 0');
 	}
 });
 hs.addEventListener(window, 'resize', function() {
-	hs.getPageSize();
+	hs.page = hs.getPageSize();
 	if (hs.viewport) for (var i = 0; i < hs.viewport.childNodes.length; i++) {
 		var node = hs.viewport.childNodes[i],
 			exp = hs.getExpander(node);
@@ -2630,4 +2637,3 @@ hs.addEventListener(document, 'mouseup', hs.mouseClickHandler);
 
 hs.addEventListener(document, 'ready', hs.getAnchors);
 hs.addEventListener(window, 'load', hs.preloadImages);
-}

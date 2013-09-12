@@ -1,8 +1,3 @@
-var imDownPraceObj = new indexBan('#linksListBan', '#positionListBan', '?action=hot_price');
-imDownPraceObj.clickCatBottom($("#linksListBan #linkBan-home"));
-	$('#linksListBan span').click( function() {
-		imDownPraceObj.clickCatBottom(this);
-	});
 // JavaScript Document
 $(document).ready( function() {
 
@@ -33,16 +28,6 @@ $(document).ready( function() {
 		timeout : 5000
 	});
 	/* SLIDE PHOTO */
-
-	/*	*/
-	indexLinkHideTr();
-	/* index im. banner down price */
-	imDownPraceObj.clickCatBottom($("#linksListBan #linkBan-home"));
-
-	$('#linksListBan span').click( function() {
-		//alert($(this).text() + '' + $(this).attr('rel'));
-			imDownPraceObj.clickCatBottom(this);
-		});
 });
 /*yandex*/
 $( function() {

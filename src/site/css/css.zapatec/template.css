@@ -55,7 +55,7 @@
 }
 
 .maroonseparator {
-  background-image:  url(http://img.alfabrok.loc/files/images/bg/jq/maroonline.gif);
+  background-image:  url(http://img.alfabrok.ua/files/images/bg/jq/maroonline.gif);
   background-repeat: no-repeat;
   background-position: center center; 
 }
@@ -120,7 +120,7 @@
 }
 
 .pageImage {
-  background: url(http://img.alfabrok.loc/files/images/bg/jq/zapatec.jpg) no-repeat left top; 
+  background: url(http://img.alfabrok.ua/files/images/bg/jq/zapatec.jpg) no-repeat left top; 
   height: 50px;   
   margin-left:0;
 }
@@ -219,7 +219,7 @@
 }
 
 .promoButton {
-  background: url(http://img.alfabrok.loc/files/images/bg/jq/special.gif) repeat left top;
+  background: url(http://img.alfabrok.ua/files/images/bg/jq/special.gif) repeat left top;
   padding:.3em 1em .3em 1em;
 }
 
@@ -234,6 +234,6 @@
 }
 
 .zpImageSpace{padding-right: 5px;}
-.zpPricingBg {background: url(http://img.alfabrok.loc/files/images/bg/jq/pricing-bg.jpg) no-repeat top right; height: 111px;}
+.zpPricingBg {background: url(http://img.alfabrok.ua/files/images/bg/jq/pricing-bg.jpg) no-repeat top right; height: 111px;}
 .zpLicenseText{ width: 500px; padding-right:10px;}
 .zpPaddingLeft {padding-left: 50px;}

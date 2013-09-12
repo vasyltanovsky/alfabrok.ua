@@ -5,9 +5,9 @@
 .DivImFooterText { margin:30px 0 20px 0}
 
 .ImFormLinkType{ margin:5px 0 15px 0}
-.ImFormLinkType a { display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px; margin-left:5px;}
-.ImFormLinkType a:hover {border: 1px solid #ebb923; background:url("http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent;  color: #FFF!important;}
-	.AlinkActive { border: 1px solid #ebb923!important;  background:url("http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent !important;  color: #FFF!important;}
+.ImFormLinkType a { display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.ua/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px; margin-left:5px;}
+.ImFormLinkType a:hover {border: 1px solid #ebb923; background:url("http://img.alfabrok.ua/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent;  color: #FFF!important;}
+	.AlinkActive { border: 1px solid #ebb923!important;  background:url("http://img.alfabrok.ua/files/images/bg/jq/ui-bg_highlight-hard_50_ebb923_1x100.png") repeat-x scroll 50% 50% transparent !important;  color: #FFF!important;}
 	.SpanImFromLityType { margin-right:145px;}
 .ImFormLinkType label { padding:0 0 0 5px}	
 
@@ -24,8 +24,8 @@
 		
 	.list_Flat_table_block_header{ background: #e5e5e5}
 		.list_Flat_table_block_header td { text-align:center; }
-		.TdRightBorder{  background:url(http://img.alfabrok.loc/files/images/bg/td-r-border.jpg) top right no-repeat }
-		.TdLeftBorder{background:url(http://img.alfabrok.loc/files/images/bg/td-l-border.jpg) top left no-repeat; border-left:none!important; }
+		.TdRightBorder{  background:url(http://img.alfabrok.ua/files/images/bg/td-r-border.jpg) top right no-repeat }
+		.TdLeftBorder{background:url(http://img.alfabrok.ua/files/images/bg/td-l-border.jpg) top left no-repeat; border-left:none!important; }
 		.list_Flat_table_block_header td {border:1px solid #e5e5e5; border-left:1px solid #FEFEFE; border-right:none;  border-top:none; padding:5px 3px 5px 6px!important}
 		.TdLisImImage{ width:145px;}
 		.TdLisImImageMap{ width:145px;}
@@ -33,22 +33,22 @@
 		.ImFListHeaderM2 { min-width: 55px;}
 		
 		.AReadMore {}
-		.ImSpanPrice{ display:block; background:url(http://img.alfabrok.loc/files/images/bg/cena.png) center center no-repeat; text-align:center; font-weight:bold; padding-top:3px ; padding-bottom:3px; min-width:90px;}
+		.ImSpanPrice{ display:block; background:url(http://img.alfabrok.ua/files/images/bg/cena.png) center center no-repeat; text-align:center; font-weight:bold; padding-top:3px ; padding-bottom:3px; min-width:90px;}
 		.ImSpanPriceOld{ display:block; text-decoration: line-through}
 		
 		.DivPaging { text-align:center; margin:10px 0 0 0;}
 		.TopDivPaging { margin:15px 0; }
-			.DivPaging a{ display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px; margin-left:5px;}
-			.DivPaging a:hover {border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333;}
+			.DivPaging a{ display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.ua/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px; margin-left:5px;}
+			.DivPaging a:hover {border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.ua/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333;}
 		
 		
 	.ImSpanPriceUSA { display:block;margin-top:5px;padding-top:2px;padding-bottom:2px;background-color:#DDDDDD!important;font-weight:bold;}
 /*********************************************/
 .DivImOneTitle { margin:0 0 10px 0}
-	.DivImOneTitle a { display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px 3px 25px; position:relative;
+	.DivImOneTitle a { display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.ua/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px 3px 25px; position:relative;
 text-decoration:none;}
 	.DivImOneTitle a span {position:absolute; margin-left:-20px}
-	.DivImOneTitle a:hover {border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333;}
+	.DivImOneTitle a:hover {border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.ua/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333;}
 .DivImOne { border:1px solid #cdcdcd; padding:10px;}
 	.DivTitleImOneSpan {margin-left:20px; font-size:14px; }
 	.TableOneImmovableHeder {width:100%;}
@@ -63,7 +63,7 @@ text-decoration:none;}
 				.ImSpanPriceOne { display:block; font-size:26px; color:#c9a72b; margin-right:10px;}
 				.ImSpanPriceOne .price-arrow-down { }
 				.ImSpanPriceOne:hover .exchange-rate-block { display:block; }
-				.ImSpanPriceOne .exchange-rate-block { display:none; margin:-5px 0 0 -20px; width:155px; height:120px; padding:20px 0 0 15px; position:absolute; background: url(http://img.alfabrok.loc/files/images/bg/exchange-rate-block.png) 0 0 no-repeat; }
+				.ImSpanPriceOne .exchange-rate-block { display:none; margin:-5px 0 0 -20px; width:155px; height:120px; padding:20px 0 0 15px; position:absolute; background: url(http://img.alfabrok.ua/files/images/bg/exchange-rate-block.png) 0 0 no-repeat; }
 				.ImSpanPriceOne .exchange-rate-block h4 { font-size:12px; margin:0 0 7px 0; font-weight:normal; color:#333333; }
 				.ImSpanPriceOne .exchange-rate-block p { font-size:12px; margin:0 0 4px 0; font-weight:normal; color:#333333; }
 				.ImSpanPriceOne .exchange-rate-block p span.val { font-size:12px; color:#C9A72B; font-weight:bold; }
@@ -71,7 +71,7 @@ text-decoration:none;}
 				.im-other-price { color:#c9a72b; margin:10px 0; font-size:18px; font-weight:normal; }
 					.im-other-price span { color:#333333; font-weight:normal; font-size:12px; } 
 				.im-other-price:hover .exchange-rate-block { display:block; }
-				.im-other-price .exchange-rate-block { display:none; margin:-5px 0 0 -20px; width:155px; height:120px; padding:20px 0 0 15px; position:absolute; background: url(http://img.alfabrok.loc/files/images/bg/exchange-rate-block.png) 0 0 no-repeat; }
+				.im-other-price .exchange-rate-block { display:none; margin:-5px 0 0 -20px; width:155px; height:120px; padding:20px 0 0 15px; position:absolute; background: url(http://img.alfabrok.ua/files/images/bg/exchange-rate-block.png) 0 0 no-repeat; }
 				.im-other-price .exchange-rate-block h4 { font-size:12px; margin:0 0 7px 0; font-weight:normal; color:#333333; }
 				.im-other-price .exchange-rate-block p { font-size:12px; margin:0 0 4px 0; font-weight:normal; color:#333333; }
 				.im-other-price .exchange-rate-block p span.val { font-size:12px; color:#C9A72B; font-weight:bold; }	
@@ -90,10 +90,10 @@ text-decoration:none;}
 		.TOIItdText { width:40%; padding-top:10px}
 			.ImSummaryHeader{ margin:0 0 10px 0; font-size:14px;}
 			#DivSummaryLang {}
-				#DivSummaryLang a {  display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; margin-right:0.1em; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px;}
-				#DivSummaryLang a.AlinkNoSelected {  background: #eeecec url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x}
-				#DivSummaryLang a.AlinkNoSelected:hover { border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333;  }
-				#DivSummaryLang a.AlinkSelected {  border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.loc/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333; }
+				#DivSummaryLang a {  display:inline-block;  border: 1px solid #dddddd; background: #eeecec url(http://img.alfabrok.ua/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x; color: #333333;cursor:pointer; margin-right:0.1em; overflow:visible; padding:0; position:relative; text-align:center; text-decoration:none !important; padding:3px 10px;}
+				#DivSummaryLang a.AlinkNoSelected {  background: #eeecec url(http://img.alfabrok.ua/files/images/bg/jq/ui-bg_highlight-soft_100_eeecec_1x100.png) 50% top repeat-x}
+				#DivSummaryLang a.AlinkNoSelected:hover { border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.ua/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333;  }
+				#DivSummaryLang a.AlinkSelected {  border: 1px solid #d5d5d5; background: #e6e6e6 url(http://img.alfabrok.ua/files/images/bg/jq/ui-bg_glass_100_e6e6e6_1x400.png) 50% 50% repeat-x;  color: #333333; }
 			.DivSummaryTextId {}
 		.TOIItdProp {padding-top:10px}
 			.TablePropAdvased { border-left:1px solid #f9f0e9; border-bottom:1px solid #f9f0e9}
@@ -113,7 +113,7 @@ text-decoration:none;}
 .DivImTablePrice { color:#C9A72B; display:block; font-size:26px; margin-right:10px; margin-top:10px; }
 	.DivImTablePrice .price-arrow-down { }
 	.DivImTablePrice:hover .exchange-rate-block { display:block; }
-	.DivImTablePrice .exchange-rate-block { display:none; margin:-5px 0 0 -20px; width:155px; height:120px; padding:20px 0 0 15px; position:absolute; background: url(http://img.alfabrok.loc/files/images/bg/exchange-rate-block.png) 0 0 no-repeat; }
+	.DivImTablePrice .exchange-rate-block { display:none; margin:-5px 0 0 -20px; width:155px; height:120px; padding:20px 0 0 15px; position:absolute; background: url(http://img.alfabrok.ua/files/images/bg/exchange-rate-block.png) 0 0 no-repeat; }
 	.DivImTablePrice .exchange-rate-block h4 { font-size:12px; margin:0 0 7px 0; font-weight:normal; color:#333333; }
 	.DivImTablePrice .exchange-rate-block p { font-size:12px; margin:0 0 4px 0; font-weight:normal; color:#333333; }
 	.DivImTablePrice .exchange-rate-block p span.val { font-size:12px; color:#C9A72B; font-weight:bold; }
@@ -124,7 +124,7 @@ text-decoration:none;}
 /*	YMAP FULL SCREEN	*/
 #showFullOneMap { padding: 2px 3px 3px 3px;  text-decoration: none; border:1px solid #FFF; background:#808080; color:#FFF; margin:5px 0 10px; display:block; width:100%; font-size:13px; width:494px; cursor:pointer }
 #showFullOneMap:hover { border:1px solid #808080}
-	#showFullOneMap span { display:block; height: 16px; width: 16px; position: relative;  background-position: -16px -80px; float:left; background-image: url(http://img.alfabrok.loc/files/images/bg/jq/ui-icons_ffffff_256x240.png); overflow: hidden; text-indent: -99999px; margin:2px 3px -1px 0;}
+	#showFullOneMap span { display:block; height: 16px; width: 16px; position: relative;  background-position: -16px -80px; float:left; background-image: url(http://img.alfabrok.ua/files/images/bg/jq/ui-icons_ffffff_256x240.png); overflow: hidden; text-indent: -99999px; margin:2px 3px -1px 0;}
 #hideFullOneMap  { float:right; display:block; margin:5px 25px 0 0; display:none; color:#3A7BEE; text-decoration:underline; cursor:pointer; }
 #hideFullOneMap:hover { text-decoration:none; color:#EDD923;}
 #divYScreen {}

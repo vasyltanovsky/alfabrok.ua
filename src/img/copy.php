@@ -1,4 +1,6 @@
-<?php set_time_limit (6000000000000000000000); ?>
+<?php 
+ini_set('max_execution_time', 1200);
+?>
 <?php
 
 //отображение ошибок
@@ -14,7 +16,7 @@ $time_start = getmicrotime ();
 
 //константы
 define ( 'SLASH', '/' );
-define ( 'DOC_ROOT', $_SERVER ['DOCUMENT_ROOT'] . "/" );
+define ( 'DOC_ROOT', $_SERVER ['DOCUMENT_ROOT'] );
 
 //define ( 'DOC_ROOT', $_SERVER ['DOCUMENT_ROOT'] );
 define ( 'DEBUG', 1 );
@@ -24,16 +26,21 @@ include DOC_ROOT . '/config/class.inc'; //подключение классов
 include DOC_ROOT . '/config/config.php'; //поключение конфига
 
 
-$deleteurl = "http://alfabrok.loc/deleteimg.php";
+$deleteurl = "http://alfabrok.ua/deleteimg.php";
 
 $srcfile = 'http://www.alfabrok.ua/files/images/immovables/';
 $dstfile = '/files/images/immovables/';
 
-$provider = new mysql_select ( "immovables_photos", " order by im_photo_id " );
-$provider->select_table ( "im_photo_id" );
+$provider = new mysql_select ( "immovables_photos", " where im_id = 10688 order by im_photo_id " );
+$provider->select_table_query ( "SELECT p . * , i.hide
+FROM  `immovables_photos` p
+JOIN immovables i ON p.im_id = i.im_id
+WHERE i.hide =  'hide'
+AND i.im_id >= 5000
+order by p.im_id", "im_photo_id" );
 
 if ($provider->table) {
-	//$dir = opendir ( $dstfile );
+	$dir = opendir ( $dstfile );
 	foreach ( $provider->table as $key => $value ) {
 		$filename = sprintf ( "%s.%s", $value ["im_photo_id"], $value ["im_file_type"] );
 		copy ( $srcfile . $filename, DOC_ROOT . $dstfile . $filename );
@@ -48,8 +55,8 @@ if ($provider->table) {
 		devLogs::_echo ( "copy->st_" . $value ["im_photo_id"] );
 		
 		//$del = file_get_contents ( sprintf ( "%s?im_photo=%s.%s", $deleteurl, $value ["im_photo_id"], $value ["im_file_type"] ) );
-		//devLogs::_echo ( $del );
-		devLogs::_echo ( "====================" );
+		devLogs::_echo ( $value ["im_id"] );
+		//devLogs::_echo ( "====================" );
 	}
 }
 //mkdir(dirname($dstfile), 0777, true);

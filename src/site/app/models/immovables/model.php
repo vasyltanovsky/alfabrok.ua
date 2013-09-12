@@ -131,6 +131,20 @@ class immovablesModelClass extends modelClass {
 		}
 	}
 	
+	public function buildImmovablesCodeForStingToStringQuery($ids) {
+		$ret = "('0')";
+		if (! empty ( $ids )) {
+			$ret = "";
+			$ids = explode ( ",", $ids );
+			foreach ( $ids as $key => $value ) {
+				if (! empty ( $value ))
+					$ret .= sprintf ( "'%s',", translit ( $value ) );
+			}
+			return sprintf ( "(%s)", substr ( $ret, 0, strlen ( $ret ) - 1 ) );
+		}
+		return "('0')";
+	}
+	
 	/*	details	*/
 	public function getItem($id) {
 		$this->item = $this->provider->getItem ( $id );
