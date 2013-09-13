@@ -70,7 +70,7 @@ if (isset ( $_GET ['action'] )) {
 		
 		$t = 'alfabrok-' . $title ['im_code'];
 		
-		$path = "http://" . $_SERVER ['HTTP_HOST'] . "/files/images/immovables/";
+		$path = $images_root . "/files/images/immovables/";
 		mkdir ( $t, 0777 );
 		
 		$i = 1;
@@ -122,7 +122,7 @@ if (isset ( $_GET ['action'] )) {
 		
 		$t = 'alfabrok-' . $title ['im_code'];
 		
-		$path = "http://" . $_SERVER ['HTTP_HOST'] . "/files/images/immovables/";
+		$path = $images_root . "/files/images/immovables/";
 		mkdir ( $t, 0777 );
 		
 		$i = 1;
@@ -168,7 +168,7 @@ $response ['success'] = false;
 $response ['fieldErrors'] = array ();
 
 #настройки для копирования изображений 
-$fileDir = '../../files/images/immovables/';
+$fileDir = $images_folder;
 $fileVideoDir = '../../files/video/im/';
 $ImgProp ['ImgW'] = 65;
 $ImgProp ['ImgH'] = 65;
