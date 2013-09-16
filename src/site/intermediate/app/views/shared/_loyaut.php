@@ -27,7 +27,7 @@ global $renderHtmlLinkObj;
 	<script type="text/javascript" src="/js/ant/libs/indexbanner.js"></script>
 	<script type="text/javascript" src="/js/ant/libs/ymap.user.functional.js"></script>
 	<script type="text/javascript" src="/js/ant/libs/jquery-ui-1.8.18.custom.min.js"></script>
- 	<script defer src='/js/ant/45e060d.js'></script>
+ 	<script defer src='/js/ant/f433092.js'></script>
 	<?php echo $renderHtmlLinkObj->renderJs();?>
 	<link rel="alternate" type="application/rss+xml" href="http://<?php echo $_SERVER['HTTP_HOST'];?>/<?php echo $_COOKIE['lang_code'];?>/rss/news/stati" title="<?php echo $this->dict->buld_table['stati']['dict_name'];?>" />
 	<link rel="alternate" type="application/rss+xml" href="http://<?php echo $_SERVER['HTTP_HOST'];?>/<?php echo $_COOKIE['lang_code'];?>/rss/news/sovetu" title="<?php echo $this->dict->buld_table['sovetu']['dict_name'];?>" />

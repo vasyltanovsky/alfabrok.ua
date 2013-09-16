@@ -97,7 +97,8 @@ function initImImYMap() {
 					setGeopointerId(this.id);
 				});
 				YMaps.Events.observe(geocoder, geocoder.Events.Fault, function (geocoder, error) {
-					alert("Произошла ошибка: " + error);
+					return false;
+					//alert("Произошла ошибка: " + error);
 				})
 			}
 		}
