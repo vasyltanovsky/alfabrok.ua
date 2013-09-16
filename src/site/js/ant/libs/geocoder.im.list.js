@@ -18,8 +18,7 @@
 		});
 		// Ïðîöåññ ãåîêîäèðîâàíèÿ çàâåðøåí íåóäà÷íî
 		YMaps.Events.observe(geocoder, geocoder.Events.Fault, function (geocoder, error) {
-			return false;
-					//alert("Произошла ошибка: " + error);
+			alert("Ïðîèçîøëà îøèáêà: " + error);
 		})
 }
 
