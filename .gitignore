@@ -124,6 +124,7 @@ doc/*
 dis/*
 db/*
 immovables/*
+intermediate/*
 config.php
 
 # Click-Once directory
