@@ -86,9 +86,9 @@ class appClass {
 			$this->appDataObj->setKeyw ( $this->controllerDataObj->appDataObj->getKeyw () );
 			$this->appDataObj->setDesc ( $this->controllerDataObj->appDataObj->getDesc () );
 		} catch ( Exception $exc ) {
-			header ( "HTTP/1.1 301 Moved Permanently" );
-			header ( "Location: http://" . $_SERVER ['HTTP_HOST'] . "/404.html" );
-			exit ();
+			//header ( "HTTP/1.1 301 Moved Permanently" );
+			//header ( "Location: http://" . $_SERVER ['HTTP_HOST'] . "/404.html" );
+			//exit ();
 			echo ExceptionFullGet::ExcError ( $exc );
 		}
 	}

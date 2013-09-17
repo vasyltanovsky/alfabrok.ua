@@ -54,7 +54,7 @@ class mysql_select {
 			//unset($this->buld_table[count($this->buld_table) - 1]);
 			return $this->table = $t_pages;
 		} catch ( Exception $exc ) {
-			echo ExceptionFullGet::ExcMysql ( $exc );
+			//echo ExceptionFullGet::ExcMysql ( $exc );
 		}
 	}
 	
@@ -67,7 +67,7 @@ class mysql_select {
 				throw new ExceptionMySQL ( mysql_error (), $query, "Ошибка при выборка с таблицы" );
 			return mysql_fetch_array ( $sql_query );
 		} catch ( Exception $exc ) {
-			echo ExceptionFullGet::ExcMysql ( $exc );
+			//echo ExceptionFullGet::ExcMysql ( $exc );
 		}
 	}
 	
@@ -84,7 +84,7 @@ class mysql_select {
 				if (! mysql_query ( $query ))
 					throw new ExceptionMySQL ( mysql_error (), $query , "Ошибка при обновлении записи" );
 			} catch ( Exception $exc ) {
-				echo ExceptionFullGet::ExcMysql ( $exc );
+				//echo ExceptionFullGet::ExcMysql ( $exc );
 			}
 		}
 		return;
@@ -109,7 +109,7 @@ class mysql_select {
 			//unset($this->buld_table[count($this->buld_table) - 1]);
 			return $this->table = $t_pages;
 		} catch ( Exception $exc ) {
-			echo ExceptionFullGet::ExcMysql ( $exc );
+			//echo ExceptionFullGet::ExcMysql ( $exc );
 		}
 	}
 }

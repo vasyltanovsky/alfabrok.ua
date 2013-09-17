@@ -15,7 +15,7 @@
     </tr>
     <?php foreach ($Model->list as $key => $value):?>
     <tr>
-        <td class="TdListLeftBorder"><?php echo $value["im_code"];?></td>
+        <td class="TdListLeftBorder"><?php echo $value["im_code"];?><a href="/ru/immovables/sravnenie" title="<?php echo getLangString("sravnenie_link_title"); ?>" class="comparing-objects-link" id="comparing-item-<?php echo $value["im_id"];?>"><?php echo getLangString("sravnenie_link"); ?></a></td>
         <td class="ListTableImIndexImg"><a href="/ru/home/sale/<?php echo $routingObj->getParamItem("page_id", 1);?>/<?php echo $value["im_id"]; ?>"><img src="<?php echo getLangString('imageDomain');?>/files/images/immovables/st_<?php echo $value["im_photo"];?>" alt="<?php echo $value["im_title"];?>"/></a></td>
         <td class="TdListLeftAlight"><p><?php echo $value["im_title"];?></p><p><b><?php echo $m->GetFullAdress($value, "im_full_adress")?></b></p><div class="ImPropTable"><?php echo $m->GetPropListValue($value, "im_prop_list")?></div><a class="AReadMore" href="/ru/home/sale/<?php echo $routingObj->getParamItem("page_id", 1);?>/<?php echo $value["im_id"]; ?>"><?php echo getLangString(REadMore);?></a></td>
 		<td class="TdTextCenter"><?php echo appHtmlClass::partial("immovables/price/pricecurrent", array("Data" => $value)); ?></td>

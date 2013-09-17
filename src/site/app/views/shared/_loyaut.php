@@ -1,3 +1,4 @@
+<!-- url ~=180 -->
 <?php 
 global $routingObj;
 global $renderHtmlLinkObj;
@@ -5,9 +6,9 @@ global $renderHtmlLinkObj;
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title><?php echo $p_w_title;?></title>
-    <meta name="description" content="<?php echo $p_w_desc;?>" />
-    <meta name="keywords" content="<?php echo $p_w_keyw;?>" />
+	<title><?php echo $p_w_title;?></title><!-- I'd think about 60 characters are displayed? Try to find out looking at SERPs  -->
+    <meta name="keywords" content="<?php echo $p_w_keyw;?>" /> <!-- 5 to 10 words should be enough, don't use words you haven't visible on the page too, 175 character -->
+    <meta name="description" content="<?php echo $p_w_desc;?>" /> <!-- Same as title, I think up to something like 160 characters are displayed. 150 character-->
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="robots" content="INDEX,FOLLOW" />
     <meta name="sitemap" content="INDEX,FOLLOW" />
@@ -45,6 +46,7 @@ global $renderHtmlLinkObj;
 	<script type="text/javascript" src="/js/ant/im.search.js"></script>
 	<script type="text/javascript" src="/js/ant/im.post.get.js"></script>
 	<script type="text/javascript" src="/js/ant/round.js"></script>
+	<script type="text/javascript" src="/js/ant/comparing.js"></script>
 	<script type="text/javascript" src="/js/ant/script.js"></script>
 	<!-- end scripts-->
 	<?php echo $renderHtmlLinkObj->renderJs();?>
@@ -59,6 +61,9 @@ global $renderHtmlLinkObj;
     <div class="DivCenterPage"><?php echo $body;?></div>
     <div class="DivFooter">© 2010-2013 alfabrok.ua All rights reserved</div>
     <div id="DivRequest"></div>
+    <div class="shadow-0-0-10-1 radius-3" id="log">
+        <h4>Javascript log</h4>
+    </div>
 </div>
 	<script type="application/javascript">
 	var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];

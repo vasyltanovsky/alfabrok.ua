@@ -96,7 +96,7 @@ if (! empty ( $_GET )) {
 		//
 		$dictionaries = new dictionaries ( );
 		$dictionaries->buid_dictionaries_list ( $tbl ['list_dict'] ['name'] );
-		$dictionaries->buid_dictionaries ( $tbl ['dict'] ['name'], "WHERE lang_id = {$_COOKIE['lang_id']} ORDER BY dict_name ASC" );
+		$dictionaries->buid_dictionaries ( $tbl ['dict'] ['name'], "WHERE lang_id = {$_COOKIE['lang_id']} ORDER BY dict_code ASC" );
 		$return ['dict_name'] = $dictionaries->buld_table [$_GET ['ar_id']] ['dict_name'];
 		//выборка данных
 		$ShopsData = new mysql_select ( );

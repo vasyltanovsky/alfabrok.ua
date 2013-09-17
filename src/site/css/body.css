@@ -16,3 +16,8 @@ table,table td { vertical-align:top; text-align:left; }
 
 #Preloader {background: url(http://img.alfabrok.ua/files/images/preloader/ajax-loader.gif) center center no-repeat; z-index:100; top:0; left:0; position:absolute; width:95%; height:95%; display:none;} 
 #PreloaderM {background:url(http://img.alfabrok.ua/files/images/preloader/ajax-loader_mini.gif) center center no-repeat; width:16px; height:16px; position: absolute; display:none }
+
+/*  */
+#log { padding: 5px 5px 5px 10px; width: 400px; background: #2D2D2D; color: #FFF; position: fixed; z-index: 3; bottom: 5px; left: 5px; }
+    #log h4 { margin: 3px 3px 3px 1px; background: #FFF; color: #2D2D2D; padding: 2px 5px; font-size: 11px; }
+    #log div { font-size: 12px; }

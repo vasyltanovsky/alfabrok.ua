@@ -184,5 +184,26 @@ class immovablesController extends aControllerClass {
 		$this->appDataObj->setDesc ( $this->appDataObj->getTitle () . ". " . $model->item ["im_title"] );
 		return;
 	}
-
+	/*	сравнение обьектов comparing	*/
+	public function sravnenie($param) {
+		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables" ) );
+		return $this->View ( array ("Model" => $model ), "immovables/comparing" );
+	}
+	public function comparingadditem($param) {
+		return $this->getJson ( $param );
+	}
+	public function comparingremoveitem($param) {
+		return $this->getJson ( $param );
+	}
+	/*	сравнение обьектов comparing	*/
+	/*	yndex	*/
+	public function poisk($param) {
+		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables" ) );
+		return $this->View ( array ("Model" => $model ), "immovables/poisk" );
+	}
+	public function karta($param) {
+		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables" ) );
+		return $this->View ( array ("Model" => $model ), "immovables/karta" );
+	}
+	/*	yndex	*/
 }

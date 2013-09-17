@@ -26,6 +26,6 @@ class modelClass {
 	public function buildDictionaries() {
 		$this->dictionaries = new dictionariesClass ( );
 		$this->dictionaries->buid_dictionaries_list ( "list_dictionaries" );
-		$this->dictionaries->buid_dictionaries ( "dictionaries", "WHERE lang_id = {$_COOKIE['lang_id']} ORDER BY dict_name" );
+		$this->dictionaries->buid_dictionaries ( "dictionaries", "WHERE lang_id = {$_COOKIE['lang_id']} ORDER BY dict_id" );
 	}
 }

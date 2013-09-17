@@ -1,5 +1,11 @@
 /* Author:
  */
+function appJsLog(message) {
+    $("<div>").text(message).prependTo("#log");
+    $("#log").scrollTop(0);
+}
+function appJsError(message) {
+}
 var imDownPraceObj = new indexBan('#linksListBan', '#positionListBan', '?action=hot_price');
 /* =============== functions.js ============ */
 $(document).ready( function() {

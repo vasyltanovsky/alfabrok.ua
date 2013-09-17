@@ -36,12 +36,14 @@ class dictionariesClass {
 	#### селект таблицы
 	public function select_table($table, $where = NULL, $order = NULL) {
 		$query = "SELECT * FROM {$table}
-					    		{$where}
-								{$order}";
+					    		{$where} {$order}";
 		$tbl = mysql_query ( $query );
 		
-		if (! $tbl)
+		if (! $tbl) {
+echo $query;
+			echo mysql_error ();
 			throw new ExceptionMySQL ( mysql_error (), $query, "Ошибка извлечений позиций" );
+		}
 		return $tbl;
 		$i = 0;
 		if (mysql_num_rows ( $tbl ))
