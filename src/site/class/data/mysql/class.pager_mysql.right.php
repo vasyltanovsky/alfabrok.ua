@@ -16,7 +16,7 @@ class pager_mysql_right extends pager_right {
 	
 	private $parameters_after;
 	private $page_name;
-	
+	public $total;
 	public $myQuery;
 	// Конструктор
 	public function __construct($tablename, $where = "", $order = "", $pnumber = 10, $page_link = 3, $parameters = "", $parameters_after = "", $myCountQuery = "", $myQuery = "", $page_name = "") {
@@ -81,7 +81,7 @@ class pager_mysql_right extends pager_right {
 		if (empty ( $page ))
 			$page = 1;
 			// Количество записей в файле
-		$total = $this->get_total ( $myQuery );
+		$this->total = $total = $this->get_total ( $myQuery );
 		// Вычисляем число страниц в системе
 		$number = ( int ) ($total / $this->get_pnumber ());
 		if (( float ) ($total / $this->get_pnumber ()) - $number != 0)

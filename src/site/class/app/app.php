@@ -3,28 +3,24 @@ class appClass {
 	private $routingObj;
 	private $controllerDataObj = null;
 	private $appResult;
-	
 	private $activePage;
 	private $cacheObj;
 	private $isCasheApp;
 	private $appDataObj;
-	
 	public function __construct() {
 	}
-	
 	public function init() {
 		global $routingObj;
 		global $exchangeRateObj;
 		global $controllerDataObj;
 		$this->isCasheApp = false;
-		new securityClass ( );
-		$this->routingObj = new routingClass ( );
+		new securityClass ();
+		$this->routingObj = new routingClass ();
 		$routingObj = $this->routingObj;
-		$this->cacheObj = new cacheClass ( );
-		$this->appDataObj = new appDataClass ( );
-		$exchangeRateObj = new exchangeRateClass ( );
+		$this->cacheObj = new cacheClass ();
+		$this->appDataObj = new appDataClass ();
+		$exchangeRateObj = new exchangeRateClass ();
 	}
-	
 	public function buildControllerData() {
 		try {
 			$controller = $this->routingObj->getControllerFull ();
@@ -39,7 +35,6 @@ class appClass {
 			throw new ExceptionObject ( $ex, "Ошибка обращения к контроллеру" );
 		}
 	}
-	
 	public function getActivePage() {
 		$structureModelObj = new structureModelClass ( new structureProviderClass ( "pages" ) );
 		$structureModelObj->getItem ( $this->routingObj->getController (), $this->routingObj->getAction () );
@@ -48,19 +43,17 @@ class appClass {
 			$this->appDataObj = new appDataClass ( $this->activePage );
 		}
 	}
-	
 	private function checkIsCasheApp() {
 		if (empty ( $this->activePage )) {
 			$getParam = $this->routingObj->getParam ();
-			if (isset ( $getParam ["cashe"] )) {
+			if (isset ( $getParam["cashe"] )) {
 				$this->isCasheApp = true;
 			}
 		} else {
-			$this->isCasheApp = $this->activePage ["is_cashe"];
+			$this->isCasheApp = $this->activePage["is_cashe"];
 		}
 		$this->isCasheApp = false;
 	}
-	
 	private function buildCashApp($action = "start") {
 		if (! $this->isCasheApp)
 			return;
@@ -73,26 +66,28 @@ class appClass {
 		}
 		return;
 	}
-	
 	public function formatControllerObject($controller, $action, $param) {
 		try {
 			if (! class_exists ( $controller ))
 				throw new ExceptionObject ( $controller, "\"$controller\" не существует контроллера" );
-			$this->controllerDataObj = new $controller ( );
+			$this->controllerDataObj = new $controller ();
 			if (! method_exists ( $this->controllerDataObj, $action ))
 				throw new ExceptionObject ( $action, "\"$action\" не существует метода" );
 			$this->controllerDataObj->setResult ( $this->controllerDataObj->$action ( $param ) );
 			$this->appDataObj->setTitle ( $this->controllerDataObj->appDataObj->getTitle () );
-			$this->appDataObj->setKeyw ( $this->controllerDataObj->appDataObj->getKeyw () );
+			$this->appDataObj->setKeyw ( $this->controllerDataObj->appDataObj->getKeyw () ); 
 			$this->appDataObj->setDesc ( $this->controllerDataObj->appDataObj->getDesc () );
+			$this->appDataObj->setStringNavigation ( $this->controllerDataObj->appDataObj->getStringNavigation () ); 
+			$this->appDataObj->setPController ( $this->controllerDataObj->appDataObj->getPController () ); 
+			$this->appDataObj->setPAction ( $this->controllerDataObj->appDataObj->getPAction () );
+			$this->appDataObj->social =  $this->controllerDataObj->appDataObj->social;
 		} catch ( Exception $exc ) {
-			//header ( "HTTP/1.1 301 Moved Permanently" );
-			//header ( "Location: http://" . $_SERVER ['HTTP_HOST'] . "/404.html" );
-			//exit ();
+			// header ( "HTTP/1.1 301 Moved Permanently" );
+			// header ( "Location: http://" . $_SERVER ['HTTP_HOST'] . "/404.html" );
+			// exit ();
 			echo ExceptionFullGet::ExcError ( $exc );
 		}
 	}
-	
 	public function getResult() {
 		global $cancellationLoyaut;
 		if (empty ( $this->appResult )) {
@@ -103,15 +98,16 @@ class appClass {
 			if ($this->controllerDataObj->isPartial) {
 				$this->appResult = $this->controllerDataObj->result;
 			} else {
-				$aControllerObj = new aControllerClass ( );
-				$this->appResult = $aControllerObj->view ( array ("body" => $this->controllerDataObj->result, "p_w_title" => $this->appDataObj->getTitle (), "p_w_desc" => $this->appDataObj->getKeyw (), "p_w_keyw" => $this->appDataObj->getDesc () ), "/shared/" . $this->controllerDataObj->loyaut );
+				$aControllerObj = new aControllerClass ();
+				$this->appResult = $aControllerObj->view ( array(
+						"appDataObj" => $this->appDataObj,
+						"body" => $this->controllerDataObj->result), "/shared/" . $this->controllerDataObj->loyaut );
 			}
 		}
 	}
-	
 	public function printResult() {
 		echo $this->appResult;
-		//кеширование (сохранение сформированной страницы)
+		// кеширование (сохранение сформированной страницы)
 		$this->buildCashApp ( 'end' );
 		return;
 	}

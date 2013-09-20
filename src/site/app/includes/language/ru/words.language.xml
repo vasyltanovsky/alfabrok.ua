@@ -2,6 +2,7 @@
 <?xml-stylesheet type="text/xsl" href=""?>
 <words>
 	<imageDomain>http://img.alfabrok.ua</imageDomain>
+	<site_name>alfabrok.ua</site_name>
 	<YMapSiteKey>AClnakwBAAAACI7GfgIABsUZ_ZGh4cxSuN2lRkclVs3B3PAAAAAAAAAAAAB6Tfj4eS4BXxpBcsMrwOAqQh3hmg==~AHNmakwBAAAAIo_9YQIAa0OikH9hvUf6M0w0_cIYi_wFsngAAAAAAAAAAABWdqXLzkUIwYYx_0-o4BC5LRvwMA==</YMapSiteKey>
 	<CompaniName><![CDATA[Alfabrok&reg;]]></CompaniName>
 	<index_im_link>Одним кликом</index_im_link>
@@ -573,4 +574,13 @@
 	<!--  -->
 	<sravnenie_link_title></sravnenie_link_title>
 	<sravnenie_link>sravnenie</sravnenie_link>
+	<!-- rss -->
+	<rss_channel_title>Alfabrok.ua: новые обьекты</rss_channel_title>
+	<rss_channel_description></rss_channel_description>
+	<rss_channel_image_url>http://img.alfabrok.ua/files/images/bg/alfabrok.logo.png</rss_channel_image_url>
+	<rss_channel_image_link>http://alfabork.ua/ru/immovables/new</rss_channel_image_link>
+	<rss_channel_image_title>Alfabrok.ua: новые обьекты</rss_channel_image_title>
+	<!-- social -->
+	<facebook_id>161941680611661</facebook_id>
+	<vkontakte_id></vkontakte_id>
 </words>

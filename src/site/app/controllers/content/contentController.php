@@ -1,7 +1,7 @@
 <?php
 class contentController extends aControllerClass {
 	public function index($param) {
-		return null;
+		return;
 	}
 	public function details($param) {
 		$model = new structureModelClass ( new structureProviderClass ( "pages" ) );

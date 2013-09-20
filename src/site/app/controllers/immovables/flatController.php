@@ -8,8 +8,9 @@ class flatController extends aControllerClass {
 		$param["is_prop_rent"] = true;
 		$param["hide"] = "show";
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
-		$model->getListPager ( $param, $param ["page_id"], "/ru/flat/rent" );
-		return $this->View ( array ("Model" => $model ) );
+		$model->getListPager ( $param, $param["page_id"], "/ru/flat/rent" );
+		return $this->View ( array(
+				"Model" => $model) );
 	}
 	public function sale($param) {
 		if ($this->routingObj->getParamItem ( "im_id" ))
@@ -19,7 +20,8 @@ class flatController extends aControllerClass {
 		$param["is_prop_sale"] = true;
 		$param["hide"] = "show";
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
-		$model->getListPager ( $param, $param ["page_id"], "/ru/flat/sale" );
-		return $this->View ( array ("Model" => $model ) );
+		$model->getListPager ( $param, $param["page_id"], "/ru/flat/sale" );
+		return $this->View ( array(
+				"Model" => $model) );
 	}
 }

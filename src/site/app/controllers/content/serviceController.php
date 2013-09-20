@@ -12,6 +12,8 @@ class serviceController extends aControllerClass {
 			$this->appDataObj->setTitle ( $model->item ["title"] );
 			$this->appDataObj->setKeyw ( $model->item ["keywords_web"] );
 			$this->appDataObj->setDesc ( $model->item ["description_web"] );
+			$this->appDataObj->setStringNavigation ( $model->item ["title"] );
+			$this->appDataObj->setPAction("index");
 		}
 		return $this->View ( array ("Data" => $model->item ) );
 	}
@@ -47,7 +49,7 @@ class serviceController extends aControllerClass {
 		$ss_list_icon .= PrintListPropToSS ( $ClHomePropQuery->table );
 		$ss_list_icon .= PrintListPropToSS ( $ClBilPropQuery->table );
 		$ss_list_icon .= PrintListPropToSS ( $ClLandPropQuery->table );
-		$model["ss_list_icon"] = $ss_list_icon;
+		$model ["ss_list_icon"] = $ss_list_icon;
 		return $this->View ( array ("Model" => $model ) );
 	}
 }
@@ -62,19 +64,19 @@ function PrintListPropToSS($Data) {
 		if ((translit ( $Data [$i] ['im_prop_name'] ) != 'Vxod')) {
 			if (IsPropNameId ( $Data [$i] ['catalog_id'], translit ( $Data [$i] ['im_prop_name'] ) )) {
 				if (! empty ( $Data [$i] ['dict_have_image'] )) {
-					$return .= "<table class=\"TablaPropListSS\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"TablePropAdvasedTdImg\"><img title=\"{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}\" alt=\"{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}\" src=\"". getLangString("imageDomain") ."/files/images/dict/{$Data[$i]['dict_id']}.png\"></td><td class=\"TablePropAdvasedTdTextSS\">{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}</td></tr></table>";
+					$return .= "<table class=\"TablaPropListSS\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"TablePropAdvasedTdImg\"><img title=\"{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}\" alt=\"{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}\" src=\"" . getLangString ( "imageDomain" ) . "/files/images/dict/{$Data[$i]['dict_id']}.png\"></td><td class=\"TablePropAdvasedTdTextSS\">{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}</td></tr></table>";
 				} elseif (! empty ( $Data [$i] ['prop_have_image'] ) && (! in_array ( $Data [$i] ['im_prop_id'], $issetPropId ))) {
 					$issetPropId [$Data [$i] ['im_prop_id']] = $Data [$i] ['im_prop_id'];
-					$return .= "<table class=\"TablaPropListSS\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"TablePropAdvasedTdImg\"><img title=\"{$Data[$i]['im_prop_name']}\" alt=\"{$Data[$i]['im_prop_name']}\" src=\"". getLangString("imageDomain") ."/files/images/prop/{$Data[$i]['im_prop_id']}.png\"></td><td class=\"TablePropAdvasedTdTextSS\">{$Data[$i]['im_prop_name']}</td></tr></table>";
+					$return .= "<table class=\"TablaPropListSS\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"TablePropAdvasedTdImg\"><img title=\"{$Data[$i]['im_prop_name']}\" alt=\"{$Data[$i]['im_prop_name']}\" src=\"" . getLangString ( "imageDomain" ) . "/files/images/prop/{$Data[$i]['im_prop_id']}.png\"></td><td class=\"TablePropAdvasedTdTextSS\">{$Data[$i]['im_prop_name']}</td></tr></table>";
 				}
 			}
 		}
 		if ((translit ( $Data [$i] ['im_prop_name'] ) == 'Vxod') and ($Data [$i] ['catalog_id'] == '4c3ec3ec5e9b7')) {
 			if (! empty ( $Data [$i] ['dict_have_image'] )) {
-				$return .= "<table class=\"TablaPropListSS\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"TablePropAdvasedTdImg\"><img title=\"{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}\" alt=\"{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}\" src=\"". getLangString("imageDomain") ."/files/images/dict/{$Data[$i]['dict_id']}.png\"></td><td class=\"TablePropAdvasedTdTextSS\">{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}</td></tr></table>";
+				$return .= "<table class=\"TablaPropListSS\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"TablePropAdvasedTdImg\"><img title=\"{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}\" alt=\"{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}\" src=\"" . getLangString ( "imageDomain" ) . "/files/images/dict/{$Data[$i]['dict_id']}.png\"></td><td class=\"TablePropAdvasedTdTextSS\">{$Data[$i]['im_prop_name']} - {$Data[$i]['dict_name']}</td></tr></table>";
 			} elseif (! empty ( $Data [$i] ['prop_have_image'] ) && (! in_array ( $Data [$i] ['im_prop_id'], $issetPropId ))) {
 				$issetPropId [$Data [$i] ['im_prop_id']] = $Data [$i] ['im_prop_id'];
-				$return .= "<table class=\"TablaPropListSS\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"TablePropAdvasedTdImg\"><img title=\"{$Data[$i]['im_prop_name']}\" alt=\"{$Data[$i]['im_prop_name']}\" src=\"". getLangString("imageDomain") ."/files/images/prop/{$Data[$i]['im_prop_id']}.png\"></td><td class=\"TablePropAdvasedTdTextSS\">{$Data[$i]['im_prop_name']}</td></tr></table>";
+				$return .= "<table class=\"TablaPropListSS\" cellpadding=\"0\" cellspacing=\"0\"><tr><td class=\"TablePropAdvasedTdImg\"><img title=\"{$Data[$i]['im_prop_name']}\" alt=\"{$Data[$i]['im_prop_name']}\" src=\"" . getLangString ( "imageDomain" ) . "/files/images/prop/{$Data[$i]['im_prop_id']}.png\"></td><td class=\"TablePropAdvasedTdTextSS\">{$Data[$i]['im_prop_name']}</td></tr></table>";
 			}
 		}
 	}

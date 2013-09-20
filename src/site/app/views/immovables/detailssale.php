@@ -7,6 +7,7 @@ $renderHtmlLinkObj->addCss("js/libs/highslide/highslide");
 ?>
 <div class="DivImOneTitle"><a href="javascript: history.go(-1)" alt="<?php echo getLangString("btm_back");?>" title="<?php echo getLangString("btm_back");?>"><span class="ui-icon ui-icon-circle-triangle-w"></span><?php echo getLangString("btm_back");?></a><span class="DivTitleImOneSpan"><?php echo $Model->item["im_title"];?></span></div>
 <div class="DivImOne">
+	<a target="_blank" href="http://www.facebook.com/sharer/sharer.php?u=<?php echo $Model->getitemlink();?>" title="" class="share-a-link">Share a link</a>
 	<table cellpadding="0" cellspacing="0" border="0" class="TableOneImmovableHeder">
 		<tr>
 			<td class="TOIItdPhotoIndex">

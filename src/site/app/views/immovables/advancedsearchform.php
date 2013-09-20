@@ -26,6 +26,7 @@
 						<select name="exchange_rate" id="exchange_select_id" class="exchange_select">
 							<?php echo ImPropAdvaced::DictDropList($arWords['exchange_arr'], $routingObj->getParamItem('exchange_rate'), 'code', 'code');?>
 						</select>
+						<p class="pre-count-found SearchFormLabel" style="margin:0 0 0 45px; width:80px;">Найдено: <span class="count"></span></p>
 						<div class="clear"></div>
 						<label id="FormSearchNameSq" class="SearchFormLabel"><?php echo getLangString('FormSearchNameSq_'. $routingObj->getController());?></label>
 						<label id="" class="SearchFormLabelBE"><?php echo getLangString('from');?></label>
@@ -71,6 +72,9 @@
 					<input type="hidden" id="SearchIsAdvasedChecked" name="SearchIsAdvasedChecked" value="<?php echo ($routingObj->getParamItem("SearchIsAdvasedChecked") ? $routingObj->getParamItem("SearchIsAdvasedChecked") : 0);?>"/> 
 					<input type="hidden" name="SearchImCode" value="<?php  echo time();?>"/> 
 					<input type="submit" id="SearchSbtIm" value="<?php echo getLangString('SearchBottom');?>"/>
+					<input type="hidden" name="im_catalog_id" value="<?php echo $arWords["typeCatImDictOfController"][$routingObj->getController()]?>"/> 
+					<input type="hidden" name="im_is_rent" value="<?php echo ($routingObj->getAction() == "rent" ? "true" : "false");?>"/> 
+					<input type="hidden" name="im_is_sale" value="<?php echo ($routingObj->getAction() == "rent" ? "false" : "true");?>"/> 
 					<input type="hidden" name= "action" value="ImFormSearch"/>
 				</td>
 			</tr>
@@ -85,11 +89,11 @@
 </script>
 <script type="text/javascript">
 $(function() {
-	$("#im_adress_id").autocomplete({
+	/*$("#im_adress_id").autocomplete({
 		source: availableTags,
 		maxHeight: 400,
 		minLength: 3
-	});
+	});*/
 	$("#tabs").tabs();
 	<?php echo ($routingObj->getParamItem("SearchIsAdvasedChecked") ? "$('#DivImPropForm').show();" : "");?>
 });

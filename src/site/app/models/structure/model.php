@@ -9,6 +9,6 @@ class structureModelClass extends modelClass {
 	public function getList($param) {
 		$res = $this->provider->getList ( $param );
 		$this->list = $res ["resTable"];
-		$this->listData = $res ["resTableBuild"];
+		$this->listData = $res ["resBuildTable"];
 	}
 }

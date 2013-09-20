@@ -18,6 +18,8 @@ class structureProviderClass extends providerClass {
 			$query .= " and controller = '{$param ["controller"]}'";
 		if (! empty ( $param ['action'] ))
 			$query .= " and action = '{$param ["action"]}'";
+		if (! empty ( $param ['p_type'] ))
+			$query .= " and p_type = '{$param ["p_type"]}'";
 		$res = $this->mysql->select_table_id ( "WHERE lang_id = {$_COOKIE['lang_id']} {$query} ORDER BY pos" );
 		return $res;
 	}
@@ -32,6 +34,8 @@ class structureProviderClass extends providerClass {
 			$query .= " and p.menu_show = '{$param ["menu_show"]}'";
 		if (isset ( $param ['parent_in'] ))
 			$query .= " and p.parent_in = {$param ["parent_in"]}";
+		if (! empty ( $param ['p_type'] ))
+			$query .= " and p_type = '{$param ["p_type"]}'";
 		$this->mysql->select_table_query ( "select p.* from {$this->table} p
 										    WHERE p.lang_id = {$_COOKIE['lang_id']} {$query} ORDER BY pos", $this->id );
 		$this->list = $this->mysql->table;

@@ -89,4 +89,4 @@ $(document).ready( function() {
 	// var Ajaxload =
 	// "/report_center.php?action=set_friend_im&im_id=29&name=alex&email=a.tsurkin@avtologistika.com";
 		// $('#DivRequestQuery').load(Ajaxload);
-	});
+});

@@ -60,6 +60,8 @@ class appHtmlClass {
 	private static function buildUrl($controller, $action, $param = array()) {
 		$p = "";
 		foreach ( $param as $key => $value ) {
+			if($key == "string_navigation")
+				$value = str_replace (" ", "~", $value );
 			$p .= sprintf ( "&%s=%s", $key, $value );
 		}
 		$ret = sprintf ( "http://%s/%s/%s/%s%s", $_SERVER ['HTTP_HOST'], $_COOKIE ['lang_code'], $controller, $action, (empty ( $p ) ? "" : sprintf ( "?%s", substr ( $p, 1, strlen ( $p ) ) )) );

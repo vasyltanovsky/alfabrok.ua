@@ -12,3 +12,7 @@ require_once DOC_ROOT . '/app/controllers/immovables/homeController.php';
 require_once DOC_ROOT . '/app/controllers/immovables/commercialController.php';
 require_once DOC_ROOT . '/app/controllers/account/accountController.php';
 require_once DOC_ROOT . '/app/controllers/immovables/reportController.php';
+require_once DOC_ROOT . '/app/controllers/common/poiskController.php';
+require_once DOC_ROOT . '/app/controllers/common/vakansiiController.php';
+require_once DOC_ROOT . '/app/controllers/common/rssController.php';
+require_once DOC_ROOT . '/app/controllers/common/dictionariesController.php';

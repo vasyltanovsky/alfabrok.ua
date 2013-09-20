@@ -31,6 +31,14 @@ class routingClass {
 	public function getParam() {
 		return $this->get;
 	}
+	public function getParamToString() {
+		$ret = "";
+		if (! empty ( $this->get )) 
+			foreach ( $this->get as $key => $value ) {
+				$ret .= sprintf ( "&%s=%s", $key, $value );
+			}
+		return $ret;
+	}
 	public function getParamInString() {
 		if (strpos ( $_SERVER ['REQUEST_URI'], "?" ))
 			return substr ( $_SERVER ['REQUEST_URI'], strpos ( $_SERVER ['REQUEST_URI'], "?" ) + 1, strlen ( $_SERVER ['REQUEST_URI'] ) );
