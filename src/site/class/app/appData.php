@@ -1,4 +1,9 @@
 <?php
+/**
+ * Этот класс формирует отвечает за обработку мета данных страницы 
+ * @author Alex
+ *
+ */
 class appDataClass {
 	public $p_w_title;
 	public $p_w_keyw;
@@ -9,9 +14,9 @@ class appDataClass {
 	public $social;
 	function __construct($page = null) {
 		if ($page) {
-			$this->p_w_title = $page["title_web"];
-			$this->p_w_keyw = $page["keywords_web"];
-			$this->p_w_desc = $page["description_web"];
+			$this->p_w_title = $page["p_w_title"];
+			$this->p_w_keyw = $page["p_w_keyw"];
+			$this->p_w_desc = $page["p_w_desc"];
 		}
 		$this->string_navigation = "";
 		$this->social = array(

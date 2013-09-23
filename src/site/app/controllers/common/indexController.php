@@ -19,11 +19,6 @@ class indexController extends aControllerClass {
 		$model->getItemId ( "mailAs" );
 		return $this->View ( array ("Model" => $model->item ) );
 	}
-	public function kartasayta($param) {
-		$model = new structureModelClass ( new structureProviderClass ( "pages" ) );
-		$model->getItemId ( "mailAs" );
-		return $this->View ( array ("Model" => $model->item ) );
-	}
 	public function sendmail($param) {
 		try {
 			$ClFileReader = new fileReaderClass ( );

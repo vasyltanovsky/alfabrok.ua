@@ -24,7 +24,7 @@ global $renderHtmlLinkObj;
 	<script type="text/javascript" src='/js/libs/zapatec/src/form-<?php echo $_COOKIE['lang_code'];?>.js'></script>
 	<script type="text/javascript" src='/js/ant/libs/zapatec.js'></script>
 	<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-	<script src="http://api-maps.yandex.ru/1.1/index.xml?key=<?php echo getLangString('YMapSiteKey');?>&modules=pmap" type="text/javascript"></script>
+	<!--<script src="http://api-maps.yandex.ru/1.1/index.xml?key=<?php echo getLangString('YMapSiteKey');?>&modules=pmap" type="text/javascript"></script>-->
 	<script type="text/javascript" src="/js/ant/libs/geocoder.im.list.js"></script>
 	<script type="text/javascript" src="/js/ant/libs/indexbanner.js"></script>
 	<script type="text/javascript" src="/js/ant/libs/ymap.user.functional.js"></script>

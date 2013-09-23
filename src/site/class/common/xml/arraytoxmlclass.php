@@ -33,10 +33,10 @@
 class Array2XML {
 	private static $xml = null;
 	private static $encoding = 'UTF-8';
-
+	private static $stylesheet = null;
 	/**
 	 * Initialize the root XML node [optional]
-	 * 
+	 *
 	 * @param
 	 *        	$version
 	 * @param
@@ -44,15 +44,16 @@ class Array2XML {
 	 * @param
 	 *        	$format_output
 	 */
-	public static function init($version = '1.0', $encoding = 'UTF-8', $format_output = true) {
+	public static function init($version = '1.0', $encoding = 'UTF-8', $format_output = true, $stylesheet = NULL) {
 		self::$xml = new DomDocument ( $version, $encoding );
 		self::$xml->formatOutput = $format_output;
 		self::$encoding = $encoding;
+		self::$stylesheet = $stylesheet;
 	}
-
+	
 	/**
 	 * Convert an Array to XML
-	 * 
+	 *
 	 * @param string $node_name
 	 *        	- name of the root node to be converted
 	 * @param array $arr
@@ -61,15 +62,17 @@ class Array2XML {
 	 */
 	public static function &createXML($node_name, $arr = array()) {
 		$xml = self::getXMLRoot ();
+		if (! empty ( self::$stylesheet ))
+			$xml->appendChild ( self::$xml->createProcessingInstruction ( 'xml-stylesheet', 'type="text/xsl" href="' . self::$stylesheet . '"' ) );
 		$xml->appendChild ( self::convert ( $node_name, $arr ) );
 		
 		self::$xml = null; // clear the xml node in the class for 2nd time use.
 		return $xml;
 	}
-
+	
 	/**
 	 * Convert an Array to XML
-	 * 
+	 *
 	 * @param string $node_name
 	 *        	- name of the root node to be converted
 	 * @param array $arr
@@ -99,12 +102,12 @@ class Array2XML {
 			if (isset ( $arr['@value'] )) {
 				$node->appendChild ( $xml->createTextNode ( self::bool2str ( $arr['@value'] ) ) );
 				unset ( $arr['@value'] ); // remove the key from the array once done.
-				                       // return from recursion, as a note with value cannot have child nodes.
+				                          // return from recursion, as a note with value cannot have child nodes.
 				return $node;
 			} else if (isset ( $arr['@cdata'] )) {
 				$node->appendChild ( $xml->createCDATASection ( self::bool2str ( $arr['@cdata'] ) ) );
 				unset ( $arr['@cdata'] ); // remove the key from the array once done.
-				                       // return from recursion, as a note with cdata cannot have child nodes.
+				                          // return from recursion, as a note with cdata cannot have child nodes.
 				return $node;
 			}
 		}

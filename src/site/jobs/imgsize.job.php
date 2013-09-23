@@ -1,9 +1,9 @@
 <?php
-//константы
+// константы
 define ( 'SLASH', '/' );
 define ( 'DOC_ROOT', $_SERVER ['DOCUMENT_ROOT'] );
 define ( 'DEBUG', 1 );
-//подключение классов
+// подключение классов
 include DOC_ROOT . '/config/class.config.php';
 
 $fDir = DOC_ROOT . "/files/images/ct_photos/";

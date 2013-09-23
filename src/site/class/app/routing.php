@@ -1,4 +1,9 @@
 <?php
+/**
+ * Этот класс парсер строку укр, и разбиение ее на контроллер, действие, гет парамтры
+ * @author Alex
+ *
+ */
 class routingClass {
 	public $localization;
 	public $contoller;

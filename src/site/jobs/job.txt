@@ -1,0 +1,5 @@
+1. rss 					/ru/rss 						5
+2. sitemap 				/ru/sitemapbuild 				5
+3. wiki 				/jobs/wiki.job.php 				1
+4. territorydict 		/jobs/territorydict.job.php 	1
+5. cashesite	 		?								

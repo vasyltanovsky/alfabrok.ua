@@ -16,3 +16,5 @@ require_once DOC_ROOT . '/app/controllers/common/poiskController.php';
 require_once DOC_ROOT . '/app/controllers/common/vakansiiController.php';
 require_once DOC_ROOT . '/app/controllers/common/rssController.php';
 require_once DOC_ROOT . '/app/controllers/common/dictionariesController.php';
+require_once DOC_ROOT . '/app/controllers/content/wikiController.php';
+require_once DOC_ROOT . '/app/controllers/common/sitemapController.php';

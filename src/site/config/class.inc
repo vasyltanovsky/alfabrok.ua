@@ -23,6 +23,7 @@ require_once DOC_ROOT . '/class/common/xml/xmltoarrayclass.php';
 require_once DOC_ROOT . '/class/common/xml/arraytoxmlclass.php';
 require_once DOC_ROOT . '/class/common/cache/cache.php';
 require_once DOC_ROOT . '/class/common/exchangerate/exchangerate.php';
+require_once DOC_ROOT . '/class/common/sitemap/sitemapgeneratorclass.php';
 // data
 require_once DOC_ROOT . '/class/data/json/json.php';
 // ! разобраться

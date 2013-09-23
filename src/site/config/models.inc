@@ -7,6 +7,8 @@ require_once DOC_ROOT . 'app/models/immovables/settings.php';
 require_once DOC_ROOT . 'app/models/immovables/functions.php';
 require_once DOC_ROOT . 'app/models/immovables/functionssearch.php';
 require_once DOC_ROOT . 'app/models/immovables/searchmodel.php';
+require_once DOC_ROOT . 'app/models/wiki/model.php';
+require_once DOC_ROOT . 'app/models/sitemap/model.php';
 /*require_once 'location/module.location.php';
 require_once 'currency/module.currency.php';
 require_once 'dictionary/module.dictionary.php';

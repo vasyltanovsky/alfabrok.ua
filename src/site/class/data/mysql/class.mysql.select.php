@@ -1,15 +1,15 @@
 <?php
 class mysql_select {
-	#имя таблици для селекта
+	// мя таблици для селекта
 	public $name_table_select;
-	#запрос таблици для селекта
+	// апрос таблици для селекта
 	public $where_table_select;
-	#сортировка таблици для селекта
+	// ортировка таблици для селекта
 	public $order_table_select;
 	
-	#таблица селекта
+	// аблица селекта
 	public $table;
-	#таблица селекта гда на месле $i стоит page_id
+	// аблица селекта гда на месле $i стоит page_id
 	public $buld_table;
 	
 	// Конструктор класса
@@ -24,7 +24,7 @@ class mysql_select {
 		$this->buld_table = $buld_table;
 	}
 	
-	//	
+	//
 	public function select_table($name_field = "id", $st_table = NULL, $st_where = NULL, $st_order = NULL, $IsAllSelect = "SELECT * FROM") {
 		try {
 			if ($st_table)
@@ -51,10 +51,10 @@ class mysql_select {
 					$i ++;
 				}
 			unset ( $t_pages [count ( $t_pages ) - 1] );
-			//unset($this->buld_table[count($this->buld_table) - 1]);
+			// unset($this->buld_table[count($this->buld_table) - 1]);
 			return $this->table = $t_pages;
 		} catch ( Exception $exc ) {
-			//echo ExceptionFullGet::ExcMysql ( $exc );
+			// echo ExceptionFullGet::ExcMysql ( $exc );
 		}
 	}
 	
@@ -67,11 +67,11 @@ class mysql_select {
 				throw new ExceptionMySQL ( mysql_error (), $query, "Ошибка при выборка с таблицы" );
 			return mysql_fetch_array ( $sql_query );
 		} catch ( Exception $exc ) {
-			//echo ExceptionFullGet::ExcMysql ( $exc );
+			// echo ExceptionFullGet::ExcMysql ( $exc );
 		}
 	}
 	
-	//		
+	//
 	public function update_table($where, $arr) {
 		foreach ( $arr as $key => $value ) {
 			$update .= "" . $key . " = " . $value;
@@ -82,17 +82,17 @@ class mysql_select {
 				$query = "UPDATE {$this->name_table_select} SET {$update} {$where}";
 				mysql_query ( $query );
 				if (! mysql_query ( $query ))
-					throw new ExceptionMySQL ( mysql_error (), $query , "Ошибка при обновлении записи" );
+					throw new ExceptionMySQL ( mysql_error (), $query, "Ошибка при обновлении записи" );
 			} catch ( Exception $exc ) {
-				//echo ExceptionFullGet::ExcMysql ( $exc );
+				echo ExceptionFullGet::ExcMysql ( $exc );
 			}
 		}
 		return;
 	}
 	
-	//	
+	//
 	public function select_table_query($query, $name_field = false) {
-		$t_pages = array();
+		$t_pages = array ();
 		try {
 			$tbl = mysql_query ( $query );
 			if (! $tbl)
@@ -106,10 +106,27 @@ class mysql_select {
 					}
 				}
 			unset ( $t_pages [count ( $t_pages ) - 1] );
-			//unset($this->buld_table[count($this->buld_table) - 1]);
+			// unset($this->buld_table[count($this->buld_table) - 1]);
 			return $this->table = $t_pages;
 		} catch ( Exception $exc ) {
-			//echo ExceptionFullGet::ExcMysql ( $exc );
+			echo ExceptionFullGet::ExcMysql ( $exc );
+		}
+	}
+	public function insert($query) {
+		try {
+			if (! mysql_query ( $query ))
+				throw new ExceptionMySQL ( mysql_error (), $query, "Ошибка при + каталога" );
+			return mysql_insert_id ();
+		} catch ( Exception $exc ) {
+			echo ExceptionFullGet::ExcMysql ( $exc );
+		}
+	}
+	public function query($query) {
+		try {
+			if (! mysql_query ( $query ))
+				throw new ExceptionMySQL ( mysql_error (), $query, "Ошибка при + каталога" );
+		} catch ( Exception $exc ) {
+			echo ExceptionFullGet::ExcMysql ( $exc );
 		}
 	}
 }

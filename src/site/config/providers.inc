@@ -1,9 +1,11 @@
 <?php
-//список подлючаемых провайдеров (получение данных с БД, для моделей)
+// список подлючаемых провайдеров (получение данных с БД, для моделей)
 require_once DOC_ROOT . 'app/models/structure/provider.php';
 require_once DOC_ROOT . 'app/models/service/provider.php';
 require_once DOC_ROOT . 'app/models/partners/provider.php';
 require_once DOC_ROOT . 'app/models/immovables/provider.php';
+require_once DOC_ROOT . 'app/models/wiki/provider.php';
+require_once DOC_ROOT . 'app/models/sitemap/provider.php';
 /*
 require_once 'catalog/catalog.provider.php';
 require_once 'content/content.provider.php';

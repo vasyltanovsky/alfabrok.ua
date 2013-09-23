@@ -24,4 +24,42 @@ class flatController extends aControllerClass {
 		return $this->View ( array(
 				"Model" => $model) );
 	}
+	
+	/* sitemap */
+	public function sitemap($param) {
+		$this->isPartial = true;
+		if ($param["action"] == "rent" || $param["action"] == "sale") {
+			$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
+			$model->getList ( array(
+					"hide" => "show",
+					"im_catalog_id" => "4c3ec3ec5e9b5",
+					"im_is_sale" => ($param["action"] == "sale" ? true : false),
+					"im_is_rent" => ($param["action"] == "rent" ? true : false)) );
+			return $this->partialView ( array(
+					"Model" => $model,
+					"level" => $param["level"]), "immovables/sitemap/index" );
+		}
+	}
+	public function sitemapxml($param) {
+		$this->isPartial = true;
+		if ($param["action"] == "rent" || $param["action"] == "sale") {
+			$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
+			$model->getList ( array(
+					"hide" => "show",
+					"im_catalog_id" => "4c3ec3ec5e9b5",
+					"im_is_sale" => ($param["action"] == "sale" ? true : false),
+					"im_is_rent" => ($param["action"] == "rent" ? true : false)) );
+			$array = null;
+			if ($model->list) {
+				foreach ( $model->list as $key => $value ) {
+					$array[] = array(
+							"loc" => sprintf ( "http://%s/ru/flat/%s/1/%s", $_SERVER['HTTP_HOST'], $param["action"], $value["im_id"] ),
+							"lastmod" => date ( "Y-m-d H:i:s" ),
+							"changefreq" => "weekly",
+							"priority" => $param["priority"]);
+				}
+			}
+			return $array;
+		}
+	}
 }

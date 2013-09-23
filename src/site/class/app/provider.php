@@ -33,19 +33,19 @@ class providerClass {
 	}
 	public function getList($param) {
 	}
+	/*
 	public function getListPager($param, $page_id = 1, $orderby = "id", $ordersort = "asc", $limit = "10") {
 		$this->SetValue ( "orderby", $orderby );
 		$this->SetValue ( "ordersort", $ordersort );
 		$this->SetValue ( "limit", $limit );
 		
-		/**/
-		$obj = new pager_mysql_right ( $tbl_im, $WhereImmovableQuery, $WhereImmovableOrder, $_COOKIE ['im_f_show_pnumber'], /* Число позиций на странице*/
-5, /* Число ссылок в постраничной навигации*/
-"/$_GET[1]/$_GET[type_cat]", /* Объявляем объект постраничной навигации */
+		$obj = new pager_mysql_right ( $tbl_im, $WhereImmovableQuery, $WhereImmovableOrder, $_COOKIE ['im_f_show_pnumber'], /* Число позиций на странице
+5,  Число ссылок в постраничной навигации
+"/$_GET[1]/$_GET[type_cat]", /* Объявляем объект постраничной навигации 
 $ImFormSearchArray );
 		$ImData = $obj->get_page ();
 	
-	}
+	}*/
 	public function saveItem($param) {
 	}
 	public function deleteItem($id) {

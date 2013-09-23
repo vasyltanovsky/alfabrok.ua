@@ -82,4 +82,13 @@ class aControllerClass {
 		header ( "Location: http://" . $_SERVER['HTTP_HOST'] . "/404.html" );
 		exit ();
 	}
+	
+	public function sitemap($param) {
+		$this->isPartial = 1;
+		return;
+	}
+	public function sitemapxml($param) {
+		$this->isPartial = 1;
+		return;
+	}
 }
