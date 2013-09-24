@@ -12,7 +12,7 @@
 			<td class="UserTSCPTdCenter"><?php echo $pages->active_page['summary'];?>
             	<div id='FormAlertIsOk'><p><?php echo $arWords['user_add_subs_ok'];?></p></div>
             	
-				<form id="SubsForm" name="SubsForm" enctype="application/x-www-form-urlencoded" 
+				<form id="SubsForm" name="SubsForm" enctype="application/x-www-form-urlencoded" >
 					<div id="DivAddSubsFirstStep">
                         <div id="RadioImCatalogId">	
                         	<div style="padding: 0pt 0.7em;" class="ui-state-highlight ui-corner-all"> 

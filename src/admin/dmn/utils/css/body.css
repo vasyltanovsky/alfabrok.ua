@@ -28,3 +28,5 @@ a:hover { text-decoration:none;  }
 .clear { clear:both; font-size:1px; height:1px; line-height:1px; min-height:1px; width:100%; }
 
 .a-h3-dialog-close { text-align: right; margin: 5px 10px 5px; font-size:12px; font-weight: normal; }
+
+.d-menu-conteiner { width: 200px; }

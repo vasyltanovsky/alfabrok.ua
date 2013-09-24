@@ -1,0 +1,62 @@
+<script type="text/javascript">
+	new Zapatec.Form({
+		form: 'TicketsForm',
+		statusImgPos: null,
+		showErrors: false,
+		showErrorsOnSubmit: true,
+		submitErrorFunc: testErrOutput,
+		asyncSubmitFunc: OnSuccessTicketForm,
+		theme: "WinXP"
+	});
+</script>
+<form action="/dmn/t-ajax.php?zone=dmn&cont=DMN_GoodsAction&action=saveTickets&dataType=json" id='TicketsForm' name='TicketsForm' class="zpFormWinXP" method="POST">
+	<table class="table-list" cellspacing="0" cellpadding="0" border="0">
+		<tr class="headings">
+			<td width="10"></td>
+			<td width="150">Sector</td>
+			<td width="150">Qwantity</td>
+			<?php if($GoodsStoresData):?>
+				<?php foreach ($GoodsStoresData as $key => $value):?>
+					<td colspan="2">
+						<?php echo $value["gs_name"]?>(<?php echo $value["dialer"]?>)<br/>
+						<input type="text" value="<?php echo $value["gs_count"]?>"><br>
+						<span>Price</span><span>Qwantity</span>
+					</td>
+				<?php endforeach;?>
+			<?php endif;?>
+		</tr>
+		<tbody>
+			<?php if($SectorData):?>
+				<?php foreach ($SectorData as $key => $value):?>
+				<tr>
+					<td width="10"></td>
+					<td width="150"><?php echo $value["s_code"]?></td>
+					<td width="150"><?php echo $value["s_qwantity"]?></td>
+					<?php if($GoodsStoresData):?>
+						<?php foreach ($GoodsStoresData as $gskey => $gsvalue):?>
+							<td>
+								<input class='zpForm zpFormInt' style="width:60px; margin-bottom:0;" type="text" name="price[<?php echo $value["s_id"]?>][<?php echo $gsvalue["gs_id"]?>]" value="<?php echo $TicketsData[$value[s_id]][$gsvalue[gs_id]]["gt_price"]?>">
+								<?php if($TicketsData[$value[s_id]][$gsvalue[gs_id]]["gt_count_isset"]):?> 
+									(<?php echo  $TicketsData[$value[s_id]][$gsvalue[gs_id]]["gt_count_isset"]?>)
+								<?php endif;?>
+								<input style="width:0px;" type="hidden" name="gt_count_isset[<?php echo $value["s_id"]?>][<?php echo $gsvalue["gs_id"]?>]" value="<?php echo $TicketsData[$value[s_id]][$gsvalue[gs_id]]["gt_count_isset"]?>">
+							</td>
+							<td>	
+								<input class='zpForm zpFormInt' style="width:60px; margin-bottom:0;" type="text" name="ticket[<?php echo $value["s_id"]?>][<?php echo $gsvalue["gs_id"]?>]" value="<?php echo $TicketsData[$value[s_id]][$gsvalue[gs_id]]["gt_count"]?>">
+								<input style="width:0px;" type="hidden" name="dialer_id[<?php echo $value["s_id"]?>][<?php echo $gsvalue["gs_id"]?>]" value="<?php echo $gsvalue["dialer_id"]?>">
+								<input style="width:0px;" type="hidden" name="gt_id[<?php echo $value["s_id"]?>][<?php echo $gsvalue["gs_id"]?>]" value="<?php echo $TicketsData[$value[s_id]][$gsvalue[gs_id]]["gt_id"]?>">
+							</td>
+						<?php endforeach;?>
+					<?php endif;?>
+				</tr>
+				<?php endforeach;?>
+			<?php endif;?>
+		</tbody>
+	</table>
+	<br>
+	<br>
+	<input class='zpForm' value="<?php echo ($GoodsActionData ['ga_id'] ? $GoodsActionData ['ga_id'] : "") ;?>" size="13" name="ga_id" type="hidden"> 
+	<input class='zpForm' value="<?php echo ($GoodsActionData ['ga_id'] ? "edit" : "new") ;?>" size="13" name="type_save" type="hidden"> 
+	<input value="Save" name="Submit" onClick="" type="submit" class="button" /> 
+</form>
+

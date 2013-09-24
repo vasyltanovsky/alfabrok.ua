@@ -1,0 +1,144 @@
+<!-- Zapatec
+функция возврата положительного ответа myOnFunctionEdit
+<script type='text/javascript' src='../utils/js/js-zapatec/form.js'>
+-->
+<?php 
+define ( 'SLASH', '/' );
+define ( 'DOC_ROOT', $_SERVER ['DOCUMENT_ROOT'] );
+
+require_once DOC_ROOT . '/dmn/utils/template.ajax/js2.css.php';
+?>
+
+<script type="text/javascript">
+var goodsActionId = <?php echo ($GoodsActionData ['ga_id'] ? $GoodsActionData ['ga_id'] : "null")?>;
+$(function() {
+	$("#tabs").tabs();
+	
+	if(goodsActionId == null) {
+		$("#li-tabs-2").hide();
+		$("#li-tabs-3").hide();
+		$("#li-tabs-4").hide();
+		
+	}
+});
+</script>
+<script type="text/javascript" src="../goods_action/js/action.js"></script>
+<div class="eventForm">
+	<a href="#" onclick="TShowPage('DMN_GoodsAction', 'getPage')" class="ui-state-default ui-corner-all bottom-padding" title="Back" id=""><span class="ui-icon ui-icon-circle-triangle-w"></span>back</a> 
+</div>
+<div style="margin:0 10px;">
+	<div id='errOutputGood' class="errOutputGood"></div>
+	<div id='errOutput' class="errOutput"></div>
+	<div id="tabs">
+		<ul>
+	    	<li><a href="#tabs-1">Action</a></li>
+	    	<li id="li-tabs-2"><a href="#tabs-2">Images</a></li>
+	    	<li id="li-tabs-3"><a href="#tabs-3">Stores</a></li>
+	    	<li id="li-tabs-4"><a href="#tabs-4">Tickets</a></li>
+	    </ul>
+	    <div id="tabs-1">
+	    	<script type="text/javascript">
+				new Zapatec.Form({
+					form: 'GoodsActionForm',
+					showErrors: 'afterField',
+					showErrorsOnSubmit: true,
+					submitErrorFunc: testErrOutput,
+					asyncSubmitFunc: OnSuccessActionForm,
+					theme: "WinXP"
+				});
+			</script>		
+	   		<form action="/dmn/t-ajax.php?zone=dmn&cont=DMN_GoodsAction&action=saveGoodsAction&dataType=json" id='GoodsActionForm' name='GoodsActionForm' class="zpFormWinXP" method="POST">
+				<fieldset>
+					<label class='zpFormLabel'>Name</label> 
+					<input class='zpFormRequired' value="<?php echo $GoodsActionData ['ga_name']; ?>" size="40" name="ga_name" type="text"> <br />
+					<label class='zpFormLabel'>Date</label> 
+					<input class='zpFormRequired zpFormMask="0000-00-00"' value="<?php echo $GoodsActionData ['ga_date']; ?>" size="40" name="ga_date" id="ga_date" type="text"> <br />
+					<label class='zpFormLabel'>Time</label> 
+					<input class='zpFormRequired' value="<?php echo $GoodsActionData ['ga_time']; ?>" size="40" name="ga_time" type="text"> <br />
+					<label class='zpFormLabel'>Price</label> 
+					<input class='zpFormRequired zpFormInt' value="<?php echo $GoodsActionData ['ga_price']; ?>" size="40" name="ga_price" type="text"> <br />
+					<label class='zpFormLabel'>Description</label> 
+					<input class='zpFormRequired' value="<?php echo $GoodsActionData ['ga_w_description']; ?>" size="40" name="ga_w_description" type="text"> <br />
+					<label class='zpFormLabel'>Text</label> 
+					<textarea class='zpFormRequired' rows="10" cols="10" name="ga_text"><?php echo $GoodsActionData ['ga_text']; ?></textarea>
+				</fieldset>
+				<fieldset>
+					<label class='zpFormLabel'>Place</label> 
+					<select name="places_id" id="places_id"  class="zpFormRequired">
+						<option value="">No selected</option>
+						<?php echo sel_parent_id ( $placesData, $GoodsActionData ['places_id'], 'p_id', 'p_name' ); ?>
+					</select>
+				</fieldset>
+				<fieldset>
+					<label class='zpFormLabel'>Catalog</label> 
+					<select name="catalog_id" id="catalog_id"  class="zpFormRequired">
+						<option value="">No selected</option>
+						<?php echo sel_parent_id ( $catalogData, $GoodsActionData ['catalog_id'], 'ct_id', 'ct_name' ); ?>
+					</select>
+				</fieldset>
+				<fieldset>
+					<label class='zpFormLabel'>Active</label> 
+					<input class='zpForm' value="1" <?php echo ($GoodsActionData ['hide'] ? ' checked="checked" ' : ''); ?> size="40" name="hide" type="checkbox"> <br />
+				</fieldset>
+				<input class='zpForm' value="<?php echo ($GoodsActionData ['ga_id'] ? $GoodsActionData ['ga_id'] : "") ;?>" size="13" name="ga_id" type="hidden"> 
+				<input class='zpForm' value="<?php echo ($GoodsActionData ['ga_id'] ? "edit" : "new") ;?>" size="13" name="type_save" type="hidden"> 
+				<input value="Save" name="Submit" onClick="" type="submit" class="button" /> 
+			</form>
+	    
+		</div>
+		<div id="tabs-2">
+			<form action="/dmn/t-ajax.php?zone=dmn&cont=DMN_GoodsAction&action=saveImage&dataType=html" enctype="multipart/form-data" id='ga-imageForm' class="zpFormWinXP" method="POST">
+				<fieldset>
+					<input class='zpForm' type="file" name="ga_img">
+				</fieldset>
+				<input class='zpForm' value="<?php echo ($GoodsActionData ['ga_id'] ? $GoodsActionData ['ga_id'] : "") ;?>" size="13" name="ga_id" id="ga-imageForm-ga_id" type="hidden"> 
+				<button style="" onclick="SaveImage('DMN_GoodsAction', 'saveImage')" class="" type="button" id=""><span>Save</span></button>
+			</form>
+			<div style="margin-top:20px;" id="place-image">
+				<?php if($GoodsActionData["ga_img"]) :?><img src="../../files/images/ga/<?php echo $GoodsActionData["ga_img"]?>" width="100"/> <?php endif;?>
+		   	</div>
+		</div>
+		<div id="tabs-3">
+			<script type="text/javascript">
+					new Zapatec.Form({
+						form: 'GoodsStoresForm',
+						showErrors: 'afterField',
+						showErrorsOnSubmit: true,
+						submitErrorFunc: testErrOutput,
+						asyncSubmitFunc: OnSuccessStoresForm,
+						theme: "WinXP"
+					});
+			</script>
+			<form action="/dmn/t-ajax.php?zone=dmn&cont=DMN_GoodsAction&action=saveGoodsStores&dataType=json" id='GoodsStoresForm' name='GoodsStoresForm' class="zpFormWinXP" method="POST">
+				<?php foreach ($dealerDataDict as $key => $value):?>
+					<fieldset>
+						<legend><?php echo $value["dict_name"]?></legend>
+						<label class='zpFormLabel'>Name</label> 
+						<input class='zpForm' value="<?php echo $GoodsStoresDataBuild[$value["dict_id"]]["gs_name"]?>" size="40" name="gs_name[]" type="text"><br />
+						<label class='zpFormLabel'>Count tickets</label> 
+						<input class='zpForm zpFormInt' value="<?php echo $GoodsStoresDataBuild[$value["dict_id"]]["gs_count"]?>" size="40" name="gs_count[]" type="text"><br />
+						<label class='zpFormLabel'>Balance tickets</label> 
+						<input class='zpForm zpFormInt' value="<?php echo $GoodsStoresDataBuild[$value["dict_id"]]["gs_count_isset"]?>" size="40" name="" disabled="disabled" type="text"><br />
+						<?php if($key != 0):?>
+						<label class='zpFormLabel'>Dealer special code</label> 
+						<input class='zpForm' value="<?php echo ($GoodsStoresDataBuild[$value["dict_id"]]["gs_dealer_sc"] ? $GoodsStoresDataBuild[$value["dict_id"]]["gs_dealer_sc"]: uniqid())?>" size="40" name="gs_dealer_sc[]" type="text"><br />
+						<?php else:?>
+						<input class='zpForm' value="" size="40" name="gs_dealer_sc[]" type="hidden"><br />
+						<?php endif;?>
+						<input class='zpForm' value="<?php echo $value["dict_id"]?>" size="13" name="dialer_id[]" type="hidden"> 
+						<input class='zpForm' value="<?php echo $GoodsStoresDataBuild[$value["dict_id"]]["gs_id"]?>" size="13" name="gs_id[]" type="hidden"> 
+					</fieldset>
+				<?php endforeach;?>
+				<input class='zpForm' value="<?php echo ($GoodsActionData ['ga_id'] ? $GoodsActionData ['ga_id'] : "") ;?>" size="13" name="ga_id" type="hidden"> 
+				<input class='zpForm' value="<?php echo ($GoodsActionData ['ga_id'] ? "edit" : "new") ;?>" size="13" name="type_save" type="hidden"> 
+				<input value="Save" name="Submit" onClick="" type="submit" class="button" /> 
+			</form>
+		</div>
+		<div id="tabs-4">
+			<div id="block-tickets">
+				<?php echo $TicketsData;?>
+			</div>
+		</div>
+	</div>
+</div>            
+

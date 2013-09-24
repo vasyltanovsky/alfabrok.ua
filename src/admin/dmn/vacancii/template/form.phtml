@@ -1,0 +1,79 @@
+<?php 
+define ( 'SLASH', '/' );
+define ( 'DOC_ROOT', $_SERVER ['DOCUMENT_ROOT'] );
+require_once DOC_ROOT . '/dmn/utils/template.ajax/js2.css.php';
+?>
+
+<script type="text/javascript">
+$(function() {
+	$("#tabs").tabs();
+});
+</script>
+<script type="text/javascript" src="../vacancii/js/action.js"></script>
+<div class="eventForm">
+	<a href="#" onclick="TShowPage('DMN_Vacancii', 'getPage')" class="ui-state-default ui-corner-all bottom-padding" title="Назад" id=""><span class="ui-icon ui-icon-circle-triangle-w"></span>Назад</a> 
+</div>
+<div style="margin:0 10px;">
+	<div id='errOutputGood' class="errOutputGood"></div>
+	<div id='errOutput' class="errOutput"></div>
+	<div id="tabs">
+		<ul>
+	    	<li><a href="#tabs-1">Вакансия</a></li>
+	    </ul>
+	    <div id="tabs-1">
+	    	<script type="text/javascript">
+				new Zapatec.Form({
+					form: 'VacanceForm',
+					showErrors: 'afterField',
+					showErrorsOnSubmit: true,
+					submitErrorFunc: testErrOutput,
+					asyncSubmitFunc: OnSuccessForm,
+					theme: "WinXP"
+				});
+			</script>
+	 		<form action="/dmn/t-ajax.php?zone=dmn&cont=DMN_Vacancii&action=saveVacance&dataType=json" id='VacanceForm' name='VacanceForm' class="zpFormWinXP" method="POST">
+				<fieldset>
+					<label class='zpFormLabel'>Название</label> 
+					<input class='zpFormRequired' value="<?php echo $Data ['title'];?>" size="40" name="title" type="text"> <br />
+					<!--  <label class='zpFormLabel'>ТЦ</label> 
+					<input class='zpForm' value="<?php echo $Data ['tc'];?>" size="40" name="tc" type="text"> <br />-->
+					<label class='zpFormLabel'>Описание</label><br />
+					<textarea name="text" cols="40" rows="10" class="zpForm"><?php echo $Data ['text'];?></textarea>
+				</fieldset>
+				<fieldset>
+					<legend>Мета данные</legend>
+					<label class='zpFormLabel'>Веб заголовок</label> 
+					<input class='zpForm' value="<?php echo $Data ['w_title'];?>" size="40" name="w_title" type="text"> <br />
+					<label class='zpFormLabel'>Веб ключевые слова</label> 
+					<input class='zpForm' value="<?php echo $Data ['w_keywords'];?>" size="40" name="w_keywords" type="text"> <br />
+					<label class='zpFormLabel'>Веб описание</label> 
+					<input class='zpForm' value="<?php echo $Data ['w_description'];?>" size="40" name="w_description" type="text"> <br />
+					<label class='zpFormLabel'>Ссылка</label> 
+					<input class='zpForm' value="<?php echo $Data ['url'];?>" size="40" name="url" type="text"> <br />
+				</fieldset>
+				<fieldset>
+					<label class='zpFormLabel'>Отдел</label> 
+					<select name="type_id" class="zpFormRequired">
+						<?php echo sel_parent_id ( $typeVacancii,  $Data ['type_id'], 'dict_id', 'dict_name' ); ?>
+					</select>
+					<br />
+					<!--<label class='zpFormLabel'>Город</label> 
+					<select name="city_id" class="zpForm">
+						<?php echo sel_parent_id ( $cityTypeDict, $Data ['city_id'], 'dict_id', 'dict_name' ); ?>
+					</select>
+					<br />
+					--><label class="zpFormLabel">Позиция</label>
+					<input value="<?php echo $Data ['pos'];?>" name="pos" type="text" class="zpForm zpFormInt" /> 
+					<br />	
+					<label class="zpFormLabel">Отображать</label> 
+					<input value="1" name="hide" type="checkbox" <?php echo ($Data ['hide'] ? 'checked="checked"' : "") ;?>  class="zpForm" /> <br>
+					<br />
+				</fieldset>
+				<input class='zpForm' value="<?php echo ($Data ['v_id'] ? $Data ['v_id'] : "") ;?>" size="13" name="v_id" type="hidden"> 
+				<input class='zpForm' value="<?php echo ($Data ['v_id'] ? "edit" : "new") ;?>" size="13" name="type_save" type="hidden"> 
+				<input value="Сохранить" name="Submit" onClick="" type="submit" class="button" /> 
+			</form>
+		</div>
+	</div>
+</div>            
+

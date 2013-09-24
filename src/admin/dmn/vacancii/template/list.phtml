@@ -1,0 +1,40 @@
+<?php 
+	global $tbl;
+	//формирование стран и городов
+	$dictionaries = new dictionaries ( );
+	$dictionaries->buid_dictionaries_list ( "list_dictionaries" );
+	$dictionaries->buid_dictionaries ( "dictionaries", "WHERE lang_id = {$_COOKIE['lang_id']} ORDER BY dict_name ASC" );
+	$dictionaries->do_dictionaries ( 77 );
+	$TypeDict = $dictionaries->my_dct;
+?>
+<?php if ($Data) : ?>
+<table class="table-list" cellspacing="0" cellpadding="0" border="0">
+	<tr class="headings">
+		<td width="10"></td>
+		<td width="150">Вакансия</td>
+		<td width="120">Ссылка</td>
+		<td width="70">Дата</td>
+		<td width="70">Отдел</td>
+		<td width="70">Показывать</td>
+		<td width="150"></td>
+	</tr>
+	<tbody>
+		
+		<?php foreach ( $Data as $key => $value ) : ?>
+		<tr>
+			<td width="10"><?php echo $value["v_id"]?></td>
+			<td><?php echo $value["title"]?></td>
+			<td><?php echo $value["url"]?></td>
+			<td><?php echo $value["date"]?></td>
+			<td><?php echo $dictionaries->buld_table[$value["type_id"]]["dict_name"]?></td>
+			<td><?php echo ($value["hide"] ? "Да" : "Нет")?></td>
+			<td><a href="#" onclick="TEdit('DMN_Vacancii', 'getVacance', '<?php echo $value["v_id"]?>')" title="Просмотр/Редактирование">Просмотр/Редактирование</a> <a href="#" onclick="TDelete('DMN_Vacancii', 'delete', '<?php echo $value["v_id"]?>')" title="Удалить">Удалить</a></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?php else: ?>
+	<b>По вашему запросу ничего не найдено!</b>
+<?php endif; ?>
+
+

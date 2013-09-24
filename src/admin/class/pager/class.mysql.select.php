@@ -81,7 +81,7 @@ class mysql_select {
 		}
 	}
 	
-	public function select_table_query($query) {
+	public function select_table_query($query, $name_field) {
 		//echo $query;
 		
 
