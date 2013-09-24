@@ -6,6 +6,7 @@ require_once DOC_ROOT . 'app/models/partners/provider.php';
 require_once DOC_ROOT . 'app/models/immovables/provider.php';
 require_once DOC_ROOT . 'app/models/wiki/provider.php';
 require_once DOC_ROOT . 'app/models/sitemap/provider.php';
+require_once DOC_ROOT . 'app/models/vakansii/provider.php';
 /*
 require_once 'catalog/catalog.provider.php';
 require_once 'content/content.provider.php';

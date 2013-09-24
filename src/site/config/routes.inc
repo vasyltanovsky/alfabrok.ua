@@ -42,3 +42,5 @@ $routes ['report'] ['sendtofriend'] = array (4 => 'im_id' );
 $routes ['images'] ['bg'] = array (4 => 'folder', 5 => 'img' );
 
 $routes ['wiki'] ['item'] = array (4 => 'id' );
+$routes ['vakansii'] ['index'] = array (4 => 'type_id' );
+$routes ['vakansii'] ['item'] = array (4 => 'url' );

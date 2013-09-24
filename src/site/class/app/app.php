@@ -119,10 +119,10 @@ class appClass {
 			$this->appDataObj->setPAction ( $this->controllerDataObj->appDataObj->getPAction () );
 			$this->appDataObj->social = $this->controllerDataObj->appDataObj->social;
 		} catch ( Exception $exc ) {
-			header ( "HTTP/1.1 301 Moved Permanently" );
-			header ( "Location: http://" . $_SERVER['HTTP_HOST'] . "/404.html" );
-			echo ExceptionFullGet::ExcError ( $exc );
-			exit ();
+			//header ( "HTTP/1.1 301 Moved Permanently" );
+			//header ( "Location: http://" . $_SERVER['HTTP_HOST'] . "/404.html" );
+			//echo ExceptionFullGet::ExcError ( $exc );
+			//exit ();
 		}
 	}
 	/**
