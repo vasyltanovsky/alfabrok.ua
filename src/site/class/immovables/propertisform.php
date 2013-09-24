@@ -1,23 +1,17 @@
 <?php
 /*
- * Класс обработчик характеристик недвижимости
- *  
- *
- * @version class.catalog.php,v 1.0 2010/07/20
- * @author <AlexTsurkin/>
- * @license GNU GPLv3
+ * Класс обработчик характеристик недвижимости @version class.catalog.php,v 1.0 2010/07/20 @author <AlexTsurkin/> @license GNU GPLv3
  */
 class ImPropAdvaced {
-	public $ClassPropList; # класс выборки характеристик каталога 		
-	public $ClassDict; # класс справочника
-	public $ClassPropInfo; # класс выборки характеристик выбранной недвижимости
-	public $Form; # сформированные поля формы
-	public $IsDmn; # флаг - формировать ли в админке
-	public $HtmlClass; # класс css
-	public $HtmlClassInput; # класс css
-	public $NoSelectedValue; # значение не выбранного пункта в выпадающем списке
+	public $ClassPropList; // класс выборки характеристик каталога
+	public $ClassDict; // класс справочника
+	public $ClassPropInfo; // класс выборки характеристик выбранной недвижимости
+	public $Form; // сформированные поля формы
+	public $IsDmn; // флаг - формировать ли в админке
+	public $HtmlClass; // класс css
+	public $HtmlClassInput; // класс css
+	public $NoSelectedValue; // значение не выбранного пункта в выпадающем списке
 	public $saleStr;
-	
 	public function __construct($ClassPropList = NULL, $ClassDict = NULL, $ClassPropInfo = NULL, $Form = NULL, $IsDmn = 1, $HtmlClass = 'zpForm', $HtmlClassInput = 'zpForm', $NoSelectedValue = '--select--') {
 		$this->ClassPropList = $ClassPropList;
 		$this->ClassDict = $ClassDict;
@@ -30,11 +24,9 @@ class ImPropAdvaced {
 		$this->NoSelectedValue = $NoSelectedValue;
 	}
 	
-	/* Функция: формирует поля формы, осуществляет обход по всем записям "выборки характеристик каталога" и вызывает функцию построение полей формы 
-    *
-    * @param  $this->ClassPropList - класс выборки характеристик каталога 	 
-    * @param $this->ClassDict - класс справочника
-    */
+	/*
+	 * Функция: формирует поля формы, осуществляет обход по всем записям "выборки характеристик каталога" и вызывает функцию построение полей формы @param $this->ClassPropList - класс выборки характеристик каталога @param $this->ClassDict - класс справочника
+	 */
 	function ImPropListPrintField() {
 		if (! $this->ClassPropList)
 			return $this->Form = "<hr>ERROR! - no Prop List Class</hr>";
@@ -42,7 +34,7 @@ class ImPropAdvaced {
 			return $this->Form = "<hr>ERROR! - no dictionaries class</hr>";
 		
 		for($i = 0; $i < count ( $this->ClassPropList->table ); $i ++) {
-			#разделение формирование формы от админ зоны, и сайта
+			// азделение формирование формы от админ зоны, и сайта
 			if ($this->IsDmn == 1) {
 				$this->Form .= "<label class=\"{$this->HtmlClass}Label\">{$this->ClassPropList->table[$i]['im_prop_name']}</label>";
 				$this->Form .= $this->BuildField ( $this->ClassPropList->table [$i] );
@@ -66,14 +58,12 @@ class ImPropAdvaced {
 		return;
 	}
 	
-	/* Функция: фунция исходя из стиля характеристики строит поля формы, если существует ее значения, подставляет их
-    *
-    * @param  $ImPLid - данные характеристики
-    * @return 
-    */
+	/*
+	 * Функция: фунция исходя из стиля характеристики строит поля формы, если существует ее значения, подставляет их @param $ImPLid - данные характеристики @return
+	 */
 	function BuildField($ImPLid) {
 		switch ($ImPLid ['im_prop_style_id']) {
-			#Выпадающий список
+			// ыпадающий список
 			case '4c3ec1f67fe1b' :
 				{
 					$inputTextValue = "";
@@ -86,7 +76,7 @@ class ImPropAdvaced {
 					$this->Form .= "</select><br>";
 					break;
 				}
-			#Флаг
+			// лаг
 			case '4c3ec1f67fe11' :
 				{
 					$inputCheckbox = "";
@@ -96,13 +86,13 @@ class ImPropAdvaced {
 					$this->Form .= "<input value=\"on\" name=\"c_{$ImPLid['im_prop_id']}\"  type=\"checkbox\" {$inputCheckbox} class=\"{$this->HtmlClass}\"/><br/><br/>";
 					break;
 				}
-			#Радио-кнопки
+			// адио-кнопки
 			case '4c3ec1f67fe12' :
 				{
 					
 					break;
 				}
-			#Бегунок
+			// егунок
 			case '4c3ec331811b8' :
 			case '4c3ec331811b6' :
 				{
@@ -112,7 +102,7 @@ class ImPropAdvaced {
 					$this->Form .= "<input class=\"{$this->HtmlClass}\" value=\"{$inputTextValue}\" size=\"40\" name=\"t_{$ImPLid['im_prop_id']}\" type=\"text\" /><br/>";
 					break;
 				}
-			#Выпадающий блок
+			// ыпадающий блок
 			case '4c3ec331811b7' :
 				{
 					$ImPropValue = "";
@@ -125,7 +115,7 @@ class ImPropAdvaced {
 					$this->Form .= "</select><br>";
 					break;
 				}
-			#Поле ввода
+			// оле ввода
 			case '4c3ec3ad35af9' :
 				{
 					$inputTextValue = "";
@@ -140,14 +130,12 @@ class ImPropAdvaced {
 		}
 	}
 	
-	/* Функция: фунция исходя из стиля характеристики строит поля формы, если существует ее значения, подставляет их
-    *
-    * @param  $ImPLid - данные характеристики
-    * @return 
-    */
+	/*
+	 * Функция: фунция исходя из стиля характеристики строит поля формы, если существует ее значения, подставляет их @param $ImPLid - данные характеристики @return
+	 */
 	function BuildFieldSite($ImPLid) {
 		switch ($ImPLid ['im_prop_style_id']) {
-			#Выпадающий список
+			// ыпадающий список
 			case '4c3ec1f67fe1b' :
 				{
 					$name_id = 's_' . $ImPLid ['im_prop_id'];
@@ -161,7 +149,7 @@ class ImPropAdvaced {
 					$this->Form .= "</select><br>";
 					break;
 				}
-			#Флаг
+			// лаг
 			case '4c3ec1f67fe11' :
 				{
 					$name_id = 'c_' . $ImPLid ['im_prop_id'];
@@ -171,13 +159,13 @@ class ImPropAdvaced {
 					$this->Form .= "<input value=\"on\" name=\"c_{$ImPLid['im_prop_id']}\"  type=\"checkbox\" {$inputCheckbox}/><br/><br/>";
 					break;
 				}
-			#Радио-кнопки
+			// адио-кнопки
 			case '4c3ec1f67fe12' :
 				{
 					
 					break;
 				}
-			#Бегунок
+			// егунок
 			case '4c3ec331811b6' :
 				{
 					$inputTextValue = "";
@@ -188,14 +176,19 @@ class ImPropAdvaced {
 					$this->Form .= $this->GetPropInputSlide ( $name_id, $ImPLid, $inputTextValue );
 					break;
 				}
-			#Список чекбоксов
+			// писок чекбоксов
 			case '4c3ec331811b8' :
 				{
 					$name_id = 'l_' . $ImPLid ['im_prop_id'];
 					if (isset ( $this->ClassPropInfo [$name_id] )) {
 						$inputValue = $this->ClassPropInfo [$name_id];
 					}
-					$messages = array ("1", "2", "3", "4 и больше" );
+					$messages = array (
+							"1",
+							"2",
+							"3",
+							"4 и больше" 
+					);
 					for($k = 1; $k <= 4; $k ++) {
 						$checked = "";
 						if (! empty ( $inputValue ) && in_array ( "" . $k, $inputValue ))
@@ -203,7 +196,7 @@ class ImPropAdvaced {
 						$this->Form .= "<input class=\"\" id=\"{$name_id}_$k\" $checked value=\"$k\" name=\"{$name_id}[]\" type=\"checkbox\" /><label for='{$name_id}_$k'>{$messages[$k - 1]}</label>&nbsp;";
 					}
 				}
-			#Выпадающий блок
+			// ыпадающий блок
 			case '4c3ec331811b7' :
 				{
 					$name_id = 'm_' . $ImPLid ['im_prop_id'];
@@ -213,12 +206,12 @@ class ImPropAdvaced {
 					$this->ClassDict->do_dictionaries ( $ImPLid ['ld_id'] );
 					$ValueLdId = $this->ClassDict->my_dct;
 					$this->Form .= $this->DictDropListCheckbox ( $ValueLdId, $ImPropValue, 'dict_id', 'dict_name', $name_id );
-					//$this->Form .= "<select name=\"m_{$ImPLid['im_prop_id']}[]\" size=\"5\" class=\"{$this->HtmlClassInput}\"  multiple=\"multiple\"><option value=\"\">{$this->NoSelectedValue}</option>";
-					//$this->Form .= $this->DictDropListBlock($ValueLdId, $ImPropValue,  'dict_id', 'dict_name');	
-					//$this->Form .= "</select><br>";	
+					// $this->Form .= "<select name=\"m_{$ImPLid['im_prop_id']}[]\" size=\"5\" class=\"{$this->HtmlClassInput}\" multiple=\"multiple\"><option value=\"\">{$this->NoSelectedValue}</option>";
+					// $this->Form .= $this->DictDropListBlock($ValueLdId, $ImPropValue, 'dict_id', 'dict_name');
+					// $this->Form .= "</select><br>";
 					break;
 				}
-			#Поле ввода
+			// оле ввода
 			case '4c3ec3ad35af9' :
 				{
 					$name_id = 't_' . $ImPLid ['im_prop_id'];
@@ -232,18 +225,12 @@ class ImPropAdvaced {
 				die ( "NO VALUE STYLE FIELD STYLE" );
 				break;
 		}
-	
 	}
 	
-	/* Функция: фунция формирует список значений выпадающего списка, если существует ее значения, подставляет их
-    *
-    * @param  $arr - 
-    * @param  $sel - 
-    * @param  $name_id - 
-    * @param  $echo_id - 
-    * @return 
-    */
- static	function DictDropList($arr, $sel = 'NULL', $name_id = 'sc_id', $echo_id = 'menu_words') {
+	/*
+	 * Функция: фунция формирует список значений выпадающего списка, если существует ее значения, подставляет их @param $arr - @param $sel - @param $name_id - @param $echo_id - @return
+	 */
+	static function DictDropList($arr, $sel = 'NULL', $name_id = 'sc_id', $echo_id = 'menu_words') {
 		$str = NULL;
 		for($i = 0; $i < count ( $arr ); $i ++) {
 			$selecteOption = NULL;
@@ -251,19 +238,13 @@ class ImPropAdvaced {
 				if ($sel == $arr [$i] [$name_id])
 					$selecteOption = "selected=\"selected\"";
 			$str .= "<option {$selecteOption} value=\"{$arr[$i][$name_id]}\">{$arr[$i][$echo_id]}</option>";
-		
 		}
 		return $str;
 	}
 	
-	/* Функция: фунция формирует список значений выпадающего блока, возможность выбора нескольких значений, если существует ее значения, подставляет их
-    *
-    * @param  $arr - 
-    * @param  $sel - 
-    * @param  $name_id - 
-    * @param  $echo_id - 
-    * @return 
-    */
+	/*
+	 * Функция: фунция формирует список значений выпадающего блока, возможность выбора нескольких значений, если существует ее значения, подставляет их @param $arr - @param $sel - @param $name_id - @param $echo_id - @return
+	 */
 	function DictDropListBlock($arr, $ImPropValue, $name_id = 'sc_id', $echo_id = 'menu_words') {
 		$ImPropValue = explode ( " ", $ImPropValue );
 		$str = NULL;
@@ -275,11 +256,9 @@ class ImPropAdvaced {
 			}
 			
 			$str .= "<option {$selecteOption} value=\"{$arr[$i][$name_id]}\">{$arr[$i][$echo_id]}</option>";
-		
 		}
 		return $str;
 	}
-	
 	function DictDropListCheckbox($arr, $ImPropValue, $name_id = 'sc_id', $echo_id = 'menu_words', $PropFatherId) {
 		$ImPropValue = explode ( " ", $ImPropValue );
 		$str = "<div class=\"DivSearchPosition\" id=\"dlc{$PropFatherId}\" style=\"display:none\"><ul class=\"UlListCheckbox\">";
@@ -294,7 +273,6 @@ class ImPropAdvaced {
 		$str .= "</ul></div>";
 		return $str;
 	}
-	
 	function GetPropInputSlide($nameId, $ImPLid, $ImPropValue) {
 		$this->ClassDict->do_dictionaries ( $ImPLid ['ld_id'] );
 		$ValueLdId = $this->ClassDict->my_dct;
@@ -302,7 +280,14 @@ class ImPropAdvaced {
 			return;
 		$SlideValueOne = $ValueLdId [0] [dict_name];
 		$SlideValueTwo = $ValueLdId [count ( $ValueLdId ) - 1] [dict_name];
-		
+		//пересавляем значение если позиции не правильные
+		if ($SlideValueOne > $SlideValueTwo) {
+			$a = $SlideValueTwo;
+			$SlideValueTwo = $SlideValueOne;
+			$SlideValueOne = $a;
+			$ValueLdId [0] [dict_name] = $SlideValueOne;
+			$ValueLdId [count ( $ValueLdId ) - 1] [dict_name] = $SlideValueTwo;
+		}
 		if ($ImPropValue) {
 			$SlideValueOne = substr ( $ImPropValue, 0, (strpos ( $ImPropValue, '-' ) - 1) );
 			$SlideValueTwo = substr ( $ImPropValue, (strpos ( $ImPropValue, '-' ) + 1), strlen ( $ImPropValue ) );
@@ -316,6 +301,7 @@ class ImPropAdvaced {
 							max: {$ValueLdId[count($ValueLdId)-1][dict_name]},
 							values: [{$SlideValueOne}, {$SlideValueTwo}],
 							slide: function(event, ui) {
+								precountfound();
 								$(\"#{$nameId}\").val(ui.values[0] + ' - ' + ui.values[1]);
 							}
 						});
@@ -324,6 +310,5 @@ class ImPropAdvaced {
 						</script>";
 		return $return;
 	}
-
 }
 ?>

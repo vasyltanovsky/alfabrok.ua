@@ -7,6 +7,7 @@
 class appClass {
 	/**
 	 * объект класса роутинг
+	 * 
 	 * @var routingClass
 	 */
 	private $routingObj;
@@ -19,7 +20,6 @@ class appClass {
 	public function __construct() {
 	}
 	/**
-	 * 
 	 */
 	public function init() {
 		global $routingObj;
@@ -35,6 +35,7 @@ class appClass {
 	}
 	/**
 	 * формируем активный контроллер, действие, гет параметры
+	 * 
 	 * @throws ExceptionObject
 	 */
 	public function buildControllerData() {
@@ -63,22 +64,23 @@ class appClass {
 		}
 	}
 	/**
-	 * проверка на кеш 
+	 * проверка на кеш
 	 */
 	private function checkIsCasheApp() {
 		if (empty ( $this->activePage )) {
 			$getParam = $this->routingObj->getParam ();
-			if (isset ( $getParam ["cashe"] )) {
+			if (isset ( $getParam["cashe"] )) {
 				$this->isCasheApp = true;
 			}
 		} else {
-			$this->isCasheApp = $this->activePage ["is_cashe"];
+			$this->isCasheApp = $this->activePage["is_cashe"];
 		}
 		$this->isCasheApp = false;
 	}
 	/**
 	 * формиет кеш результат, если он необходим
-	 * @param string $action
+	 * 
+	 * @param string $action        	
 	 */
 	private function buildCashApp($action = "start") {
 		if (! $this->isCasheApp)
@@ -94,9 +96,11 @@ class appClass {
 	}
 	/**
 	 * формирует необходимый контроллер и действие
-	 * @param котроллер $controller
-	 * @param действие $action
-	 * @param масив параметры $param
+	 * 
+	 * @param котроллер $controller        	
+	 * @param действие $action        	
+	 * @param
+	 *        	масив параметры $param
 	 * @throws ExceptionObject
 	 */
 	public function formatControllerObject($controller, $action, $param) {
@@ -115,14 +119,14 @@ class appClass {
 			$this->appDataObj->setPAction ( $this->controllerDataObj->appDataObj->getPAction () );
 			$this->appDataObj->social = $this->controllerDataObj->appDataObj->social;
 		} catch ( Exception $exc ) {
-			// header ( "HTTP/1.1 301 Moved Permanently" );
-			// header ( "Location: http://" . $_SERVER ['HTTP_HOST'] . "/404.html" );
-			// exit ();
+			header ( "HTTP/1.1 301 Moved Permanently" );
+			header ( "Location: http://" . $_SERVER['HTTP_HOST'] . "/404.html" );
 			echo ExceptionFullGet::ExcError ( $exc );
+			exit ();
 		}
 	}
 	/**
-	 *  вывод результата обработки 
+	 * вывод результата обработки
 	 */
 	public function getResult() {
 		global $cancellationLoyaut;
@@ -135,15 +139,14 @@ class appClass {
 				$this->appResult = $this->controllerDataObj->result;
 			} else {
 				$aControllerObj = new aControllerClass ();
-				$this->appResult = $aControllerObj->view ( array (
+				$this->appResult = $aControllerObj->view ( array(
 						"appDataObj" => $this->appDataObj,
-						"body" => $this->controllerDataObj->result 
-				), "/shared/" . $this->controllerDataObj->loyaut );
+						"body" => $this->controllerDataObj->result), "/shared/" . $this->controllerDataObj->loyaut );
 			}
 		}
 	}
 	/**
-	 * печать результата обработки 
+	 * печать результата обработки
 	 */
 	public function printResult() {
 		echo $this->appResult;

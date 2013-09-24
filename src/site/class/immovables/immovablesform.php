@@ -23,8 +23,8 @@ class ImSiteForm {
 	 * Функция: осущиствляет проверку на валидность кода с формы поиска и записывает код, массив GET в COOKIE
 	 */
 	public function IsSavePostGet() {
-		if (isset ( $_COOKIE[$this->FNameCode] )) {
-			if ($this->PostGet[$this->FNameCode] >= $_COOKIE[$this->FNameCode]) {
+		if (isset ( $_COOKIE [$this->FNameCode] )) {
+			if ($this->PostGet [$this->FNameCode] >= $_COOKIE [$this->FNameCode]) {
 				$this->SavePostGet ();
 			}
 		} else
@@ -37,7 +37,7 @@ class ImSiteForm {
 	 */
 	private function SavePostGet() {
 		setcookie ( $this->FNameArray, $this->PostGetToString ( $this->PostGet ), 0, '/' );
-		setcookie ( $this->FNameCode, $this->PostGet[$this->FNameCode], 0, '/' );
+		setcookie ( $this->FNameCode, $this->PostGet [$this->FNameCode], 0, '/' );
 		return;
 	}
 	
@@ -60,28 +60,28 @@ class ImSiteForm {
 	 * Функция: формирует массив со строки @param $str - строка с которой надо сформировать массив @return $return - массив
 	 */
 	public function StringToArray($str) {
-		$return = array();
+		$return = array ();
 		$Arr = explode ( '&', $str );
 		if (is_array ( $Arr )) {
 			for($i = 0; $i < count ( $Arr ); $i ++) {
-				$j = explode ( "=", $Arr[$i] );
-				if (! empty ( $j[1] )) {
-					$j[0] = htmlspecialchars ( urldecode ( $j[0] ) );
-					$j[1] = htmlspecialchars ( urldecode ( $j[1] ) );
-					if (substr ( $j[0], 0, 2 ) == "m_") {
-						$pos_ = strpos ( substr ( $j[0], 2, strlen ( $j[0] ) ), '%23', true );
-						$key = substr ( $j[0], 0, $pos_ + 2 );
-						$key_in = substr ( $j[0], $pos_ + 5, strlen ( $j[0] ) );
+				$j = explode ( "=", $Arr [$i] );
+				if (! empty ( $j [1] )) {
+					$j [0] = htmlspecialchars ( urldecode ( $j [0] ) );
+					$j [1] = htmlspecialchars ( urldecode ( $j [1] ) );
+					if (substr ( $j [0], 0, 2 ) == "m_") {
+						$pos_ = strpos ( substr ( $j [0], 2, strlen ( $j [0] ) ), '%23', true );
+						$key = substr ( $j [0], 0, $pos_ + 2 );
+						$key_in = substr ( $j [0], $pos_ + 5, strlen ( $j [0] ) );
 						$key_in = substr ( $key_in, 0, strlen ( $key_in ) - 3 );
-						$return[$key][$key_in] = $j[1];
-					} else if (substr ( $j[0], - 2 ) === "[]") {
-						$key = substr ( $j[0], 0, strlen ( $j[0] ) - 2 );
-						if (empty ( $return[$key] )) {
-							$return[$key] = array();
+						$return [$key] [$key_in] = $j [1];
+					} else if (substr ( $j [0], - 2 ) === "[]") {
+						$key = substr ( $j [0], 0, strlen ( $j [0] ) - 2 );
+						if (empty ( $return [$key] )) {
+							$return [$key] = array ();
 						}
-						$return[$key][count ( $return[$key] )] = $j[1];
+						$return [$key] [count ( $return [$key] )] = $j [1];
 					} else {
-						$return[$j[0]] = $j[1];
+						$return [$j [0]] = $j [1];
 					}
 				}
 			}
@@ -114,33 +114,36 @@ class ImSiteForm {
 		if ($code == "USD")
 			return 1;
 		if ($code == "UAH")
-			return 1 / $_COOKIE['exchange_USD'];
+			return 1 / $_COOKIE ['exchange_USD'];
 		if ($code == "EUR")
-			return ($_COOKIE['exchange_EUR'] / $_COOKIE['exchange_USD']);
+			return ($_COOKIE ['exchange_EUR'] / $_COOKIE ['exchange_USD']);
 		if ($code == "RUB")
-			return 1 / ($_COOKIE['exchange_USD'] / $_COOKIE['exchange_RUB']);
+			return 1 / ($_COOKIE ['exchange_USD'] / $_COOKIE ['exchange_RUB']);
 	}
 	
 	/*
 	 * Функция: формирует запрос для БД @param $Arr - массив с которого надо сформировать запрос @return
 	 */
 	public function PostGetParser($Arr) {
-		$ArrIssetChar = array();
+		$ArrIssetChar = array ();
 		// ериториальная принадлежность
 		$TerSqlQuery = "";
-		$TerArr = array(
+		$TerArr = array (
 				'im_region_id',
 				'im_a_region_id',
 				'im_city_id',
 				'im_area_id',
-				'im_array_id');
+				'im_array_id' 
+		);
 		
 		$PropSelectStart = "SELECT fi.im_id FROM ";
 		$PropGroupBY = " GROUP BY fi.im_id";
 		$ReturnQuery = "";
 		
+		//devLogs::_printr ( $Arr );
+		
 		$ImQuery = "";
-		$ArrNoDo = array(
+		$ArrNoDo = array (
 				'exchange_rate',
 				'SearchImCode',
 				'action',
@@ -155,8 +158,10 @@ class ImSiteForm {
 				"im_is_sale",
 				"is_prop_sale",
 				"is_prop_rent",
-				"exchange_rate");
-		$ArrStnField = array(
+				"exchange_rate",
+				"hide"
+		);
+		$ArrStnField = array (
 				'susr_id',
 				'im_adress_id',
 				'im_spaceb',
@@ -170,15 +175,16 @@ class ImSiteForm {
 				'im_prace_dab',
 				'im_prace_dae',
 				'im_date_add_s',
-				'im_date_add_e');
+				'im_date_add_e' 
+		);
 		if (empty ( $Arr ))
 			return;
-		$exchange_rate_val = $this->getMergeExchangeRate ( $Arr["exchange_rate"] );
+		$exchange_rate_val = $this->getMergeExchangeRate ( $Arr ["exchange_rate"] );
 		
 		foreach ( $Arr as $key => $value ) {
 			// $key = substr($key, 0, strlen($key)-5);
 			$Char = $this->RandomChar ( $ArrIssetChar );
-			$ArrIssetChar[$Char] = $Char;
+			$ArrIssetChar [$Char] = $Char;
 			if (! empty ( $value )) {
 				if (! in_array ( $key, $ArrNoDo )) {
 					if (in_array ( $key, $ArrStnField )) {
@@ -241,14 +247,14 @@ class ImSiteForm {
 								}
 							case 'im_date_add_s' :
 								{
-									list($day, $month, $year) = explode ( ".", $value );
+									list ( $day, $month, $year ) = explode ( ".", $value );
 									$value = $year . "-" . $month . "-" . $day;
 									$ImQuery .= " AND i.im_date_add >= '$value' ";
 									break;
 								}
 							case 'im_date_add_e' :
 								{
-									list($day, $month, $year) = explode ( ".", $value );
+									list ( $day, $month, $year ) = explode ( ".", $value );
 									$value = $year . "-" . $month . "-" . $day;
 									$ImQuery .= " AND i.im_date_add <= '$value' ";
 									break;
@@ -258,7 +264,7 @@ class ImSiteForm {
 									$adressArray = explode ( ",", $value );
 									$adressQuery = "";
 									foreach ( $adressArray as $key => $value ) {
-										if ($value[0] == " ")
+										if ($value [0] == " ")
 											$value = substr ( $value, 1, strlen ( $value ) );
 										if (! empty ( $value )) {
 											$ClQueryDict = new mysql_select ( 'dictionaries' );
@@ -308,13 +314,15 @@ class ImSiteForm {
 										}
 									case 'm' :
 										{ // select mylt
+										  // devLogs::_printr($key);
+										  // devLogs::_printr($value);
 											$PostFieldValue = $value;
-											foreach ( $value as $keyr => $kvalue ) {
-												$Char = $this->RandomChar ( $ArrIssetChar );
-												$ArrIssetChar[$Char] = $Char;
-												if (! empty ( $kvalue ))
-													$ReturnQuery .= " join im_properties_info {$Char} ON fi.im_id = {$Char}.im_id AND  {$Char}.im_prop_value_dict_list LIKE '%{$kvalue}%'";
-											}
+											// foreach ( $value as $keyr => $kvalue ) {
+											$Char = $this->RandomChar ( $ArrIssetChar );
+											$ArrIssetChar [$Char] = $Char;
+											if (! empty ( $value ))
+												$ReturnQuery .= " join im_properties_info {$Char} ON fi.im_id = {$Char}.im_id AND  {$Char}.im_prop_value_dict_list LIKE '%{$value}%'";
+												// }
 											break;
 										}
 									case 'c' :
@@ -342,8 +350,8 @@ class ImSiteForm {
 							$s_ = strpos ( $key, '_' );
 							$post_key = substr ( $key, ($s_ + 1), strlen ( $key ) ); // признак поля
 							$key = substr ( $key, 0, $s_ ); // имя поля
-							$this->RegDict[] = $key;
-							$TerSqlQuery[$post_key] .= "'{$key}',";
+							$this->RegDict [] = $key;
+							$TerSqlQuery [$post_key] .= "'{$key}',";
 						}
 					}
 				}
@@ -357,9 +365,9 @@ class ImSiteForm {
 			// $TerSelectQuery = $this->TerFieldArr ( $TerArr, $TerSqlQuery );
 			// $TerSelectQuery = "AND i.{$TerArr[$post_key]} IN (" . substr ( $TerSqlQuery [$post_key], 0, (strlen ( $TerSqlQuery [$post_key] ) - 1) ) . ")";
 			// если нет по територии, заканчиваем поиск
-			$TerSelectQuery = $this->queryResultReturn ( "AND i.{$TerArr[$post_key]} IN (" . substr ( $TerSqlQuery[$post_key], 0, (strlen ( $TerSqlQuery[$post_key] ) - 1) ) . ")" );
+			$TerSelectQuery = $this->queryResultReturn ( "AND i.{$TerArr[$post_key]} IN (" . substr ( $TerSqlQuery [$post_key], 0, (strlen ( $TerSqlQuery [$post_key] ) - 1) ) . ")" );
 			if (! $TerSelectQuery)
-				return " AND i.im_id IN ('0')";
+				return " AND i.im_id in ('0')";
 			$TerSelectQueryStringImId = "";
 			$TerSelectQuery = " AND i.im_id IN {$TerSelectQuery}";
 		}
@@ -369,9 +377,10 @@ class ImSiteForm {
 		}
 		
 		$PropSelectQuery = "";
-		if ($Arr["SearchIsAdvasedChecked"]) {
+		if ($Arr ["SearchIsAdvasedChecked"]) {
 			// ' WHERE fi.lang_id = '.$_COOKIE[lang_id].
 			// echo $PropSelectStart . " im_properties_info fi " . $ReturnQuery . " left join immovables i on fi.im_id = i.im_id " . $this->StandartImQuery . $PropGroupBY;
+			//devLogs::_echo($ReturnQuery);
 			$PropSelectClass = new mysql_select ( 'im_properties_info fi', $ReturnQuery . " left join immovables i on fi.im_id = i.im_id " . $this->StandartImQuery . $PropGroupBY );
 			$PropSelectClass->select_table ( "im_prop_id", NULL, NULL, NULL, $PropSelectStart );
 			$PropSelectArrClass = new functionalClass ();
@@ -405,7 +414,7 @@ class ImSiteForm {
 	 */
 	private function TerFieldArr($TerArr, $Arr) {
 		foreach ( $Arr as $key => $value ) {
-			if (! empty ( $TerArr[$key] ))
+			if (! empty ( $TerArr [$key] ))
 				$return .= "  AND i.{$TerArr[$key]} IN (" . substr ( $value, 0, (strlen ( $value ) - 1) ) . ")";
 		}
 		return $return;
@@ -416,7 +425,7 @@ class ImSiteForm {
 	private function PostField($PostFieldValue, $ArrChars) {
 		return $update = "";
 		for($i = 0; $i < count ( $PostFieldValue ); $i ++) {
-			if (! empty ( $PostFieldValue[$i] ))
+			if (! empty ( $PostFieldValue [$i] ))
 				$update .= " left outer join im_properties_info {$Char} ON fi.im_id = {$Char}.im_id AND  fm.im_prop_value_dict_list = '{$PostFieldValue[$i]}'";
 			// $update .= " left outer join im_properties_info {$Char} ON fi.im_id = {$Char}.im_id AND fm.im_prop_value_dict_list LIKE '%{$PostFieldValue[$i]}%'";
 		}
@@ -429,9 +438,9 @@ class ImSiteForm {
 		$CharArr = range ( 'a', 'z' );
 		if ((count ( $ArrIssetChar ) % 26 == 0)) {
 			for($i = 0; $i <= (count ( $ArrIssetChar ) / 26); $i ++)
-				$ret .= $CharArr[rand ( 0, 25 )];
+				$ret .= $CharArr [rand ( 0, 25 )];
 		} else
-			$ret = $CharArr[rand ( 0, 25 )];
+			$ret = $CharArr [rand ( 0, 25 )];
 		if (in_array ( $ret, $ArrIssetChar ))
 			return $this->RandomChar ( $ArrIssetChar );
 		else
@@ -440,21 +449,17 @@ class ImSiteForm {
 	
 	// проверка на изминение поля бегунка
 	private function SlideValuesIsValid($prop_id, $minVal, $maxVal) {
-		$this->Dict->do_dictionaries ( $this->PropArrData[$prop_id]['ld_id'] );
+		$this->Dict->do_dictionaries ( $this->PropArrData [$prop_id] ['ld_id'] );
 		$ValueLdId = $this->Dict->my_dct;
 		if (empty ( $ValueLdId ))
 			return;
-		$minPropVal = $ValueLdId[0][dict_name];
-		$maxPropVal = $ValueLdId[count ( $ValueLdId ) - 1][dict_name];
+		$minPropVal = $ValueLdId [0] [dict_name];
+		$maxPropVal = $ValueLdId [count ( $ValueLdId ) - 1] [dict_name];
 		$maxPropVal = str_replace ( ' ', '', $maxPropVal );
 		if (($minVal == $minPropVal) && ($maxVal == $maxPropVal))
 			return false;
 		else
 			return true;
-	}
-	public function SelectImId($query) {
-	}
-	public function PostGetParser_() {
 	}
 }
 

@@ -20,8 +20,8 @@ class appDataClass {
 		}
 		$this->string_navigation = "";
 		$this->social = array(
-				"fb" => new appSocialData (getLangString("facebook_id")),
-				"vk" => new appSocialData (getLangString("vkontakte_id")));
+				"fb" => new appSocialData ( getLangString ( "facebook_id" ) ),
+				"vk" => new appSocialData ( getLangString ( "vkontakte_id" ) ));
 	}
 	public function appentTitle($data) {
 		$this->p_w_title = ($data ? $data . " - " . $this->p_w_title : $this->p_w_title);

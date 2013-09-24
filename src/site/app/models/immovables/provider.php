@@ -89,6 +89,8 @@ class immovablesProviderClass extends providerClass {
 		if ($id) {
 			$ret = $this->mysql->select_table_id ( sprintf ( "where im_id=%s", $id ) );
 		}
+		if ($ret)
+			$this->updateCountViews ( $id );
 		return $ret;
 	}
 	public function getItemByCode($code) {
@@ -159,5 +161,11 @@ class immovablesProviderClass extends providerClass {
 					"listBuild" => $this->mysql->buld_table);
 		} else
 			return $res;
+	}
+	private function updateCountViews($id) {
+		$query = "INSERT INTO immovables_stat (`im_id`, `wiev_count`) VALUES ({$id}, 1) ON DUPLICATE KEY UPDATE wiev_count = wiev_count + 1;";
+		if (! mysql_query ( $query ))
+			throw new ExceptionMySQL ( mysql_error (), $query, "ERROR INSERT or UPDATE immovables_stat" );
+		return;
 	}
 }
