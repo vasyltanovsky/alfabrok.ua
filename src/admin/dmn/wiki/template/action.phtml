@@ -1,0 +1,23 @@
+<div id="d-filter">
+	<h3>Фильтр страницы</h3>
+	<form action="" method="POST" id="pageFormSearch">
+		<ul>
+			<li>
+				<label>Пункт</label><br />
+				<input name="w_menu_name" value="<?php echo $array["w_menu_name"]?>"  type="text" /> 
+			</li>
+			<li>
+				<label>Синонимы</label><br />
+				<input name="w_synonyms"  value="<?php echo $array["w_synonyms"]?>" type="text" /> 
+			</li>
+		</ul>
+		<button style="" onclick="TSearchForm('DMN_Wiki', 'getPage');" class="d-filter-button-search ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only" type="button" id=""><span>Применить</span></button>
+	</form>
+</div>
+<div class="eventForm">
+<a href="#" onclick="TAddSpecialCode('DMN_Wiki', 'getItem');" class="ui-state-default ui-corner-all bottom-padding" title="Добавить нупкт" id="submitAdd"><span class="ui-icon ui-icon-plus"></span>Добавить нупкт</a> 
+<a href="#" onclick="TShowPage('DMN_Wiki', 'getArticles');" class="ui-state-default ui-corner-all bottom-padding" title="" id="submitEdit"><span class="ui-icon ui-icon-pencil"></span>Статьи</a> 
+<!-- 
+<a href="#" onclick="TAddSpecialCode('DMN_Places', 'dellPlace');" class="ui-state-default ui-corner-all bottom-padding" title="удалить пункт &laquo;Каталогa&raquo;" id="submitDell"><span class="ui-icon ui-icon-trash"></span>удалить пункт</a></div>
+-->
+</div>

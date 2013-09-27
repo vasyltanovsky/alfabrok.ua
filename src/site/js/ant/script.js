@@ -1,5 +1,9 @@
 /* Author:
  */
+function log(message) {
+    $("<div>").text(message).prependTo("#log");
+    $("#log").scrollTop(0);
+}
 function appJsLog(message) {
     $("<div>").text(message).prependTo("#log");
     $("#log").scrollTop(0);

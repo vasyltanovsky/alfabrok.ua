@@ -30,41 +30,21 @@ class immovablesController extends aControllerClass {
 		$this->buildDictionaries ();
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
 		$Data = array();
-		$model->getListHotPrice ( array(
-				"is_hot" => true,
-				"hide" => "show",
-				"im_catalog_id" => "4c3ec3ec5e9b5",
-				"limit" => 10) );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array(
-				"is_hot" => true,
-				"hide" => "show",
-				"im_catalog_id" => "4c3ec3ec5e9b7",
-				"limit" => 10) );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array(
-				"is_hot" => true,
-				"hide" => "show",
-				"im_catalog_id" => "4c3ec51d537c0",
-				"limit" => 10) );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array(
-				"is_hot" => true,
-				"hide" => "show",
-				"im_catalog_id" => "4c3ec51d537c2",
-				"limit" => 10) );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array(
-				"is_hot" => true,
-				"hide" => "show",
-				"im_catalog_id" => "4c3ec51d537c3",
-				"limit" => 10) );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
+		$categotyImmovables = array(
+				"4c3ec3ec5e9b5",
+				"4c3ec3ec5e9b7",
+				"4c3ec51d537c0",
+				"4c3ec51d537c2",
+				"4c3ec51d537c3");
+		foreach ( $categotyImmovables as $key => $value ) {
+			$model->getListHotPrice ( array(
+					"is_hot" => true,
+					"hide" => "show",
+					"im_catalog_id" => $value,
+					"limit" => 10) );
+			if ($model->list)
+				$Data = array_merge ( $Data, $model->list );
+		}
 		return $this->partialView ( array(
 				"Data" => $Data,
 				"Dictionaries" => $this->dictionaries,
@@ -75,36 +55,21 @@ class immovablesController extends aControllerClass {
 		$this->buildDictionaries ();
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables", "im_id" ) );
 		$Data = array();
-		$model->getListHotPrice ( array(
-				"im_catalog_id" => "4c3ec3ec5e9b5",
-				"limit" => 15,
-				"hide" => "show") );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array(
-				"im_catalog_id" => "4c3ec3ec5e9b7",
-				"limit" => 15,
-				"hide" => "show") );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array(
-				"im_catalog_id" => "4c3ec51d537c0",
-				"limit" => 15,
-				"hide" => "show") );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array(
-				"im_catalog_id" => "4c3ec51d537c2",
-				"limit" => 15,
-				"hide" => "show") );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
-		$model->getListHotPrice ( array(
-				"im_catalog_id" => "4c3ec51d537c3",
-				"limit" => 15,
-				"hide" => "show") );
-		if ($model->list)
-			$Data = array_merge ( $Data, $model->list );
+		$categotyImmovables = array(
+				"4c3ec3ec5e9b5",
+				"4c3ec3ec5e9b7",
+				"4c3ec51d537c0",
+				"4c3ec51d537c2",
+				"4c3ec51d537c3");
+		foreach ( $categotyImmovables as $key => $value ) {
+			$model->getListHotPrice ( array(
+					"is_hot" => true,
+					"hide" => "show",
+					"im_catalog_id" => $value,
+					"limit" => 15) );
+			if ($model->list)
+				$Data = array_merge ( $Data, $model->list );
+		}
 		return $this->partialView ( array(
 				"Data" => $Data,
 				"Dictionaries" => $this->dictionaries,
@@ -248,14 +213,91 @@ class immovablesController extends aControllerClass {
 	/* сравнение обьектов comparing */
 	public function sravnenie($param) {
 		$model = new immovablesModelClass ( new immovablesProviderClass ( "immovables" ) );
+		if (! empty ( $_COOKIE["comparing"] )) {
+			$imidsarray = json_decode ( $_COOKIE["comparing"], true );
+			$im_ids = "(";
+			foreach ( $imidsarray as $key => $value )
+				$im_ids .= sprintf ( "'%s',", $key );
+			$im_ids = sprintf ( "%s)", substr ( $im_ids, 0, strlen ( $im_ids ) - 1 ) );
+			$model->getList ( array(
+					"hide" => "show",
+					"im_ids" => $im_ids) );
+			$model->getPropertiesList ( array(
+					"im_ids" => substr ( $im_ids, 1, strlen ( $im_ids ) - 2 )) );
+			$model->buildPropertiesData ();
+			$model->getPropertiesOnlyGroupList ( null );
+		}
 		return $this->View ( array(
-				"Model" => $model), "immovables/comparing" );
+				"Model" => $model), "immovables/comparing/index" );
+	}
+	public function comparinglist($param) {
+		$ret = array(
+				"success" => true,
+				"comparing" => null,
+				"count" => 0);
+		if (! empty ( $_COOKIE["comparing"] )) {
+			$ret["comparing"] = $_COOKIE["comparing"];
+			$ret["count"] = count ( json_decode ( $_COOKIE["comparing"], true ) );
+		}
+		return $this->getJson ( $ret );
 	}
 	public function comparingadditem($param) {
-		return $this->getJson ( $param );
+		$ret = array(
+				"success" => true);
+		if (empty ( $param["im_id"] )) {
+			$ret["error"] = "noissetimid";
+			$ret["success"] = false;
+			return $this->getJson ( $ret );
+		}
+		$jsonComparing = $_COOKIE["comparing"];
+		if (! empty ( $jsonComparing )) {
+			$jsonObj = json_decode ( $jsonComparing, true );
+			if (! isset ( $jsonObj[$param["im_id"]] )) {
+				$jsonObj[$param["im_id"]] = $param["im_id"];
+			}
+		} else {
+			$jsonObj[$param["im_id"]] = $param["im_id"];
+		}
+		$ret["comparing"] = $jsonObj;
+		$jsonComparing = ($jsonObj ? json_encode ( $jsonObj ) : null);
+		setcookie ( 'comparing', $jsonComparing, 0, '/' );
+		$_COOKIE["comparing"] = $jsonComparing;
+		return $this->getJson ( $ret );
 	}
 	public function comparingremoveitem($param) {
-		return $this->getJson ( $param );
+		$ret = array(
+				"success" => true);
+		if (empty ( $param["im_id"] )) {
+			$ret["error"] = "noissetimid";
+			$ret["success"] = false;
+			return $this->getJson ( $ret );
+		}
+		$jsonComparing = $_COOKIE["comparing"];
+		$jsonObj = "";
+		if (! empty ( $jsonComparing )) {
+			$jsonObj = json_decode ( $jsonComparing, true );
+			if (isset ( $jsonObj[$param["im_id"]] )) {
+				unset ( $jsonObj[$param["im_id"]] );
+			} else
+				$ret["error"] = "noissetitem";
+		}
+		$ret["comparing"] = $jsonObj;
+		$jsonComparing = ($jsonObj ? json_encode ( $jsonObj ) : null);
+		setcookie ( 'comparing', $jsonComparing, 0, '/' );
+		$_COOKIE["comparing"] = $jsonComparing;
+		return $this->getJson ( $ret );
+	}
+	public function comparingsetsorted($param) {
+		if (! empty ( $param["list"] )) {
+			$l = explode ( ",", $param["list"] );
+			unset ( $l[count ( $l ) - 1] );
+			foreach ( $l as $key => $value )
+				$ret["comparing"][$value] = $value;
+			$jsonComparing = ($ret["comparing"] ? json_encode ( $ret["comparing"] ) : null);
+			setcookie ( 'comparing', $jsonComparing, 0, '/' );
+			$_COOKIE["comparing"] = $jsonComparing;
+		}
+		return $this->getJson ( $ret );
 	}
 	/* сравнение обьектов comparing */
 	

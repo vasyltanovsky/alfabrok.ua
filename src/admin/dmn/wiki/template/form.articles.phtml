@@ -1,0 +1,56 @@
+<?php 
+define ( 'SLASH', '/' );
+define ( 'DOC_ROOT', $_SERVER ['DOCUMENT_ROOT'] );
+require_once DOC_ROOT . '/dmn/utils/template.ajax/js2.css.php';
+?>
+<script type="text/javascript">
+$(function() {
+	$("#tabs").tabs();
+});
+</script>
+<script type="text/javascript" src="../wiki/js/action.js"></script>
+<div class="eventForm">
+	<?php if($array["wiki_id"]):?>
+		<a href="#" onclick="TEdit('DMN_Wiki', 'getItem', '<?php echo $array["wiki_id"]?>')" class="ui-state-default ui-corner-all bottom-padding" title="Назад" id=""><span class="ui-icon ui-icon-circle-triangle-w"></span>Назад</a> 
+	<?php else: ?>
+		<a href="#" onclick="TShowPage('DMN_Wiki', 'getArticles' )" class="ui-state-default ui-corner-all bottom-padding" title="Назад" id=""><span class="ui-icon ui-icon-circle-triangle-w"></span>Назад</a> 
+	<?php endif;?>
+</div>
+<div style="margin:0 10px;">
+	<div id='errOutputGood' class="errOutputGood"></div>
+	<div id='errOutput' class="errOutput"></div>
+	<div id="tabs">
+		<ul>
+	    	<li><a href="#tabs-1">Статья</a></li>
+	    </ul>
+	    <div id="tabs-1">
+	    	<script type="text/javascript">
+				new Zapatec.Form({
+					form: 'WForm',
+					showErrors: 'afterField',
+					showErrorsOnSubmit: true,
+					submitErrorFunc: testErrOutput,
+					asyncSubmitFunc: OnSuccessForm,
+					theme: "WinXP"
+				});
+			</script>
+	 		<form action="/dmn/t-ajax.php?zone=dmn&cont=DMN_Wiki&action=saveArticle&dataType=json" id='WForm' name='WForm' class="zpFormWinXP" method="POST">
+				<fieldset>
+					<label class='zpFormLabel'>Заголовок</label> 
+					<input class='zpFormRequired' value="<?php echo $Data ['wa_title'];?>" size="40" name="wa_title" type="text"> <br />
+					<label class='zpFormLabel'>Пункт</label>
+					<select name="wiki_id" class="zpFormRequired">
+						<?php echo sel_parent_id ( $WikiList, ($Data ['wiki_id'] ? $Data ['wiki_id'] : $array["wiki_id"]), 'id', 'w_menu_name' ); ?>
+					</select>
+					<br />
+					<label class='zpFormLabel'>Текст</label><br />
+					<textarea name="wa_summary" cols="40" rows="10" class="zpForm"><?php echo $Data ['wa_summary'];?></textarea>
+				</fieldset>
+				<input class='zpForm' value="<?php echo ($Data ['id'] ? $Data ['id'] : "") ;?>" size="13" name="id" type="hidden"> 
+				<input class='zpForm' value="<?php echo ($Data ['id'] ? "edit" : "new") ;?>" size="13" name="type_save" type="hidden"> 
+				<input value="Сохранить" name="Submit" onClick="" type="submit" class="button" /> 
+			</form>
+		</div>
+	</div>
+</div>            
+

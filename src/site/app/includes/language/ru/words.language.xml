@@ -46,6 +46,8 @@
 	<ImFListHeaderDate>Дата внесения</ImFListHeaderDate>
 	<ImFListHeaderAction>Редактировать</ImFListHeaderAction>
 	<ImFListHeaderLavel>Этаж/ Этажность</ImFListHeaderLavel>
+	<ImFListHeaderLavelEtazhnost>Этажность</ImFListHeaderLavelEtazhnost>
+	<ImFListHeaderLavelEtazh>Этаж</ImFListHeaderLavelEtazh>
 	<ImFListHeaderMap>Объект на карте</ImFListHeaderMap>
 	<ImFListHeaderMapM2>м.кв</ImFListHeaderMapM2>
 	<ImFListHeaderMapSotka>сотка</ImFListHeaderMapSotka>
@@ -57,6 +59,7 @@
 	</ImTableListPnumberHeader>
 	<ImSale>Продажа</ImSale>
 	<ImRent>Аренда</ImRent>
+	<sostojanie>Состояние</sostojanie>
 	<TypeCatImName>Тип недвижимости</TypeCatImName>
 	<TypeCatImNameArrIdPAge>Array</TypeCatImNameArrIdPAge>
 	<TypeCatImNameArrIdName>Array</TypeCatImNameArrIdName>
@@ -234,8 +237,7 @@
 	<fai_fv_im_prace>Цена за объект $:</fai_fv_im_prace>
 	<fai_fv_im_prace_sq>Цена за кв.м./сотку $:</fai_fv_im_prace_sq>
 	<fai_fv_im_prace_day>Цена за день (аренда) $:</fai_fv_im_prace_day>
-	<fai_fv_im_prace_manth>Цена за месяц (аренда) $:
-	</fai_fv_im_prace_manth>
+	<fai_fv_im_prace_manth>Цена за месяц (аренда) $:</fai_fv_im_prace_manth>
 	<fai_fv_im_space>Общая площадь:</fai_fv_im_space>
 	<fai_fv_im_space_value_id>Ед. площади:</fai_fv_im_space_value_id>
 	<fai_fv_im_sale_id>Вид продажи:</fai_fv_im_sale_id>
@@ -586,4 +588,10 @@
 	<!-- mayByYouMine -->
 	<mayByYouMine><![CDATA[Возможно Вы имели в веду!]]></mayByYouMine>
 	<ReadMore>подробнее</ReadMore>
+	<!--  -->
+	<comparingNoSelectedItems>Нет выбранных позиций для сравнения!</comparingNoSelectedItems>
+	<comparingRemoveItem>x</comparingRemoveItem>
+	<comparingRemoveItemtitle>Удалить со сравнения</comparingRemoveItemtitle>
+	<comparingParamFrom>от</comparingParamFrom>
+	<comparingParamTo>до</comparingParamTo>
 </words>

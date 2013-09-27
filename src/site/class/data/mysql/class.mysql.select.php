@@ -26,7 +26,7 @@ class mysql_select {
 	
 	//
 	public function select_table($name_field = "id", $st_table = NULL, $st_where = NULL, $st_order = NULL, $IsAllSelect = "SELECT * FROM") {
-		try {
+			try {
 			if ($st_table)
 				$this->name_table_select = $st_table;
 			if ($st_where)
@@ -37,7 +37,7 @@ class mysql_select {
 			if (! $this->name_table_select)
 				return;
 			
-			$query = "	{$IsAllSelect}
+		$query = "	{$IsAllSelect}
 						{$this->name_table_select}
 				   		{$this->where_table_select}
 						{$this->order_table_select}";
@@ -54,7 +54,7 @@ class mysql_select {
 			// unset($this->buld_table[count($this->buld_table) - 1]);
 			return $this->table = $t_pages;
 		} catch ( Exception $exc ) {
-			// echo ExceptionFullGet::ExcMysql ( $exc );
+			 echo ExceptionFullGet::ExcMysql ( $exc );
 		}
 	}
 	

@@ -6,7 +6,7 @@ class immovablesProviderClass extends providerClass {
 		$limit = (! empty ( $param['limit'] ) ? " limit " . $param['limit'] : "");
 		$query = $this->buildStandartImmovablesQuery ( $param );
 		$this->mysql->select_table_query ( "select i.* from {$this->table} i 
-										    {$query} order by im_id desc" . $limit, $this->id );
+										    {$query} order by im_id desc" . $limit, "im_id" );
 		$this->list = $this->mysql->table;
 		$this->listBuild = $this->mysql->buld_table;
 		if (! empty ( $this->mysql->table )) {
@@ -132,7 +132,27 @@ class immovablesProviderClass extends providerClass {
 		$this->mysql->where_table_select = "l left join im_properties_info i ON l.im_prop_id = i.im_prop_id WHERE l.lang_id = {$_COOKIE['lang_id']} AND i.lang_id = {$_COOKIE['lang_id']} AND hide='show' " . $query;
 		$this->mysql->order_table_select = "ORDER BY im_prop_name ASC";
 		$this->mysql->select_table ( "im_prop_id" );
-		
+		if (! empty ( $this->mysql->table )) {
+			return array(
+					"list" => $this->mysql->table,
+					"listBuild" => $this->mysql->buld_table);
+		} else
+			return $res;
+	}
+	public function getPropertiesOnlyGroupList($param) {
+		$res = null;
+		$this->mysql->select_table_query ( "select a.*,
+											f.im_prop_id as flat_im_prop_id, f.prop_have_image as flat_prop_have_image,
+											c.im_prop_id as commercial_im_prop_id, c.prop_have_image as commercial_prop_have_image,
+											h.im_prop_id as home_im_prop_id, h.prop_have_image as home_prop_have_image,
+											l.im_prop_id as land_im_prop_id, l.prop_have_image as land_prop_have_image
+											from im_properties_list a
+											left join im_properties_list f on a.im_prop_name = f.im_prop_name and f.catalog_id = '4c3ec3ec5e9b5'
+											left join im_properties_list c on a.im_prop_name = c.im_prop_name and c.catalog_id = '4c3ec3ec5e9b7'
+											left join im_properties_list h on a.im_prop_name = h.im_prop_name and h.catalog_id = '4c3ec51d537c0'
+											left join im_properties_list l on a.im_prop_name = l.im_prop_name and l.catalog_id = '4c3ec51d537c3'
+											group by a.im_prop_name
+											order by a.im_prop_name", "im_prop_id" );
 		if (! empty ( $this->mysql->table )) {
 			return array(
 					"list" => $this->mysql->table,

@@ -1,0 +1,70 @@
+<?php 
+define ( 'SLASH', '/' );
+define ( 'DOC_ROOT', $_SERVER ['DOCUMENT_ROOT'] );
+require_once DOC_ROOT . '/dmn/utils/template.ajax/js2.css.php';
+?>
+
+<script type="text/javascript">
+var id = "<?php echo ($Data ['id'] ? $Data ['id'] : "")?>";
+$(function() {
+	$("#tabs").tabs();
+	if(id == "") {
+		$("#tabs-2").hide();
+	}
+});
+</script>
+<script type="text/javascript" src="../wiki/js/action.js"></script>
+<div class="eventForm">
+	<a href="#" onclick="TShowPage('DMN_Wiki', 'getPage')" class="ui-state-default ui-corner-all bottom-padding" title="Назад" id=""><span class="ui-icon ui-icon-circle-triangle-w"></span>Назад</a> 
+</div>
+<div style="margin:0 10px;">
+	<div id='errOutputGood' class="errOutputGood"></div>
+	<div id='errOutput' class="errOutput"></div>
+	<div id="tabs">
+		<ul>
+	    	<li><a href="#tabs-1">Пункт</a></li>
+	    	<li><a href="#tabs-2">Статьи</a></li>
+	    </ul>
+	    <div id="tabs-1">
+	    	<script type="text/javascript">
+				new Zapatec.Form({
+					form: 'WikiForm',
+					showErrors: 'afterField',
+					showErrorsOnSubmit: true,
+					submitErrorFunc: testErrOutput,
+					asyncSubmitFunc: OnSuccessDataForm,
+					theme: "WinXP"
+				});
+			</script>
+	 		<form action="/dmn/t-ajax.php?zone=dmn&cont=DMN_Wiki&action=saveItem&dataType=json" id='WikiForm' name='WikiForm' class="zpFormWinXP" method="POST">
+				<fieldset>
+					<label class='zpFormLabel'>Название</label> 
+					<input class='zpFormRequired' value="<?php echo $Data ['w_menu_name'];?>" size="40" name="w_menu_name" type="text"> <br />
+					<label class='zpFormLabel'>Синонимы</label>
+					<input class='zpFormRequired' value="<?php echo $Data ['w_synonyms'];?>" size="255" name="w_synonyms" type="text"> <br />
+				</fieldset>
+				<fieldset>
+					<legend>Мета данные</legend>
+					<label class='zpFormLabel'>Веб заголовок</label> 
+					<input class='zpForm' value="<?php echo $Data ['w_w_title'];?>" size="40" name="w_w_title" type="text"> <br />
+					<label class='zpFormLabel'>Веб ключевые слова</label> 
+					<input class='zpForm' value="<?php echo $Data ['w_w_keywords'];?>" size="40" name="w_w_keywords" type="text"> <br />
+					<label class='zpFormLabel'>Веб описание</label> 
+					<input class='zpForm' value="<?php echo $Data ['w_w_description'];?>" size="40" name="w_w_description" type="text"> <br />
+				</fieldset>
+				<input class='zpForm' value="<?php echo ($Data ['id'] ? $Data ['id'] : "") ;?>" size="13" name="id" type="hidden"> 
+				<input class='zpForm' value="<?php echo ($Data ['id'] ? "edit" : "new") ;?>" size="13" name="type_save" type="hidden"> 
+				<input value="Сохранить" name="Submit" onClick="" type="submit" class="button" /> 
+			</form>
+		</div>
+		<div id="tabs-2">
+			<div class="" style="padding: 10px 0; ">
+				<a id="submitAdd" title="Добавить cтатью" class="ui-state-default ui-corner-all bottom-padding" onclick="TAddarticle('DMN_Wiki', 'getArticle');" href="#"><span class="ui-icon ui-icon-plus"></span>Добавить cтатью</a>
+				<input value="<?php echo ($Data ['id'] ? $Data ['id'] : "") ;?>" size="13" id="article_wiki_id"  name="article_wiki_id" type="hidden"> 
+			</div>
+			<div class="clear"></div>
+			<?php if($Data ['id']) { echo Controller::Template("/dmn/wiki/template/list.articles.phtml", array ('Data' => $Articles)); } ?>	
+		</div>
+	</div>
+</div>            
+

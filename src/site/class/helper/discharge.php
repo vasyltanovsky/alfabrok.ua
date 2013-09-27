@@ -1,6 +1,8 @@
 <?php
 class Discharge {
 	static function GetDisValue($val, $prop_dis, $currency_sign = " грн.") {
+		if(empty($val))
+			return;
 		$val = number_format ( round ( $val ), 0, ".", "" );
 		if (($sl = strlen ( $val )) < $prop_dis)
 			return $val . " $";

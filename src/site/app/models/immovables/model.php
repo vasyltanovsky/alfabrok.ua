@@ -1,5 +1,12 @@
 <?php
 class immovablesModelClass extends modelClass {
+	public $propertiesList;
+	public $propertiesListBuild;
+	public $propertiesOnlyList;
+	public $propertiesOnlyListBuild;
+	public $propertiesData;
+	public $propertiesGroupList;
+	public $propertiesGroupListGroup;
 	/* for im. item */
 	public $imagesList;
 	public $imagesPlanList;
@@ -7,11 +14,6 @@ class immovablesModelClass extends modelClass {
 	public $summary;
 	public $lastData;
 	public $realtor;
-	public $propertiesList;
-	public $propertiesListBuild;
-	public $propertiesOnlyList;
-	public $propertiesOnlyListBuild;
-	public $propertiesData;
 	public $mayby;
 	public $maybymatrix;
 	public $maybyiteration;
@@ -25,34 +27,33 @@ class immovablesModelClass extends modelClass {
 	}
 	public function getList($param) {
 		$res = $this->provider->getList ( $param );
-		$this->list = $res ["resTable"];
-		$this->listData = $res ["resTableBuild"];
+		$this->list = $res["resTable"];
+		$this->listData = $res["resBuildTable"];
 	}
 	public function getListHotPrice($param) {
 		$res = $this->provider->getListHotPrice ( $param );
-		$this->list = $res ["resTable"];
-		$this->listData = $res ["resTableBuild"];
+		$this->list = $res["resTable"];
+		$this->listData = $res["resBuildTable"];
 	}
 	public function getListPager($param, $page_id, $pagerlink, $limit = null) {
 		$this->buildDictionaries ();
 		$this->provider->setValue ( "id", "im_id" );
-		$this->provider->setValue ( "orderby", $_COOKIE ['im_where_sort'] );
+		$this->provider->setValue ( "orderby", $_COOKIE['im_where_sort'] );
 		$this->provider->setValue ( "pagerlink", $pagerlink );
-		$this->provider->setValue ( "limit", ($limit ? $limit : $_COOKIE ['im_f_show_pnumber']) );
+		$this->provider->setValue ( "limit", ($limit ? $limit : $_COOKIE['im_f_show_pnumber']) );
 		$this->provider->setValue ( "pagerparamafter", $this->getRequestStringForPager ( $param ) );
-		$this->provider->setValue ( "ordersort", $_COOKIE ['im_where_sort_order'] );
-		$propParam = array (
+		$this->provider->setValue ( "ordersort", $_COOKIE['im_where_sort_order'] );
+		$propParam = array(
 				"hide" => "show",
-				"im_catalog_id" => $param ["im_catalog_id"] 
-		);
-		if (isset ( $param ["is_prop_rent"] ))
-			$propParam ["is_prop_rent"] = true;
-		if (isset ( $param ["is_prop_sale"] ))
-			$propParam ["is_prop_sale"] = true;
+				"im_catalog_id" => $param["im_catalog_id"]);
+		if (isset ( $param["is_prop_rent"] ))
+			$propParam["is_prop_rent"] = true;
+		if (isset ( $param["is_prop_sale"] ))
+			$propParam["is_prop_sale"] = true;
 		$this->getPropertiesOnlyList ( $propParam );
 		
 		$query = "";
-		if (isset ( $param ["action"] ))
+		if (isset ( $param["action"] ))
 			$query = $this->buildSearchQuery ( $param );
 		
 		$this->provider->getListPager ( $param, $page_id, $query );
@@ -60,9 +61,9 @@ class immovablesModelClass extends modelClass {
 		$this->pager = $this->provider->pager;
 		
 		if ($this->list) {
-			$param ["im_ids"] = $this->buildImmovablesIdForPropertiesQuery ();
+			$param["im_ids"] = $this->buildImmovablesIdForPropertiesQuery ();
 			$this->getPropertiesList ( $param );
-			unset ( $param ["im_ids"] );
+			unset ( $param["im_ids"] );
 			$this->buildPropertiesData ();
 		}
 	}
@@ -76,20 +77,25 @@ class immovablesModelClass extends modelClass {
 	}
 	public function getPropertiesList($param) {
 		$res = $this->provider->getPropertiesList ( $param );
-		$this->propertiesList = $res ["list"];
-		$this->propertiesListBuild = $res ["listBuild"];
+		$this->propertiesList = $res["list"];
+		$this->propertiesListBuild = $res["listBuild"];
 	}
 	public function getPropertiesOnlyList($param) {
 		$res = $this->provider->getPropertiesOnlyList ( $param );
-		$this->propertiesList = $res ["list"];
-		$this->propertiesListBuild = $res ["listBuild"];
+		$this->propertiesList = $res["list"];
+		$this->propertiesListBuild = $res["listBuild"];
+	}
+	public function getPropertiesOnlyGroupList($param) {
+		$res = $this->provider->getPropertiesOnlyGroupList ( $param );
+		$this->propertiesListGroup = $res["list"];
+		$this->propertiesListGroupBuild = $res["listBuild"];
 	}
 	public function buildImmovablesIdForPropertiesQuery() {
 		$ret = "";
 		if ($this->list) {
 			foreach ( $this->list as $key => $value ) {
 				if (! empty ( $value ))
-					$ret .= sprintf ( "'%s',", $value ["im_id"] );
+					$ret .= sprintf ( "'%s',", $value["im_id"] );
 			}
 			$ret = substr ( $ret, 0, strlen ( $ret ) - 1 );
 		}
@@ -97,11 +103,10 @@ class immovablesModelClass extends modelClass {
 	}
 	public function buildPropertiesData() {
 		$this->propertiesData = new PropSort ( $this->propertiesList );
-		$this->propertiesData->GetArrToPrint ( 'im_id', array (
+		$this->propertiesData->GetArrToPrint ( 'im_id', array(
 				'is_print_list',
 				'is_print_ad',
-				'is_print_st' 
-		) );
+				'is_print_st') );
 	}
 	public function getImmovablesListToYmap() {
 		if ($this->list) {
@@ -113,28 +118,28 @@ class immovablesModelClass extends modelClass {
 			// $model->getPropertiesList ( $param );
 			// $model->buildPropertiesData();
 			foreach ( $this->list as $key => $value ) {
-				$this->getItemProperties ( $value ["im_id"] );
+				$this->getItemProperties ( $value["im_id"] );
 				$this->buildPropertiesData ();
 				$ModImPropObj = new ModuleSiteIm ( $ModuleTemplate, $arWords, $this->dictionaries, $this->propertiesData->ImPropData, $this->propertiesData->ImPropArrData );
-				if ($value ['im_is_sale'])
-					$this->list [$key] ["tempSale"] = $ModImPropObj->BuildHTML ( $value, $ModuleTemplate ['ymaps'] [$value ['im_catalog_id']] ['sale'], $TemplateImList [$value ['im_catalog_id']] ['sale'] );
-				if ($value ['im_is_rent'])
-					$this->list [$key] ["tempRent"] = $ModImPropObj->BuildHTML ( $value, $ModuleTemplate ['ymaps'] [$value ['im_catalog_id']] ['rent'], $TemplateImList [$value ['im_catalog_id']] ['rent'] );
-				$this->list [$key] ["im_city_name"] = $this->dictionaries->getDictValue ( $value, "im_city_id" );
-				$this->list [$key] ["im_area_name"] = $this->dictionaries->getDictValue ( $value, "im_area_id" );
-				$this->list [$key] ["im_adress_name"] = $this->dictionaries->getDictValue ( $value, "im_adress_id" );
+				if ($value['im_is_sale'])
+					$this->list[$key]["tempSale"] = $ModImPropObj->BuildHTML ( $value, $ModuleTemplate['ymaps'][$value['im_catalog_id']]['sale'], $TemplateImList[$value['im_catalog_id']]['sale'] );
+				if ($value['im_is_rent'])
+					$this->list[$key]["tempRent"] = $ModImPropObj->BuildHTML ( $value, $ModuleTemplate['ymaps'][$value['im_catalog_id']]['rent'], $TemplateImList[$value['im_catalog_id']]['rent'] );
+				$this->list[$key]["im_city_name"] = $this->dictionaries->getDictValue ( $value, "im_city_id" );
+				$this->list[$key]["im_area_name"] = $this->dictionaries->getDictValue ( $value, "im_area_id" );
+				$this->list[$key]["im_adress_name"] = $this->dictionaries->getDictValue ( $value, "im_adress_id" );
 				
-				if ($value ['im_catalog_id'] == "4c3ec3ec5e9b5") {
-					$this->list [$key] ["im_room"] = $this->propertiesData->ImPropArrData [$value ['im_id']] ['4c400ed4e5797'] ['im_prop_value'];
+				if ($value['im_catalog_id'] == "4c3ec3ec5e9b5") {
+					$this->list[$key]["im_room"] = $this->propertiesData->ImPropArrData[$value['im_id']]['4c400ed4e5797']['im_prop_value'];
 					/* поиск по квартирам */
 					$im_roomb = $this->routingObj->getParamItem ( "im_roomb" );
 					$im_roome = $this->routingObj->getParamItem ( "im_roome" );
 					if (! empty ( $im_roomb ))
-						if ($this->list [$key] ["im_room"] < $im_roomb)
-							unset ( $this->list [$key] );
+						if ($this->list[$key]["im_room"] < $im_roomb)
+							unset ( $this->list[$key] );
 					if (! empty ( $im_roome ))
-						if ($this->list [$key] ["im_room"] > $im_roome)
-							unset ( $this->list [$key] );
+						if ($this->list[$key]["im_room"] > $im_roome)
+							unset ( $this->list[$key] );
 				}
 			}
 		}
@@ -160,11 +165,10 @@ class immovablesModelClass extends modelClass {
 		$this->item = $this->provider->getItemByCode ( $code );
 	}
 	public function getItemProperties($id) {
-		$serRes = $this->provider->getPropertiesList ( array (
-				"im_id" => $id 
-		) );
-		$this->propertiesList = $serRes ["list"];
-		$this->propertiesListBuild = $serRes ["listBuild"];
+		$serRes = $this->provider->getPropertiesList ( array(
+				"im_id" => $id) );
+		$this->propertiesList = $serRes["list"];
+		$this->propertiesListBuild = $serRes["listBuild"];
 		$this->buildPropertiesData ();
 	}
 	public function getItemPlan($id) {
@@ -190,21 +194,21 @@ class immovablesModelClass extends modelClass {
 		return (! empty ( $res ) ? "?" . $res : "");
 	}
 	public function getImmovablesTitle() {
-		$ret = sprintf ( "%s - %s, %s, %s %s, %s %s, %s y.e", getLangString ( $this->item ["im_catalog_id"] . "_item" ), $this->item ["im_code"], $this->dictionaries->getDictValue ( $this->item, "im_city_id" ), $this->dictionaries->getDictValue ( $this->item, "im_adress_id" ), $this->item ["im_adress_house"], $this->item ["im_space"], $this->dictionaries->getDictValue ( $this->item, "im_space_value_id" ), ($this->routingObj->getAction () == "detailssale") ? $this->item ["im_prace"] : $this->item ["im_prace_manth"] );
+		$ret = sprintf ( "%s - %s, %s, %s %s, %s %s, %s y.e", getLangString ( $this->item["im_catalog_id"] . "_item" ), $this->item["im_code"], $this->dictionaries->getDictValue ( $this->item, "im_city_id" ), $this->dictionaries->getDictValue ( $this->item, "im_adress_id" ), $this->item["im_adress_house"], $this->item["im_space"], $this->dictionaries->getDictValue ( $this->item, "im_space_value_id" ), ($this->routingObj->getAction () == "detailssale") ? $this->item["im_prace"] : $this->item["im_prace_manth"] );
 		return $ret;
 	}
 	public function getitemlink($item = "") {
 		if (empty ( $item ))
 			$item = $this->item;
 		global $arWords;
-		return sprintf ( "ru/%s/%s/1/%s", $arWords ["TypeCatImNameArrIdPAge"] [$item ["im_catalog_id"]], ($item ["im_is_sale"] ? "sale" : "rent"), $item ["im_id"] );
+		return sprintf ( "ru/%s/%s/1/%s", $arWords["TypeCatImNameArrIdPAge"][$item["im_catalog_id"]], ($item["im_is_sale"] ? "sale" : "rent"), $item["im_id"] );
 	}
 	public function getMayByList($param, $page_id, $pagerlink) {
 		if ($this->maybyiteration == count ( $this->maybymatrix ))
 			return;
 		$paramformayby = $this->routingObj->getParam ();
-		if (isset ( $this->maybymatrix [$this->maybyiteration] )) {
-			foreach ( $this->maybymatrix [$this->maybyiteration] as $key => $value ) {
+		if (isset ( $this->maybymatrix[$this->maybyiteration] )) {
+			foreach ( $this->maybymatrix[$this->maybyiteration] as $key => $value ) {
 				$paramformayby = $this->$value ( $paramformayby );
 			}
 		}
@@ -216,35 +220,35 @@ class immovablesModelClass extends modelClass {
 		return;
 	}
 	private function maybyDeleteParamFieldsCheckbox($param) {
-		$ret = array ();
+		$ret = array();
 		foreach ( $param as $key => $value ) {
 		}
 		return $param;
 	}
 	private function maybyDeleteParamFieldsMyltiCheckbox($param) {
-		$ret = array ();
+		$ret = array();
 		foreach ( $param as $key => $value ) {
 			$pos = strpos ( $key, "m_" );
 			if ($pos !== 0)
-				$ret [$key] = $value;
+				$ret[$key] = $value;
 		}
 		return $ret;
 	}
 	private function maybyDeleteParamFieldsIm($param) {
-		$ret = array ();
+		$ret = array();
 		foreach ( $param as $key => $value ) {
 			$pos = strpos ( $key, "im_" );
 			if ($pos !== 0)
-				$ret [$key] = $value;
+				$ret[$key] = $value;
 		}
 		return $ret;
 	}
 	private function maybyDeleteParamFieldsSlider($param) {
-		$ret = array ();
+		$ret = array();
 		foreach ( $param as $key => $value ) {
 			$pos = strpos ( $key, "b_" );
 			if ($pos !== 0)
-				$ret [$key] = $value;
+				$ret[$key] = $value;
 		}
 		return $ret;
 	}

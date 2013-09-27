@@ -35,7 +35,7 @@ $language->lang_id = 1;
 function getLangString($id) {
 	global $arWords;
 	if (! isset ( $arWords [$id] ))
-		return "!! no isset {$id} lang string";
+		return $id;
 	return $arWords [$id];
 }
 

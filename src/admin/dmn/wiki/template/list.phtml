@@ -1,0 +1,24 @@
+<?php if ($Data) : ?>
+<table class="table-list" cellspacing="0" cellpadding="0" border="0">
+	<tr class="headings">
+		<td width="10"></td>
+		<td width="100">Пункт</td>
+		<td width="">Синонимы</td>
+		<td width="150"></td>
+	</tr>
+	<tbody>
+		<?php foreach ( $Data as $key => $value ) : ?>
+		<tr id="tr-<?php echo $value["id"]?>">
+			<td width="10"><?php echo $value["id"]?></td>
+			<td><?php echo $value["w_menu_name"]?></td>
+			<td><?php echo $value["w_synonyms"]?></td>
+			<td><a href="#" onclick="TEdit('DMN_Wiki', 'getItem', '<?php echo $value["id"]?>')" title="Просмотр/Редактирование">Просмотр/Редактирование</a> <a href="#" onclick="TDelete('DMN_Wiki', 'delete', '<?php echo $value["id"]?>')" title="Удалить">Удалить</a></td>
+		</tr>
+		<?php endforeach; ?>
+	</tbody>
+</table>
+<?php else: ?>
+	<b>По вашему запросу ничего не найдено!</b>
+<?php endif; ?>
+
+
