@@ -92,4 +92,33 @@ function DrawSummaryPopup($im_id)
 		<img width="22" src="<?php echo $images_root; ?>/files/images/submit/submitSubscription.png" onclick="stopPropagation(event);showSummary('<?php echo htmlspecialchars(str_replace("”", "&#8221;", str_replace("\"", "&#8221;", str_replace("'", "&#39;", str_replace("\n", "", str_replace("\r", "", $active_text_id["im_su_text"]))))));?>');return false;"></img>
 	<?php 
 }
+
+function DrawRieltorsHistory($im_id, $susr_id)
+{
+	global $rieltorsData;
+	$log_select = new mysql_select("immovables_logs");
+	$log_select->select_table_query("select * from (select * from immovables_logs  where im_id={$im_id} and field='susr_id' order by change_date desc limit 4) i order by change_date", "im_id");
+	if (count($log_select->table) == 0)
+	{
+		echo ($susr_id ? ($rieltorsData->buld_table[$susr_id]["photo"] ? "<img width=\"80\" title=\"" . $rieltorsData->buld_table[$susr_id]["fio"] . "\" src=\"../../files/images/realtor/" .$rieltorsData->buld_table[$susr_id]["photo"]. "\"/>" : $rieltorsData->buld_table[$susr_id]["fio"] ) : "<small>не выбран</small>");
+	}
+	else
+	{
+		$num = 0;
+		foreach($log_select->table as $logRow)
+		{
+			$num++;
+			$current_style = "";
+			if ($num == count($log_select->table))
+			{
+				$current_style = "font-weight:bold;border:solid 2px #55FF55;width:auto;"; 
+			}
+			echo "<div style='$current_style'>";
+			echo "<span title='".$rieltorsData->buld_table[$logRow['changed_by']][fio]."'>".($logRow["new_value"] ? ($rieltorsData->buld_table[$logRow["new_value"]]["photo"] ? "<img width=\"80\" title=\"" . $rieltorsData->buld_table[$logRow["new_value"]]["fio"] . "\" src=\"../../files/images/realtor/" .$rieltorsData->buld_table[$logRow["new_value"]]["photo"]. "\"/>" : $rieltorsData->buld_table[$logRow["new_value"]]["fio"] ) : "<small>не выбран</small>")."</span>";
+			echo "<br/>";
+			echo "<span style='font-size:75%'>".$logRow[change_date]."</span>";
+			echo "</div>";
+		}
+	}
+}
 ?>
