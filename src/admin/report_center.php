@@ -272,7 +272,7 @@ if (($_GET ['act'] == 'word') || ($_GET ['action'] == 'set_friend_im')) {
 	$cell->setFont ( $font_common );
 	$cell->setPaddingLeft ( 1 );
 	$cell = $table->getCell ( 2, 1 );
-	$cell->addImage ( 'files/images/immovables/si_' . $ImDataOne ['im_photo'] );
+	$cell->addImage ( $images_folder.'si_' . $ImDataOne ['im_photo'] );
 	$cell = $table->getCell ( 2, 2 );
 	$cell->writeText ( $RetPropAdvased, $font_small );
 	$cell = $table->getCell ( 2, 3 );
@@ -300,7 +300,7 @@ if (($_GET ['act'] == 'word') || ($_GET ['action'] == 'set_friend_im')) {
 				if ($curent_foto < $foto_count) {
 					$ImgName = $PhotoQueryClass->table [$curent_foto] ['im_photo_id'] . "." . $PhotoQueryClass->table [$curent_foto] ['im_file_type'];
 					$cell = $table2->getCell ( $rowIndex, $columnIndex );
-					$cell->addImage ( 'files/images/immovables/si_' . $ImgName );
+					$cell->addImage ( $images_folder.'si_' . $ImgName );
 					$cell->setBorder ( $white_border );
 					$curent_foto = $curent_foto + 1;
 				}
@@ -355,11 +355,11 @@ if ($_GET ['action'] == 'set_friend_im') {
 	$mail->Body = $ReturnHtmlPage;
 	$mail->AddAttachment ( "files/bufer/word/" . $ImDataOne ["im_code"] . ".rtf" );
 	if ($ImDataOne ['im_photo']) {
-		$mail->AddAttachment ( "files/images/immovables/si_" . $ImDataOne ['im_photo'] );
+		$mail->AddAttachment ( $images_folder."si_" . $ImDataOne ['im_photo'] );
 	}
 	if (count ( $fotos_aray ) > 0) {
 		foreach ( $fotos_aray as $foto ) {
-			$mail->AddAttachment ( "files/images/immovables/si_" . $foto ['im_photo_id'] . '.' . $foto ['im_file_type'] );
+			$mail->AddAttachment ( $images_folder."si_" . $foto ['im_photo_id'] . '.' . $foto ['im_file_type'] );
 		}
 	}
 	$mail->AddAttachment ( "files/images/bg/alfabrok.jpg" );

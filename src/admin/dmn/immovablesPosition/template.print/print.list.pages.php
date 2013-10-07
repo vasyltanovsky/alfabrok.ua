@@ -32,10 +32,10 @@
 		  	$style = "";
 		  	if($ImTaskQ->buld_table[$im_code]) 
 		  		$style = "style=\"background: #DADEDF\""; 	
-		  	
+		  	global $images_root;
 		  	$pagesReturn .= "<tr {$tRclass} $style>";
 				$pagesReturn .=	"<td><input type=\"radio\" value=\"{$ImPL[$i]['im_id']}\" name=\"im_id\"/></td>";
-				$pagesReturn .=	"<td><img  src=\"http://www.alfabrok.ua/files/images/immovables/s_{$im_photo}\"></td>";				
+				$pagesReturn .=	"<td><img src=\"".$images_root."/files/images/immovables/s_{$im_photo}\"></td>";				
 				$pagesReturn .=	"<td>{$im_code}</td>";
 				$pagesReturn .=	"<td>{$im_catalog}</td>";
 				$pagesReturn .=	"<td>{$im_adress_string}";

@@ -70,7 +70,7 @@ if (isset ( $_GET ['action'] )) {
 		
 		$t = 'alfabrok-' . $title ['im_code'];
 		
-		$path = "http://" . $_SERVER ['HTTP_HOST'] . "/files/images/immovables/";
+		$path = $images_root . "/files/images/immovables/";
 		mkdir ( $t, 0777 );
 		
 		$i = 1;
@@ -122,12 +122,12 @@ if (isset ( $_GET ['action'] )) {
 		
 		$t = 'alfabrok-' . $title ['im_code'];
 		
-		$path = "http://" . $_SERVER ['HTTP_HOST'] . "/files/images/immovables/";
+		$path = $images_folder;
 		mkdir ( $t, 0777 );
 		
 		$i = 1;
 		foreach ( $fotos_aray as $foto ) {
-			$old = $path . 'big_' . $foto ['im_photo_id'] . '.' . $foto ['im_file_type'];
+			$old = $path . '../immovablesbig/big_' . $foto ['im_photo_id'] . '.' . $foto ['im_file_type'];
 			$new = $t . '/' . $i . '.jpg';
 			$i += 1;
 			@copy ( $old, $new );
@@ -168,7 +168,7 @@ $response ['success'] = false;
 $response ['fieldErrors'] = array ();
 
 #настройки для копирования изображений 
-$fileDir = '../../files/images/immovables/';
+$fileDir = $images_folder;
 $fileVideoDir = '../../files/video/im/';
 $ImgProp ['ImgW'] = 65;
 $ImgProp ['ImgH'] = 65;
@@ -432,7 +432,7 @@ if ($_POST ['retention'] == 'add_img') {
 			$resizeObj->resizeImage ( $ImgPropPR ['ImgW'], true, 'auto' );
 			$resizeObj->saveImage ( $fileDir . 'pr_' . $fileName, 100 );
 			$resizeObj->resizeImage ( 800, 600, 'crop' );
-			$resizeObj->saveImage ( $fileDir . 'big_' . $fileName, 100 );
+			$resizeObj->saveImage ( $fileDir . '../immovablesbig/big_' . $fileName, 100 );
 			
 			$ClUserIm = new mysql_select ( $tbl_im_ph );
 			$active_id = $ClUserIm->select_table_id ( "WHERE im_id = {$_POST[im_id]} ORDER BY im_photo_order DESC LIMIT 1" );

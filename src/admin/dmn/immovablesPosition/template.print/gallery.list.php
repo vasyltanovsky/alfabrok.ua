@@ -60,6 +60,7 @@ hs.addSlideshow({
 
 function DrawGallery($im_id, $im_photo)
 {
+	global $images_root;
 	$ImPhotos = new mysql_select ( 'immovables_photos', " where im_id=".$im_id ); 
 	$photos = $ImPhotos->select_table ('im_photo_id');
 	?>
@@ -69,12 +70,12 @@ function DrawGallery($im_id, $im_photo)
 	        		};
 				</script>
 				<div class="highslide-gallery">
-					<a onclick="stopPropagation(event);return hs.expand(this, options<?php echo $im_id;?>);" href="/files/images/immovables/<?php echo $im_photo;?>"><img src="/files/images/immovables/si_<?php echo $im_photo;?>" width="120"/></a>
+					<a onclick="stopPropagation(event);return hs.expand(this, options<?php echo $im_id;?>);" href="<?php echo $images_root; ?>/files/images/immovables/<?php echo $im_photo;?>"><img src="<?php echo $images_root; ?>/files/images/immovables/<?php echo $im_photo;?>" width="120"/></a>
 					<div style='display:none;'>
 					<?php foreach($photos as $imKey => $imValue) :
 							if($imValue["im_photo_id"].".".$imValue["im_file_type"] != $im_photo):
 					?>
-						<a class="highslide" href="/files/images/immovables/<?php echo $imValue["im_photo_id"];?>.<?php echo $imValue["im_file_type"];?>" onclick="return hs.expand(this, options<?php echo $im_id;?>)" ><img src="/files/images/immovables/si_<?php echo $imValue["im_photo_id"];?>.<?php echo $imValue["im_file_type"];?>"/></a>
+						<a class="highslide" href="<?php echo $images_root; ?>/files/images/immovables/<?php echo $imValue["im_photo_id"];?>.<?php echo $imValue["im_file_type"];?>" onclick="return hs.expand(this, options<?php echo $im_id;?>)" ><img src="<?php echo $images_root; ?>/files/images/immovables/s_<?php echo $imValue["im_photo_id"];?>.<?php echo $imValue["im_file_type"];?>"/></a>
 					<?php
 					endif; 
 					endforeach; ?>
@@ -84,10 +85,11 @@ function DrawGallery($im_id, $im_photo)
 }
 function DrawSummaryPopup($im_id)
 {
+	global $images_root;
 	$ImSuQClass = new mysql_select("immovables_summary");
 	$active_text_id = $ImSuQClass -> select_table_id("WHERE lang_id = '4c5d58cd3898c' AND im_id = {$im_id}");
 	?>
-		<img width="22" src="/files/images/submit/submitSubscription.png" onclick="stopPropagation(event);showSummary('<?php echo htmlspecialchars(str_replace("”", "&#8221;", str_replace("\"", "&#8221;", str_replace("'", "&#39;", str_replace("\n", "", str_replace("\r", "", $active_text_id["im_su_text"]))))));?>');return false;"></img>
+		<img width="22" src="<?php echo $images_root; ?>/files/images/submit/submitSubscription.png" onclick="stopPropagation(event);showSummary('<?php echo htmlspecialchars(str_replace("”", "&#8221;", str_replace("\"", "&#8221;", str_replace("'", "&#39;", str_replace("\n", "", str_replace("\r", "", $active_text_id["im_su_text"]))))));?>');return false;"></img>
 	<?php 
 }
 ?>
