@@ -114,6 +114,17 @@ function setCharCode () {
         <input class='zpForm'  id="" value="" size="40" name="user_notes" type="text" > 
     </fieldset>  
     <fieldset>  
+        <label class='zpFormLabel'>Заголовок</label>
+        <input class='zpForm'  id="" value="" size="60" name="web_title" type="text" > 
+        <br />
+        <label class='zpFormLabel'>Ключевые слова</label>
+        <input class='zpForm'  id="" value="" size="175" name="web_keywords" type="text" > 
+        <br />
+        <label class='zpFormLabel'>Описание</label>
+        <input class='zpForm'  id="" value="" size="150" name="web_description" type="text" > 
+        <br />
+    </fieldset>  
+    <fieldset>  
         <label class="zpFormLabel">Отображать</label>
         <input value="1" name="hide" type="checkbox" class="zpForm"/> <br /> <br />
         <label class="zpFormLabel">Горящие предложения</label>

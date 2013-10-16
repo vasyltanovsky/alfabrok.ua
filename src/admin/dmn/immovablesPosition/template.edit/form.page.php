@@ -26,8 +26,9 @@ window.templates = {"4c3ec3ec5e9b5"://Kvartira
 	 { field: "im_area_id_auto", value: "%value% р-н." },
 	 { field: "t_4c400ea1b5657", value: "Этаж - %value%," },
 	 { field: "t_4c400ec87481e", value: "этажность - %value%." },
-	 { field: "im_space", value: "Общая площадь - %value% %im_space_value_id%," },
-	 { field: "t_4c4012253a36f", value: "жилая площадь - %value% %im_space_value_id%." },
+	 { field: "im_space", value: "Общая площадь - %value% %im_space_value_id%." },
+	 { field: "t_4c4012253a36f", value: "Жилая площадь - %value% %im_space_value_id%." },
+	 { field: "t_4c40122f31138", value: "Площадь кухни - %value% %im_space_value_id%." },
 	 { field: "m_4c4016aeca9be[]", value: "Состояние: %value%." },
 	 { field: "m_4c4015451837d[]", value: "Перекрытие - %value%." },
 	 { field: "s_4c402fcbd874f", value: "Санузел - %value%" },
@@ -35,7 +36,7 @@ window.templates = {"4c3ec3ec5e9b5"://Kvartira
 	 { field: "t_4c4015574ac3e", value: "Высота потолка: %value%м." },
 	 { field: "m_4c4013abc1cb9[]", value: "На полу: %value%." },
 	 { field: "m_4c4015b8af7d9[]", value: "На стенах: %value%." },
-	 { field: "c_4c401b9f9d09c", value: "Квартира:меблирована полностью." },
+	 { field: "c_4c401b9f9d09c", values: {true: "Квартира:меблирована полностью."} },
 	 { field: "t_4c401bce016f9", value: "Количество балконов:%value%." },
 	 { field: "m_4c4015b8af7d9[]", value: "Материал постройки дома: %value%." },
 	 { field: "m_4c400e6ac4be0[]", value: "Рядом метро: %value%" },
@@ -122,9 +123,9 @@ window.templates = {"4c3ec3ec5e9b5"://Kvartira
 				 { field: "im_city_id_auto", value: "%value%," },
 				 { field: "im_area_id_auto", value: "%value% р-н." },
 				 { field: "t_4c6041d795e80", value: "Этажность - %value%." },
-				 { field: "im_space", value: "Общая площадь - %value% %im_space_value_id%," },
-				 { field: "t_4c402f924bc2a", value: "жилая площадь - %value% %im_space_value_id%." },
-				 { field: "t_4c402f9b5fa99", value: "Площадь кухни: %value%." },
+				 { field: "im_space", value: "Общая площадь - %value% %im_space_value_id%." },
+				 { field: "t_4c402f924bc2a", value: "Жилая площадь - %value% %im_space_value_id%." },
+				 { field: "t_4c402f9b5fa99", value: "Площадь кухни: %value% %im_space_value_id%." },
 				 { field: "t_4c4069e4f04ec", value: "Площадь участка: %value% соток." },
 				 { field: "m_4da0a9350d59d[]", value: "Крыша: %value%." },
 				 { field: "m_4c402ff4ccd26[]", value: "На полу: %value%." },
@@ -137,7 +138,7 @@ window.templates = {"4c3ec3ec5e9b5"://Kvartira
 				 { field: "s_4c402fc6ae647", value: "Санузел - %value%" },
 				 { field: "t_4c402fdfa576b", value: ", %value%." },
 				 { field: "t_4c40304871b44", value: "Высота потолка: %value%м." },
-				 { field: "c_4c40306b561d8", value: "Меблирован полностью." },
+				 { field: "c_4c40306b561d8", values: {true: "Меблирован полностью."} },
 				 { field: "c_4c403074ad678", values: {true:"Есть бытовая техника."} },
 				 { field: "m_4c455b949da66[]", value: "Рядом метро: %value%." },
 				 { field: "s_4c456632abec5", value: "Минимальный срок сдачи: %value%." },
@@ -363,6 +364,17 @@ function UpdateComment()
         <label class='zpFormLabel'>Заметки о хозяине</label>
         <input class='zpForm'  id="" value="<?php echo $active_id['user_notes'];?>" size="40" name="user_notes" type="text" > 
     </fieldset>
+    <fieldset>  
+        <label class='zpFormLabel'>Заголовок</label>
+        <input class='zpForm'  id="" value="<?php echo $active_id['web_title'];?>" size="60" name="web_title" type="text" > 
+        <br />
+        <label class='zpFormLabel'>Ключевые слова</label>
+        <input class='zpForm'  id="" value="<?php echo $active_id['web_keywords'];?>" size="60" name="web_keywords" type="text" > 
+        <br />
+        <label class='zpFormLabel'>Описание</label>
+        <input class='zpForm'  id="" value="<?php echo $active_id['web_description'];?>" size="60" name="web_description" type="text" > 
+        <br />
+    </fieldset>  
     <fieldset>
         <label class="zpFormLabel">Отображать</label>
         <input value="1" name="hide" type="checkbox" <?php echo $hide;?>  class="zpForm"/> <br /> <br />

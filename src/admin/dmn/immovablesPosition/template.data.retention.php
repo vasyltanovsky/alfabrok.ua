@@ -260,7 +260,10 @@ if ($_POST ['retention'] == 'add_page') {
 								 '{$_POST[user_tel]}',
 								 '{$_POST[user_notes]}',
 								 $im_is_special,
-								 $operatorId);";
+								 $operatorId,
+								 '{$_POST[web_title]}',
+								 '{$_POST[web_keywords]}',
+								 '{$_POST[web_description]}');";
 	if (! mysql_query ( $query ))
 		throw new ExceptionMySQL ( mysql_error (), $query, "Ошибка при + каталога" );
 	
@@ -292,7 +295,7 @@ if ($_POST ['retention'] == 'edit_page') {
 	
 	$_POST [im_date_add] = class_date::GetMysqlDateView ( $_POST [im_date_add] );
 	
-	$arr_update = array ("susr_id" => $_POST [susr_id] . ",", "user_tel" => "'{$_POST[user_tel]}',", "user_notes" => "'{$_POST[user_notes]}',", "im_type_id" => "'{$_POST[im_type_id]}',", "im_array_id" => "'{$_POST[im_array_id]}',", "im_region_id" => "'{$_POST[im_region_id]}',", "im_a_region_id" => "'{$_POST[im_a_region_id]}',", "im_city_id" => "'{$_POST[im_city_id]}',", "im_area_id" => "'{$_POST[im_area_id]}',", "im_adress_id" => "'{$_POST[im_adress_id]}',", "im_adress_house" => "'{$_POST[im_adress_house]}',", "im_prace" => "{$_POST[im_prace]},", "im_prace_old" => "{$_POST[im_prace_old]},", "im_prace_sq" => "{$_POST[im_prace_sq]},", "im_prace_day" => "{$_POST[im_prace_day]},", "im_prace_manth" => "{$_POST[im_prace_manth]},", "im_space" => "'{$_POST[im_space]}',", "im_space_value_id" => "'{$_POST[im_space_value_id]}',", "im_sale_id" => "'{$_POST[im_sale_id]}',", "im_provider" => "'{$_POST[im_provider]}',", "pos" => "{$_POST[pos]},", "im_is_hot" => "{$im_is_hot},", "im_is_sale" => "{$im_is_sale},", "im_is_rent" => "{$im_is_rent},", "im_is_special" => "{$im_is_special},", "hide" => "'{$hide}',", "im_adress_flat" => "'{$_POST[im_adress_flat]}',", "im_title" => "'{$_POST[im_title]}',", "im_geopos" => "'{$_POST[im_geopos]}',", "im_code" => "'{$_POST[im_code]}',", "im_date_add" => "'{$_POST[im_date_add]}'" );
+	$arr_update = array ("susr_id" => $_POST [susr_id] . ",", "user_tel" => "'{$_POST[user_tel]}',", "user_notes" => "'{$_POST[user_notes]}',", "im_type_id" => "'{$_POST[im_type_id]}',", "im_array_id" => "'{$_POST[im_array_id]}',", "im_region_id" => "'{$_POST[im_region_id]}',", "im_a_region_id" => "'{$_POST[im_a_region_id]}',", "im_city_id" => "'{$_POST[im_city_id]}',", "im_area_id" => "'{$_POST[im_area_id]}',", "im_adress_id" => "'{$_POST[im_adress_id]}',", "im_adress_house" => "'{$_POST[im_adress_house]}',", "im_prace" => "{$_POST[im_prace]},", "im_prace_old" => "{$_POST[im_prace_old]},", "im_prace_sq" => "{$_POST[im_prace_sq]},", "im_prace_day" => "{$_POST[im_prace_day]},", "im_prace_manth" => "{$_POST[im_prace_manth]},", "im_space" => "'{$_POST[im_space]}',", "im_space_value_id" => "'{$_POST[im_space_value_id]}',", "im_sale_id" => "'{$_POST[im_sale_id]}',", "im_provider" => "'{$_POST[im_provider]}',", "pos" => "{$_POST[pos]},", "im_is_hot" => "{$im_is_hot},", "im_is_sale" => "{$im_is_sale},", "im_is_rent" => "{$im_is_rent},", "im_is_special" => "{$im_is_special},", "hide" => "'{$hide}',", "im_adress_flat" => "'{$_POST[im_adress_flat]}',", "im_title" => "'{$_POST[im_title]}',", "im_geopos" => "'{$_POST[im_geopos]}',", "im_code" => "'{$_POST[im_code]}',", "im_date_add" => "'{$_POST[im_date_add]}',", "web_title" => "'{$_POST[web_title]}',", "web_keywords" => "'{$_POST[web_keywords]}',", "web_description" => "'{$_POST[web_description]}'" );
 	
 	$old_product_select = new mysql_select ( $tbl_im );
 	$old_product = $old_product_select->select_table_id("WHERE im_id = {$_POST[im_id]}");
